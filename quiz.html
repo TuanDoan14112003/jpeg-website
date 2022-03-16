@@ -1,7 +1,9 @@
 <h1>JPEG Quiz</h1>
 <h2>Here is a quiz to test your knowledge of the information that you have seen on this website about JPEGS:</h2>
 
-<form>
+<form method="post" action="https://mercury.swin.edu.au/it000000/formtest.php">
+	
+	
 	<p>
 	<label for="first_name">Enter your first name:</label><br>
 	<input type="text" id="first_name" name="first_name"><br>
@@ -18,12 +20,19 @@
 	</p>
 	
 	
-</form>
 
-<form>
+
+
 	
 	<fieldset>
-	<h2>Question 1:</h2>
+	
+		<label><h2>Question 1 (this will be the text input question):</h2><br />
+		<textarea name="question 1"
+			rows="4" cols="20">
+			Enter your answer here
+		</textarea>
+		</label>
+	
 	</fieldset>
 	
 
@@ -46,14 +55,41 @@
 
 	
 	<fieldset>
-	<h2>Question 3:</h2>
+	<h2>Question 3 (this is a checkbox):</h2>
+	<input type="checkbox" name="checkbox1" value="1">
+	<label for "checkbox1">1</label><br>
+	
+	<input type="checkbox" name="checkbox1" value="1">
+	<label for "checkbox1">1</label><br>
+	
+	<input type="checkbox" name="checkbox1" value="1">
+	<label for "checkbox1">1</label><br>
+	
+	<input type="checkbox" name="checkbox1" value="1">
+	<label for "checkbox1">1</label><br>
+	
 	</fieldset>
 	
 	
 	<fieldset>
-	<h2>Question 4:</h2>
+	<p><label for"dropdown"><h2>dropdown question<h2></label>
+	<select name="dropdown" id="dropdown">
+	
+	<option value='5'>5</option>
+	<option value="4">4</option>
+	<option value="3">3</option>
+	<option value="2">2</option>
+	<option value="1">1</option>
+	</select>
+	
 	</fieldset>
 
 	<fieldset>
-	<h2>Question 5:</h2>
+	<h2>THIS WILL BE THE INPUT QUESTION OF OUR CHOICE:</h2>
 	</fieldset>
+	
+	<p>
+		<input type="submit" value="Submit quiz" />
+		<input type="reset" value="Reset" />
+	</p>
+	</form>

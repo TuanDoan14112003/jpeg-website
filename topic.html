@@ -26,6 +26,27 @@ an acronym for Joint Photographic Experts Group, was created in 1986 (Adobe, 202
   It is possible that the file compression can force images to lose detail and quality (Adobe, 2022).
 </p>
 
+<p>JPEG Compression Steps</p>
+<ol>
+   <li> Conversion: Converts the base RGB colour image into a luminance and chrominance images to determine brightness and colour levels, respectively.
+   </li>
+   <li> Spatial Subsampling: When the image is in its simple form of luminance and chrominance, it’s YCC form, the spatial information of the image is separated as most of that information comes from the luminance levels. 
+       Having the low spatial information of the chrominance images are vital for the compression process. 
+	   The subsampling process allows for the chrominance images to be halved without major loss of image resolution, unless viewed at high magnification.
+   </li>
+   <li> Transformation: The transformation step takes the information from the spatial subsampling stage and accounts for small sections of the image where there is little contrast. 
+        The JPEG members created a mathematical formula called the discrete cosine transform (DCT) to reduce digital information over the low contrast areas.
+   </li>
+   <li>Quantization: Quantization is the step in which the compression of the image becomes irreversible in terms of loss in detail. 
+       While the DCT follows a mathematical formula to compress the image, quantization scales the DCT coefficients by a factor dictated by the user.
+	</li>
+	<li> Coding: Once the image has been transformed and put through the quantization process, it is ready to be transcribed into code to be transmitted digitally. 
+	     To ensure that the level of coding for the image to be as small as possible, Huffman coding is used to represent the DCT coefficients.
+    </li>
+</ol>
+<a href="https://www.imaging.org/site/IST/Resources/Imaging_Tutorials/What_s_Inside_a_JPEG_File/IST/Resources/Tutorials/Inside_JPEG.aspx?hkey=f9946f90-9f14-452d-897c-ac1612116e2d"> Source: https://www.imaging.org/site/IST/Resources/Imaging_Tutorials/What_s_Inside_a_JPEG_File/IST/Resources/Tutorials/Inside_JPEG.aspx?hkey=f9946f90-9f14-452d-897c-ac1612116e2d</a> </p>
+
+
    <h1>What are related technologies? Compare / contrast with other technologies.</h1>
    
       <h2>Various file formats:</h2>
@@ -65,7 +86,7 @@ an acronym for Joint Photographic Experts Group, was created in 1986 (Adobe, 202
 
 
 
-         <h3>TIFF -.tiff / .tif</h3>
+         <h3>TIFF - .tiff / .tif</h3>
   
            <p>
 		     Short for tagged image file format, it was created in 1986 by the Aldus Corporation (now absorbed into Adobe Inc) 

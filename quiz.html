@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<head>
+<html lang="utf-8">
+<link rel="stylesheet" href="quizstyle.css">
+</head>
+
+<body>
 <h1>JPEG Quiz</h1>
 <h2>Here is a quiz to test your knowledge of the information that you have seen on this website about JPEGS:</h2>
 
@@ -6,17 +13,28 @@
 	
 	<p>
 	<label for="first_name">Enter your first name:</label><br>
-	<input type="text" id="first_name" name="first_name"><br>
+	<input type="text" id="first_name" name="first_name"
+	required ="required"
+			pattern="[a-zA-Z]{1-30}+"
+			><br>
+			
+			</p>
+			
 
 	<footer>
-	<label for-"last_name">Enter your last name:<label/><br>
-	<input type="text" id="last_name" name="last_name">
+	<label for="last_name">Enter your last name:<label/><br>
+	<input type="text" id="last_name" name="last_name"
+	required ="required"
+			pattern="[a-zA-Z]+">
 	</footer>
 	</p>
 	
 	<p>
 	<label for="student_id">Enter your student number (EG: 103994165): <label/>
-	<input type="text" id="student_id" name="student_id">
+	<input type="text" id="student_id" name="student_id"
+	required ="required"
+		minlength="7" maxlength="10"
+		pattern="^[7,10]+"><br>
 	</p>
 	
 	
@@ -28,8 +46,9 @@
 	
 		<label><h2>Question 1 (this will be the text input question):</h2><br />
 		<textarea name="question 1"
-			rows="4" cols="20">
-			Enter your answer here
+			rows="4" cols="20"
+			required ="required">
+		
 		</textarea>
 		</label>
 	
@@ -39,33 +58,35 @@
 	
 	<fieldset>
 	<h2>Question 2 (THIS IS THE RADIO BUTTON GROUP):</h2>
-		<input type="radio" id="option 1" name="test" value="1">
+		<input type="radio" id="option 1" name="test" value="1"/>
 		<label for "test">1</label><br>
 		
-		<input type="radio" id="option 1" name="test" value="1">
+		<input type="radio" id="option 1" name="test" value="1"/>
 		<label for "test">1</label><br>
 		
-		<input type="radio" id="option 1" name="test" value="1">
+		<input type="radio" id="option 1" name="test" value="1"/>
 		<label for "test">1</label><br>
 		
-		<input type="radio" id="option 1" name="test" value="1">
+		<input type="radio" id="option 1" name="test" value="1"
+		required ="required"/>
 		<label for "test">1</label><br>
+		
 	</fieldset>
 	
 
 	
 	<fieldset>
 	<h2>Question 3 (this is a checkbox):</h2>
-	<input type="checkbox" name="checkbox1" value="1">
+	<input type="checkbox" name="checkbox1" value="1"/>
 	<label for "checkbox1">1</label><br>
 	
-	<input type="checkbox" name="checkbox1" value="1">
+	<input type="checkbox" name="checkbox1" value="1"/>
 	<label for "checkbox1">1</label><br>
 	
-	<input type="checkbox" name="checkbox1" value="1">
+	<input type="checkbox" name="checkbox1" value="1"/>
 	<label for "checkbox1">1</label><br>
 	
-	<input type="checkbox" name="checkbox1" value="1">
+	<input type="checkbox" name="checkbox1" value="1"/>
 	<label for "checkbox1">1</label><br>
 	
 	</fieldset>
@@ -93,3 +114,4 @@
 		<input type="reset" value="Reset" />
 	</p>
 	</form>
+</body>

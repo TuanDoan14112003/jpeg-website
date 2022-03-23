@@ -3,3 +3,18 @@
 * {
  font-family: Rubik, sans-serif;
 }
+
+/* Topic css */
+#topicimage {
+    width: 100%;
+    height: 200px;
+
+    background-image: url("images/topicbackground.jpg");
+   
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* End Topic css */

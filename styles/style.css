@@ -332,8 +332,7 @@ footer > p {
 .topic-section {
     margin-top:40px;
     /* width: 100%; */
-    text-align: justify;
-    text-justify: inter-word;
+
     display: flex;
     justify-content: space-between;
 }
@@ -341,34 +340,48 @@ footer > p {
 
 
 #jpeg-timeline-image {
-    margin-left:40px;
-    max-width: 54%;
-    height: auto;
+    margin-left:50px;
+    max-width: 50%;
+    height: 100%;
 }
 
 #jpeg-compression-image {
-    margin-right:60px;
-    max-width: 23%;
-    height: auto;
+    margin-right:70px;
+    max-width: 30%;
+    height: 100%;
 }
 
 #jpeg-function-image {
-    margin-left:60px;
+    margin-left:70px;
     max-width: 46%;
-    height: auto;
+    height: 100%;
 }
+
+
+
 .information-container {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .section-information .information-container h1{
     margin-bottom:20px;
     text-align: center;
 }
+.section-information .information-container p, .section-information .information-container ol li {
+    font-size:1.2em;
+    font-weight: 300;
+}
 .section-information .information-container ol li {
     margin-top: 10px;
+}
+
+#other-tech-section {
+    
 }
 /* End Topic css */
 

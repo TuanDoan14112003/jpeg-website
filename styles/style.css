@@ -94,4 +94,8 @@ input[type=reset] {
     
     
 }
+
+#quizbackground {
+    background: fuchsia;
+}
 /* End Quiz.css */

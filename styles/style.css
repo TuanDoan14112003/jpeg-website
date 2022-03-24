@@ -438,12 +438,15 @@ footer>p {
     /* flex-wrap: wrap; */
     align-items: flex-start;
     justify-content: space-around;
+    
 }
 
 .section-information .information-container .pros-cons .pros-cons-box {
     margin-top: 20px;
     box-shadow: 10px 10px 5px 10px rgba(0, 0, 0, 0.15);
     width: 47%;
+    border-radius: 10px;
+    
     /* height: auto; */
 }
 
@@ -484,6 +487,7 @@ footer>p {
     padding: 15px;
     font-weight: 600;
     color: #fff;
+    border-radius: 10px 10px 0 0;
 
 }
 
@@ -495,6 +499,34 @@ footer>p {
     background: #de6c64;
 }
 
+#other-tech-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    border-radius:  5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    /* min-width: 900px; */
+}
+
+#other-tech-table thead tr {
+    background: linear-gradient(to right, #5fcc89, #24b95e);
+    color: #fff;
+    text-align: left;
+    font-weight: bold;
+}
+
+#other-tech-table th,
+#other-tech-table td {
+    padding: 12px 15px;
+}
+
+#other-tech-table tbody tr {
+    border-bottom: 1px solid #ddd
+}
+#other-tech-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
 /* End Topic css */
 
 /* Quiz.css */

@@ -7,6 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Topic - Under Construction</title>
 	<link rel="stylesheet" href="styles/style.css">
+	<script src="https://use.fontawesome.com/5529909ded.js"></script>
 </head>
 
 <body>
@@ -26,7 +27,7 @@
 		<section id="jpeg-timeline-section" class="topic-section">
 			<div class="section-information">
 				<div class="information-container">
-					<h1>The Timeline of the JPEG Image</h1>
+					<h2>The Timeline of the JPEG Image</h2>
 					<p>
 						There is a small amount of contention as to the exact year that the International Standard for
 						Organisation
@@ -43,17 +44,23 @@
 					</p>
 				</div>
 			</div>
-			<img class="section-image" id="jpeg-timeline-image" src="images/jpeg-timeline-image.png"
-				alt="a digital art">
+			<figure id="jpeg-timeline-figure">
+				<img class="section-image" id="jpeg-timeline-image" src="images/jpeg-timeline3-image.png"
+					alt="a digital art">
+					<figcaption>Image caption</figcaption>
+			</figure>
 		</section>
 
 
 		<section class="topic-section">
-			<img class="section-image" id="jpeg-compression-image" src="images/jpeg-compression-image.jpg"
-				alt="a digital art">
+			<figure id="jpeg-compression-figure">
+				<img class="section-image" id="jpeg-compression-image" src="images/jpeg-compression-image.jpg"
+					alt="a digital art">
+				<figcaption>Test</figcaption>
+			</figure>
 			<div class="section-information">
 				<div class="information-container">
-					<h1>JPEG Compression Steps</h1>
+					<h2>JPEG Compression Steps</h2>
 					<ol>
 						<li> <strong>Conversion:</strong> Converts the base RGB colour image into a luminance and
 							chrominance images to
@@ -101,11 +108,10 @@
 							represent the DCT coefficients.
 						</li>
 					</ol>
-					<a style="display:none"
-						href="https://www.imaging.org/site/IST/Resources/Imaging_Tutorials/What_s_Inside_a_JPEG_File/IST/Resources/Tutorials/Inside_JPEG.aspx?hkey=f9946f90-9f14-452d-897c-ac1612116e2d">
-						Source:
-						https://www.imaging.org/site/IST/Resources/Imaging_Tutorials/What_s_Inside_a_JPEG_File/IST/Resources/Tutorials/Inside_JPEG.aspx?hkey=f9946f90-9f14-452d-897c-ac1612116e2d</a>
-					</p>
+					<a
+						target="_blank" href="https://www.imaging.org/site/IST/Resources/Imaging_Tutorials/What_s_Inside_a_JPEG_File/IST/Resources/Tutorials/Inside_JPEG.aspx?hkey=f9946f90-9f14-452d-897c-ac1612116e2d">
+						Source</a>
+
 				</div>
 			</div>
 
@@ -116,7 +122,7 @@
 			<div class="section-information">
 				<div class="information-container">
 
-					<h1>Functions of JPEG Images</h1>
+					<h2>Functions of JPEG Images</h2>
 					<p>
 						On top of the ease that comes with having a standard form of digital image,
 						being able to share and use them with ease, JPEG images had to be able to be displayed on the
@@ -133,282 +139,367 @@
 					</p>
 				</div>
 			</div>
-			<img class="section-image" id="jpeg-function-image" src="images/jpeg-function-image.jpg"
-				alt="a digital art">
-		</section>
-
-		<section id="other-tech-section">
-			<h1>What are related technologies? Compare / contrast with other technologies.</h1>
-
-			<h2>Various file formats:</h2>
-
-			<h3>PNG - .png</h3>
-
-			<p>
-				Short for “portable network graphics”, was created in 1996 as an open standard to replace GIF.
-				It creates lossless, portable, compressed, bit-mapped images.
-				It supports Indexed colour, grayscale and RGB colour as well as opacity and gamma correction.
-			</p>
-			<table>
-				<tbody>
-					<tr>
-						<th> Pros: </th>
-						<th> Cons: </th>
-					</tr>
-					<tr>
-						<td>
-							<ul>
-								<li> Lossless Compression </li>
-								<li>Full colour spectrum supported (16 million colours)</li>
-								<li>Supports opacity and gamma correction </li>
-							</ul>
-						</td>
-
-
-						<td>
-							<ul>
-								<li>Not suitable for printing (No CMYK support)</li>
-								<li>Requires more storage</li>
-								<li>Not universally supported</li>
-							</ul>
-						</td>
-					</tr>
-			</table>
-
-
-
-			<h3>TIFF - .tiff / .tif</h3>
-
-			<p>
-				Short for tagged image file format, it was created in 1986 by the Aldus Corporation (now absorbed into
-				Adobe
-				Inc)
-				to create a common file used for scanned images (i.e., documents).
-				It is a lossless compressed image file with RGB and CMYK support for up to 32 bits per colour component
-				which in
-				turn makes it ideal for printing,
-				however it does take up more space as a result.
-			</p>
-
-			<table>
-				<tr>
-					<th>Pros:</th>
-					<th>Cons:</th>
-				</tr>
-				<tr>
-					<td>
-						<ul>
-							<li>Lossless compression</li>
-							<li>High image quality</li>
-							<li>RGB and CMYK support for printing</li>
-							<li>Support for transparencies and layers</li>
-						</ul>
-					</td>
-
-
-					<td>
-						<ul>
-							<li>Low internet browser support</li>
-							<li>Large image size</li>
-						</ul>
-					</td>
-				</tr>
-			</table>
-
-
-
-
-
-			<h3>HEIF - .HEIC</h3>
-
-			<p>
-				Short for High Efficiency Image Format, it is the file format given to Apple devices that is used when
-				taking
-				photos.
-				It was created by the Moving Picture Experts Group (MPEG) in 2015.
-				It is an alternative to JPEG that uses old and modern compression to shrink file format to storage sizes
-				below
-				JPEG, whilst keeping similar image quality.
-			</p>
-
-			<table>
-				<tr>
-					<th>Pros:</th>
-					<th>Cons:</th>
-				</tr>
-				<tr>
-					<td>
-						<ul>
-							<li>Occupies less storage than JPEG files</li>
-							<li>Supports up to 16-bit colour schemes</li>
-							<li>Proprietary features like Live Photos are possible</li>
-						</ul>
-					<td>
-					<td>
-						<ul>
-							<li>Lacks compatibility</li>
-							<li>Not supported by most common browsers</li>
-							<li>Not open source</li>
-						</ul>
-					</td>
-				</tr>
-			</table>
-
-
-
-			<h3>GIF .gif</h3>
-
-			<p>
-				Short for Graphics interchange format,
-				it was created in 1987 by Steve Wilhite as a lossless raster image file that can store small animations
-				as
-				well
-				by combining images or frames together.
-				It supports 8 bits per pixel and contain 256 indexed colours.
-			</p>
-
-			<table>
-
-				<tr>
-					<th>Pros:</th>
-					<th>Cons:</th>
-				</tr>
-				<tr>
-
-					<td>
-						<ul>
-							<li>Small File size equivalent of JPEG despite being animated</li>
-							<li>Animated pictures</li>
-						</ul>
-					</td>
-
-					<td>
-						<ul>
-							<li>8bit colour scheme</li>
-						</ul>
-					</td>
-			</table>
-
-
-
-			<h3>BMP - .bmp</h3>
-
-			<p>
-				Short for Microsoft Windows Bitmap format,
-				BMP is a raster graphics image format designed to store bitmap digital images independently of display
-				devices.
-				Created in 1995 by Microsoft, it is a large, raw, high quality image format that supports various colour
-				depths,
-				alpha channels, colour profiles and optional data compression.
-			</p>
-
-			<table>
-
-				<tr>
-					<th>Pros:
-					<th>Cons:
-				</tr>
-				<tr>
-					<td>
-						<ul>
-							<li>Supports optional data compression</li>
-							<li>High quality images</li>
-							<li>Large colour spectrum supported</li>
-							<li>Supports alpha channels and opacity</li>
-						</ul>
-					</td>
-					<td>
-						<ul>
-							<li>Large file size</li>
-						</ul>
-					</td>
-				<tr>
-			</table>
+			<figure id="jpeg-function-figure" >
+				<img class="section-image" id="jpeg-function-image" src="images/jpeg-function-image.jpg"
+					alt="a digital art">
+					<figcaption>Image caption</figcaption>
+			</figure>
 		</section>
 
 
+		<section>
+			<h2 id="other-tech-title">Related technologies</h2>
+			<section class="topic-section">
+				<figure class="other-tech-figure" >
+					<img class="other-tech-image" src="images/png.jpg" alt="a digital art">
+					<figcaption>Image caption</figcaption>
+				</figure>
+				<div class="section-information">
+
+					<div class="information-container">
 
 
+						<h3>PNG - .png</h3>
+						<p>
+							Short for “portable network graphics”, was created in 1996 as an open standard to replace
+							GIF.
+							It creates lossless, portable, compressed, bit-mapped images.
+							It supports Indexed colour, grayscale and RGB colour as well as opacity and gamma
+							correction.
+						</p>
+						<div class="pros-cons">
+							<div class="pros pros-cons-box">
+								<h4>Pros</h4>
+								<ul>
+									<li> Lossless Compression </li>
+									<li>Full colour spectrum supported (16 million colours)</li>
+									<li>Supports opacity and gamma correction </li>
+								</ul>
+							</div>
+							<div class="cons pros-cons-box">
+								<h4>Cons</h4>
+								<ul>
+									<li>Not suitable for printing (No CMYK support)</li>
+									<li>Requires more storage</li>
+									<li>Not universally supported</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="topic-section">
+				<figure class="other-tech-figure">
+					<img class="other-tech-image" src="images/tiff.jpg" alt="a digital art">
+					<figcaption>Image caption</figcaption>
+				</figure>
+				<div class="section-information">
+
+					<div class="information-container">
 
 
+						<h3>TIFF - .tiff / .tif</h3>
+						<p>
+							Short for tagged image file format, it was created in 1986 by the Aldus Corporation (now
+							absorbed into Adobe Inc) to create a common file used for scanned images (i.e., documents).
+							It is a lossless compressed image file with RGB and CMYK support for up to 32 bits per
+							colour component which in turn makes it ideal for printing, however it does take up more
+							space as a result.
+						</p>
+						<div class="pros-cons">
+							<div class="pros pros-cons-box">
+								<h4>Pros</h4>
+								<ul>
+									<li>Lossless compression</li>
+									<li>High image quality</li>
+									<li>RGB and CMYK support for printing</li>
+									<li>Support for transparencies and layers</li>
+								</ul>
+							</div>
+							<div class="cons pros-cons-box">
+								<h4>Cons</h4>
+								<ul>
+									<li>Low internet browser support</li>
+									<li>Large image size</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="topic-section">
+				<figure class="other-tech-figure">
+					<img class="other-tech-image" src="images/heif.jpg" alt="a digital art">
+					<figcaption>Image caption</figcaption>
+				</figure>
+				<div class="section-information">
+
+					<div class="information-container">
 
 
+						<h3>HEIF - .HEIC</h3>
+						<p>
+							Short for High Efficiency Image Format, it is the file format given to Apple devices that is
+							used when taking photos. It was created by the Moving Picture Experts Group (MPEG) in 2015.
+							It
+							is an alternative to JPEG that uses old and modern compression to shrink file format to
+							storage sizes
+							below JPEG, whilst keeping similar image quality.
+						</p>
+						<div class="pros-cons">
+							<div class="pros pros-cons-box">
+								<h4>Pros</h4>
+								<ul>
+									<li>Occupies less storage than JPEG files</li>
+									<li>Supports up to 16-bit colour schemes</li>
+									<li>Proprietary features like Live Photos are possible</li>
+								</ul>
+							</div>
+							<div class="cons pros-cons-box">
+								<h4>Cons</h4>
+								<ul>
+									<li>Lacks compatibility</li>
+									<li>Not supported by most common browsers</li>
+									<li>Not open source</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="topic-section">
+				<figure class="other-tech-figure">
+					<img class="other-tech-image" src="images/gif.jpg" alt="a digital art">
+					<figcaption>Image caption</figcaption>
+				</figure>
+				<div class="section-information">
 
-		<table border="1">
-			<tr>
-				<td></td>
-				<td>Browser Support</td>
-				<td>Image Quality</td>
-				<td>File Size</td>
-				<td>Compression Type</td>
-				<td>Colour Support (bits)</td>
-				<td>Colour Support (RGB,CMYK)</td>
-				<td>Animated Picture Support</td>
-				<td>Gamma Support</td>
-				<td>Opacity Support</td>
-			</tr>
-			<tr>
-				<td>PNG - .png </td>
-				<td>Some</td>
-				<td>High</td>
-				<td>Medium</td>
-				<td>Lossless</td>
-				<td>24 bit</td>
-				<td>RGB</td>
-				<td>No</td>
-				<td>Yes</td>
-				<td>Yes</td>
-			</tr>
-			<tr>
-				<td>TIFF - .tif/.tiff </td>
-				<td>No</td>
-				<td>High</td>
-				<td>Large</td>
-				<td>Lossless</td>
-				<td>32 bit</td>
-				<td>RGB, CMYK</td>
-				<td>No</td>
-				<td>Yes</td>
-				<td>Yes</td>
-			</tr>
-			<tr>
-				<td>HEIF - .heic </td>
-				<td>No</td>
-				<td>High</td>
-				<td>Low</td>
-				<td>Lossless &#38; Lossy</td>
-				<td>16 bit</td>
-				<td>RGB</td>
-				<td>Yes</td>
-				<td>No</td>
-				<td>Yes</td>
-			</tr>
-			<tr>
-				<td>PNG - .png </td>
-				<td>Some</td>
-				<td>High</td>
-				<td>Medium</td>
-				<td>Lossless</td>
-				<td>24 bit</td>
-				<td>RGB</td>
-				<td>No</td>
-				<td>Yes</td>
-				<td>Yes</td>
-			</tr>
-			<tr>
-				<td>GIF - .gif </td>
-				<td>Some</td>
-				<td>High</td>
-				<td>Medium</td>
-				<td>Lossless</td>
-				<td>24 bit</td>
-				<td>RGB</td>
-				<td>No</td>
-				<td>Yes</td>
-				<td>Yes</td>
-			</tr>
+					<div class="information-container">
+
+
+						<h3>GIF .gif</h3>
+						<p>
+							Short for Graphics interchange format,
+							it was created in 1987 by Steve Wilhite as a lossless raster image file that can store small
+							animations as well by combining images or frames together. It supports 8 bits per pixel and
+							contain 256 indexed colours.
+						</p>
+						<div class="pros-cons">
+							<div class="pros pros-cons-box">
+								<h4>Pros</h4>
+								<ul>
+									<li>Small File size equivalent of JPEG despite being animated</li>
+									<li>Animated pictures</li>
+								</ul>
+							</div>
+							<div class="cons pros-cons-box">
+								<h4>Cons</h4>
+								<ul>
+									<li>8bit colour scheme</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="topic-section">
+				<figure class="other-tech-figure">
+					<img class="other-tech-image" src="images/bmp.jpg" alt="a digital art">
+					<figcaption>Image caption</figcaption>
+				</figure>
+				<div class="section-information">
+
+					<div class="information-container">
+
+
+						<h3>BMP - .bmp</h3>
+						<p>
+							Short for Microsoft Windows Bitmap format, BMP is a raster graphics image format designed to
+							store bitmap digital images independently of display devices. Created in 1995 by Microsoft,
+							it is a large, raw, high quality image format that supports various colour depths, alpha
+							channels,
+							colour profiles and optional data compression.
+						</p>
+						<div class="pros-cons">
+							<div class="pros pros-cons-box">
+								<h4>Pros</h4>
+								<ul>
+									<li>Supports optional data compression</li>
+									<li>High quality images</li>
+									<li>Large colour spectrum supported</li>
+									<li>Supports alpha channels and opacity</li>
+								</ul>
+							</div>
+							<div class="cons pros-cons-box">
+								<h4>Cons</h4>
+								<ul>
+									<li>Large file size</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</section>
+
+		<table id="other-tech-table">
+			<thead>
+				<tr>
+					<th></th>
+					<th>Browser Support</th>
+					<th>Image Quality</th>
+					<th>File Size</th>
+					<th>Compression Type</th>
+					<th>Colour Support (bits)</th>
+					<th>Colour Support (RGB,CMYK)</th>
+					<th>Animated Picture Support</th>
+					<th>Gamma Support</th>
+					<th>Opacity Support</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>PNG - .png </td>
+					<td>Some</td>
+					<td>High</td>
+					<td>Medium</td>
+					<td>Lossless</td>
+					<td>24 bit</td>
+					<td>RGB</td>
+					<td>No</td>
+					<td>Yes</td>
+					<td>Yes</td>
+				</tr>
+				<tr>
+					<td>TIFF - .tif/.tiff </td>
+					<td>No</td>
+					<td>High</td>
+					<td>Large</td>
+					<td>Lossless</td>
+					<td>32 bit</td>
+					<td>RGB, CMYK</td>
+					<td>No</td>
+					<td>Yes</td>
+					<td>Yes</td>
+				</tr>
+				<tr>
+					<td>HEIF - .heic </td>
+					<td>No</td>
+					<td>High</td>
+					<td>Low</td>
+					<td>Lossless &#38; Lossy</td>
+					<td>16 bit</td>
+					<td>RGB</td>
+					<td>Yes</td>
+					<td>No</td>
+					<td>Yes</td>
+				</tr>
+				<tr>
+					<td>PNG - .png </td>
+					<td>Some</td>
+					<td>High</td>
+					<td>Medium</td>
+					<td>Lossless</td>
+					<td>24 bit</td>
+					<td>RGB</td>
+					<td>No</td>
+					<td>Yes</td>
+					<td>Yes</td>
+				</tr>
+				<tr>
+					<td>GIF - .gif </td>
+					<td>Some</td>
+					<td>High</td>
+					<td>Medium</td>
+					<td>Lossless</td>
+					<td>24 bit</td>
+					<td>RGB</td>
+					<td>No</td>
+					<td>Yes</td>
+					<td>Yes</td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
+	<section class = "reference">
+		<h2>Topic References</h2><br><br>
+		
+				<p> Gregerson, E 2022, JPEG, Encyclopaedia Britannica, viewed 17 March 2022 <br>&#60;<a href="https://www.britannica.com/technology/JPEG">https://www.britannica.com/technology/JPEG</a>&#62;</p><br>
+				<p>	No Surname, L 2022, HEIF/HEIC file format, Capture One, viewed 17 March 2022 <br>&#60;<a href="https://support.captureone.com/hc/en-us/articles/360016552258-HEIF-HEIC-file-format">https://support.captureone.com/hc/en-us/articles/360016552258-HEIF-HEIC-file-format</a>&#62;</p><br>
+				<p>	Robinson, J 2022, HEIF – What you need to know, Photo Review, viewed 17 March 2022 <br>&#60;<a href="https://www.photoreview.com.au/tips/shooting/heif-what-you-need-to-know/">https://www.photoreview.com.au/tips/shooting/heif-what-you-need-to-know/</a>&#62;</p><br>
+				<p>	Salvaggio, C 2020, What is Inside a JPEG File, viewed 17 March 2022 <br>&#60;<a href="https://www.imaging.org/site/IST/Resources/Imaging_Tutorials/What_s_Inside_a_JPEG_File/IST/Resources/Tutorials/Inside_JPEG.aspx?hkey=f9946f90-9f14-452d-897c-ac1612116e2d">https://www.imaging.org/site/IST/Resources/Imaging_Tutorials/What_s_Inside_a_JPEG_File/IST/Resources/Tutorials/Inside_JPEG.aspx?hkey=f9946f90-9f14-452d-897c-ac1612116e2d</a>&#62;</p><br>
+				<p>	Unknown 2022, Characteristics of HEIF format, Sony, viewed 17 March 2022 <br>&#60;<a href="https://support.d-imaging.sony.co.jp/support/ilc/heif/01/en/index.html">https://support.d-imaging.sony.co.jp/support/ilc/heif/01/en/index.html</a>&#62;</p><br>
+				<p>	Unknown 2022, JPEG files, Adobe, viewed 17 March 2022 <br>&#60;<a href="https://www.adobe.com/au/creativecloud/file-types/image/raster/jpeg-file.html">https://www.adobe.com/au/creativecloud/file-types/image/raster/jpeg-file.html</a>&#62;</p><br>
+				<p>	Unknown 2022, Tags for TIFF, DNG, and Related Specifications, Library of Congress, viewed 17 March 2022 <br>&#60;<a href="https://www.loc.gov/preservation/digital/formats/content/tiff_tags.shtml">https://www.loc.gov/preservation/digital/formats/content/tiff_tags.shtml</a>&#62;</p><br>
+				<p>	Unknown 2022, Sustanability of Digital Formats: Planning for Library of Congress Collections, Library of Congress, viewed 17 March 2022 <br>&#60;<a href="https://www.loc.gov/preservation/digital/formats/index.html">https://www.loc.gov/preservation/digital/formats/index.html</a>&#62;</p><br>
+		
+	</section>
+	<footer>
+		<!-- <h1>.JPEG</h1> -->
+		<p>This is a website made by .JPEG team. Our members include: </p>
+		<div class="images-container">
+			<div class="box">
+				<div class="imagebox">
+					<img src="images/photo-1500648767791-00dcc994a43e.jpeg">
+				</div>
+				<div class="content">
+					<h1>Doan Anh Tuan</h1>
+					<p>
+						Student id: 103526745
 
+					</p>
+				</div>
+			</div>
+			<div class="box">
+				<div class="imagebox">
+					<img src="images/photo-1500648767791-00dcc994a43e.jpeg">
+				</div>
+				<div class="content">
+					<h1>Doan Anh Tuan</h1>
+					<p>
+						Student id: 103526745
+
+					</p>
+				</div>
+			</div>
+			<div class="box">
+				<div class="imagebox">
+					<img src="images/photo-1500648767791-00dcc994a43e.jpeg">
+				</div>
+				<div class="content">
+					<h1>Doan Anh Tuan</h1>
+					<p>
+						Student id: 103526745
+
+					</p>
+				</div>
+			</div>
+			<div class="box">
+				<div class="imagebox">
+					<img src="images/photo-1500648767791-00dcc994a43e.jpeg">
+				</div>
+				<div class="content">
+					<h1>Doan Anh Tuan</h1>
+					<p>
+						Student id: 103526745
+
+					</p>
+				</div>
+			</div>
+			<div class="box">
+				<div class="imagebox">
+					<img src="images/photo-1500648767791-00dcc994a43e.jpeg">
+				</div>
+				<div class="content">
+					<h1>Doan Anh Tuan</h1>
+					<p>
+						Student id: 103526745
+
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
 </body>
 
 </html>

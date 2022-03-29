@@ -1,9 +1,14 @@
 <!DOCTYPE html>
+<html lang="en">
+
 <head>
-<html lang="utf-8">
-<link rel="stylesheet" href="styles/style.css">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles/style.css">
+	<title>Document</title>
 </head>
-<div id="quizbackground">
+
 <body>
 
 	<header class="title-background" id="quizjpeg">
@@ -14,139 +19,144 @@
 				<li><a href="enhancements.html">Enhancements</a></li>
 			</ul>
 		</nav>
+		<h1 class="page-title">JPEG Quizzes</h1>
 	</header>
+	<div class="quiz-content main-content">
+
+
+		<h2>JPEG Quiz</h2>
+		<p>Here is a quiz to test your knowledge of the information that you have seen on this website about JPEGS:
+		</p>
+
+		<form id="question-form" method="post" action="https://mercury.swin.edu.au/it000000/formtest.php">
+
+			<fieldset>
+				<legend>Your information</legend>
+				<p class="questions">
+					<label for="first_name">Enter your first name:</label>
+					<input placeholder="Your first name" type="text" id="first_name" name="first_name"
+						required="required" pattern="[a-zA-Z- ]{1,30}">
+				</p>
+
+
+				<p class="questions">
+					<label for="last_name">Enter your last name:</label>
+					<input placeholder="Your last name" type="text" id="last_name" name="last_name" required="required"
+						pattern="[a-zA-Z- ]{1,30}">
+
+				</p>
+
+				<p class="questions">
+					<label for="student_id">Enter your student number (EG: 103994165): </label>
+					<input placeholder="Your student number" type="text" id="student_id" name="student_id"
+						required="required" minlength="7" maxlength="10"><br>
+				</p>
+			</fieldset>
+
+			<fieldset>
+				<legend>
+					JPEG
+				</legend>
+				<p class="questions">
+					<label for="question_1">
+						Q1) What does the acronym JPEG stand for?
+					</label>
+					<input placeholder="What does JPEG mean ?" id="question_1" type="text" name="question_1" required>
+				</p>
+			</fieldset>
+
+			<fieldset>
+				<legend>
+					JPEG Compression
+				</legend>
+				<div class="questions">
+					<p>Q2) How many steps are there in the compression process?</p>
+					<div class="radio choices">
+						<input type="radio" id="question_2_option_1" name="question_2" value="100" required="required">
+						<label for="question_2_option_1">100</label>
+
+						<input type="radio" id="question_2_option_2" name="question_2" value="1" />
+						<label for="question_2_option_2">1</label>
+
+						<input type="radio" id="question_2_option_3" name="question_2" value="3" />
+						<label for="question_2_option_3">3</label>
+
+						<input type="radio" id="question_2_option_4" name="question_2" value="5"> <label
+							for="question_2_option_4">5</label>
+					</div>
+				</div>
+			</fieldset>
 
 
 
-<h1>JPEG Quiz</h1>
-<h2>Here is a quiz to test your knowledge of the information that you have seen on this website about JPEGS:</h2>
+			<fieldset>
+				<legend>
+					Other compression type
+				</legend>
+				<div class="questions">
+					<p>Q3) Select the compression types other than JPEG:</p>
+					<div class="checkbox choices">
+						<input id="question_3_option1" type="checkbox" name="question_3_option1" value="TIFF" />
+						<label for="question_3_option1">TIFF</label>
 
-<form method="post" action="https://mercury.swin.edu.au/it000000/formtest.php">
-	
-	
-	<p>
-	<label for="first_name">Enter your first name:</label><br>
-	<input type="text" id="first_name" name="first_name"
-	required ="required"
-			pattern="[a-zA-Z- ]{1,30}"><br>
+						<input id="question_3_option2" type="checkbox" name="question_3_option2" value="GIF" />
+						<label for="question_3_option2">GIF</label>
+
+						<input id="question_3_option3" type="checkbox" name="question_3_option3" value="BMP" />
+						<label for="question_3_option3">BMP</label>
+
+						<input id="question_3_option4" type="checkbox" name="question_3_option4" value="HEIF" />
+						<label for="question_3_option4">HEIF</label>
+
+						<input id="question_3_option5" type="checkbox" name="question_3_option5" value="PNG" />
+						<label for="question_3_option5">PNG</label>
+
+						<input id="question_3_option6" type="checkbox" name="question_3_option6" value="MP4" />
+						<label for="question_3_option6">MP4</label>
+					</div>
+				</div>
+
+			</fieldset>
+
+
+			<fieldset>
+				<legend>
+					Compression Type
+				</legend>
+				<div class="questions">
+					<label for="question_4">Q4) What type of compression does JPEG use?</label>
+					<select class="selection" name="question_4" id="question_4">
+						<option value=''>Please select an option</option>
+						<option value="Lossless">Lossless</option>
+						<option value="Exporting">Exporting</option>
+						<option value="Lossy">Lossy</option>
+					</select>
+				</div>
+
+			</fieldset>
+
+
+
+
+			<fieldset>
+				<legend>
+					JPEG History
+				</legend>
+				<div class="questions">
+				<label for="question_5">Q5)When were JPEG's founded?</label>
+				<input type="number" id="question_5" name="question_5" step=331>
+				</div>
+
+			</fieldset>
+
 			
-			</p>
+			
+				<input class="submit submit1" type="submit" value="Submit quiz"/>
 			
 
-	
-	<label for="last_name">Enter your last name:<label/><br>
-	<input type="text" id="last_name" name="last_name"
-	required ="required"
-				pattern="[a-zA-Z- ]{1,30}"><br>
-	
-	</p>
-	
-	<p>
-	<label for="student_id">Enter your student number (EG: 103994165): <label/>
-	<input type="text" id="student_id" name="student_id"
-	required ="required"
-		minlength="7" maxlength="10"><br>
-	</p>
-	
-	
-
-
-
-	
-	<fieldset>
-	
-		<legend><label><h2>Q1) What does the acronym JPEG stand for?</h2><br /></legend>
-		<textarea name="question 1" rows="4" cols="20" required></textarea>
-		</label>
-	
-	</fieldset>
-	
-
-	
-	<fieldset>
-	<legend><h2>Q2)How many steps are there in the compression process?</h2></legend>
-	
-		<input type="radio" id="option 1" name="question_2" value="100"
-		required= "required"
-		
-		<label for "question_2">100</label><br>
-		
-		<input type="radio" id="option 1" name="question_2" value="1"/>
-		<label for "question_2">1</label><br>
-		
-		<input type="radio" id="option 1" name="question_2" value="3"/>
-		<label for "question_2">3</label><br>
-		
-		<input type="radio" id="option 1" name="question_2" value="5"
-		<label for "question_2">5</label><br>
-		
-	</fieldset>
-	
-
-	
-	<fieldset>
-	<legend><h2>Q3)Select the compression types other than JPEG:</h2></legend>
-	<input type="checkbox" name="question_3_option1" value="TIFF"/>
-	<label for "question_3_option1">TIFF</label><br>
-	
-	<input type="checkbox" name="question_3_option2" value="GIF"/>
-	<label for "question_3_option2">GIF</label><br>
-	
-	<input type="checkbox" name="question_3_option3" value="BMP"/>
-	<label for "question_3_option3">BMP</label><br>
-	
-	<input type="checkbox" name="question_3_option4" value="HEIF"/>
-	<label for "question_3_option4">HEIF</label><br>
-	
-	<input type="checkbox" name="question_3_option5" value="PNG"/>
-	<label for "question_3_option5">PNG</label><br>
-	
-	<input type="checkbox" name="question_3_option6" value="MP4"/>
-	<label for "question_3_option6">MP4</label><br>
-	
-	</fieldset>
-	
-	
-	<fieldset>
-	<legend><h2>Q4)What type of compression does JPEG use?</h2></legend>
-	<p><label for "question_4"> </label>
-	
-	
-	<select name="question_4" id="question_4">
-	
-	<option value='Please selection an option'>Please select an option</option>
-	<option value="Lossless">Lossless</option>
-	<option value="Exporting">Exporting</option>
-	<option value="Lossy">Lossy</option>
-	</select>
-	
-	</fieldset>
-
-	
-
-
-	<fieldset>
-	<legend><h2>Q5)When were JPEG's founded?</h2></legend>
-	<label for="question_5">Enter the year JPEG's were founded: <label/>
-	<input type="number" id="question_5" name="question_5"
-	step= 331>
-		
-		
-		</fieldset>
-	
-	<p>
-	<div id="button1">
-		<input type="submit" value="Submit quiz" />
-	</div>
-	</p>
-		
-		
-		<input type="reset" value="Reset" />
+			
+			<input type="reset" value="Reset" />
+			
 		</form>
-		
-	
-	
-	
-	
+	</div>
 </body>
-</div>

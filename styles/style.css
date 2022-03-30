@@ -620,6 +620,11 @@ input[type=text] {
 
 }
 
+/*
+The following code before for the submit and reset button has been inspired by the following video:
+https://www.youtube.com/watch?v=MLfAW55_4cY
+
+*/
 .container1{
     float:right;
     width: 60%;

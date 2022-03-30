@@ -361,6 +361,27 @@ footer>p {
     margin: 0 91px;
 }
 
+.definition-list {
+    float:right;
+}
+
+#def-header {
+    background: linear-gradient(to right, #5fcc89, #24b95e);
+    color: #fff;
+    text-align: left;
+}
+
+#def-body {
+    margin-top: 20px;
+    box-shadow: 10px 10px 5px 10px rgba(0, 0, 0, 0.15);
+    width: auto;
+    border-radius: 10px;
+}
+
+#def-title {
+    font-weight: bold;
+}
+
 .topic-section {
     margin-top: 40px;
     /* width: 100%; */

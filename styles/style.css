@@ -622,15 +622,16 @@ input[type=text] {
 
 .container1{
     float:right;
+    width: 60%;
    
 }
 
 
 .btn{
-    border: 1px solid #3498db;
+    border: 1px solid #C05252;
     background: none;
-    padding: 10px 20px;
-    font-size: 20px;
+    padding: 5px 10px;
+    font-size: 17px;
     cursor: pointer;
     margin: 10px;
     transition: 0.8s;
@@ -639,7 +640,7 @@ input[type=text] {
 }
 
 .btn1{
-    color: #3498db;
+    color: #C05252;
 }
 
 .btn1:hover{
@@ -652,7 +653,7 @@ input[type=text] {
     left: 0;
     width: 100%;
     height: 0%;
-    background: #3498db;
+    background: #C05252;
     z-index: -1;
     transition: 0.8s;
 
@@ -684,49 +685,4 @@ input[type=reset] {
 
 }
 
-<<<<<<< HEAD
-#quizbackground {
-    background: #FE3267;
-}
 /* End Quiz.css */
-
-/* Start Enhancements */
-#enhancementsjpg{
-    background-image: url("images/enhancementsbackground.jpg");
-}
-
-#EnhancementsArticle{
-    background-color: #8332A6;
-}
-
-#EnhancementsHeader{
-    font-size: 32px;
-    font-weight: bold;
-    color: #BF84D9;
-    padding-left: 10px;
-}
-
-.SubHeading{
-    font-size: 24px;
-    font-weight: bold;
-    color: #BF84D9;   
-    padding-bottom: 5px;
-}
-
-.EnhancementsSection{
-    font-size: 18px;
-    color: #BF84D9;
-    padding-left: 10px;
-}
-
-.Link{
-    font-size: 20px;
-    color: #010326;
-}
-
-
-
-/* End Enhancements */
-=======
-/* End Quiz.css */
->>>>>>> 9803f9749ec095a3211b97019ad0afe54c1598f8

@@ -362,19 +362,32 @@ footer>p {
 }
 
 .definition-list {
-    float:right;
+    float:left;
+}
+
+aside {
+    width: 10%;
+    margin-left: .5rem;
+    float: left;
+    font-style: italic;
+	color: black;
+}
+
+aside > p {
+    margin: .5rem;
 }
 
 #def-header {
     background: linear-gradient(to right, #5fcc89, #24b95e);
     color: #fff;
     text-align: left;
+	
 }
 
 #def-body {
     margin-top: 20px;
     box-shadow: 10px 10px 5px 10px rgba(0, 0, 0, 0.15);
-    width: auto;
+    width: 10%;
     border-radius: 10px;
 }
 

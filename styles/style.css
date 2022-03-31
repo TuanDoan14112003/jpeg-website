@@ -361,6 +361,40 @@ footer>p {
     margin: 0 91px;
 }
 
+.definition-list {
+    float:left;
+}
+
+aside {
+    width: 10%;
+    margin-left: .5rem;
+    float: left;
+    font-style: italic;
+	color: black;
+}
+
+aside > p {
+    margin: .5rem;
+}
+
+#def-header {
+    background: linear-gradient(to right, #5fcc89, #24b95e);
+    color: #fff;
+    text-align: left;
+	
+}
+
+#def-body {
+    margin-top: 20px;
+    box-shadow: 10px 10px 5px 10px rgba(0, 0, 0, 0.15);
+    width: 10%;
+    border-radius: 10px;
+}
+
+#def-title {
+    font-weight: bold;
+}
+
 .topic-section {
     margin-top: 40px;
     /* width: 100%; */
@@ -533,7 +567,15 @@ footer>p {
 /* End Topic css */
 
 
-/* Quiz.css */
+/* 
+Quiz.css 
+Author: Gabriel 
+Last modified date: 30/3/2022
+
+
+*/
+
+
 #quizjpeg {
     background-image: url("images/quizzesbackground.png");
 }
@@ -620,12 +662,17 @@ input[type=text] {
 
 }
 
+/*
+The following code before for the submit and reset button has been inspired by the following video:
+https://www.youtube.com/watch?v=MLfAW55_4cY
+
+
+
+*/
 .container1{
     float:right;
     width: 60%;
-   
 }
-
 
 .btn{
     border: 1px solid #C05252;
@@ -656,13 +703,11 @@ input[type=text] {
     background: #C05252;
     z-index: -1;
     transition: 0.8s;
-
 }
 
 .btn1::before{
     top: 0;
     border-radius: 0 0 50% 50%;
-
 }
 
 
@@ -671,18 +716,8 @@ input[type=text] {
 
 .btn1:hover:before{
     height: 180%
-
-
-
-
 }
 
 
-input[type=reset] {
-
-   
-
-
-}
 
 /* End Quiz.css */

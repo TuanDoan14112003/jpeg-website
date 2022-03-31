@@ -32,7 +32,8 @@
 				<p class="questions">
 					<label for="first_name">Enter your first name:</label>
 					<input placeholder="Your first name" type="text" id="first_name" name="first_name"
-						required="required" pattern="[a-zA-Z- ]{1,30}">
+						required="required" 
+						pattern="[a-zA-Z- ]{1,30}">
 				</p>
 
 
@@ -46,7 +47,7 @@
 				<p class="questions">
 					<label for="student_id">Enter your student number (EG: 103994165): </label>
 					<input placeholder="Your student number" type="text" id="student_id" name="student_id"
-						required="required" minlength="7" maxlength="10"><br>
+						required="required" pattern= "^(\d{7}|\d{10})$"><br>
 				</p>
 			</fieldset>
 

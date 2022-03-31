@@ -586,6 +586,9 @@ Last modified date: 30/3/2022
 .quiz-content > p {
     font-weight: 200;
 }
+.quiz-content {
+    margin-bottom: 70px;
+}
 
 #question-form {
     margin-top:20px;

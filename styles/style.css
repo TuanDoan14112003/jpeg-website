@@ -361,15 +361,11 @@ footer>p {
     margin: 0 91px;
 }
 
-.definition-list {
-    float:left;
-}
 
 aside {
     width: 10%;
     margin-left: .5rem;
     float: left;
-    font-style: italic;
 	color: black;
 }
 
@@ -386,7 +382,6 @@ aside > p {
 
 #def-body {
     margin-top: 20px;
-    box-shadow: 10px 10px 5px 10px rgba(0, 0, 0, 0.15);
     width: 10%;
     border-radius: 10px;
 }
@@ -470,12 +465,14 @@ aside > p {
 
 
 .section-information .information-container p,
-.section-information .information-container ol li,
+.section-information .information-container ol li
+.section-information .information-container dl dd
+.section-information .information-container dl dt
 .section-information .information-container ul li {
     font-size: 1.2em;
     font-weight: 300;
 }
-
+.section-information .information-container dl dd
 .section-information .information-container ol li {
     margin-top: 10px;
 }

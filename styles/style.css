@@ -358,18 +358,25 @@ footer > p {
 
 
 aside {
-    width: 10%;
-    margin-left: .5rem;
-    float: left;
+    width: 30%;
+    margin-left: 2.0rem;
+    float: right;
 	color: black;
+    border: 3px solid #5fcc89;
+    border-left-width: 1.4em;
 }
 
 aside > p {
     margin: .5rem;
 }
 
+ol{
+    color: white;    
+}
+
 #def-header {
     background: linear-gradient(to right, #5fcc89, #24b95e);
+    border-radius: 0 6px 0 0;
     color: #fff;
     text-align: left;
 	
@@ -461,12 +468,21 @@ aside > p {
 
 .section-information .information-container p,
 .section-information .information-container ol li
-.section-information .information-container dl dd
-.section-information .information-container dl dt
 .section-information .information-container ul li {
     font-size: 1.2em;
     font-weight: 300;
 }
+
+.section-information .information-container dl dt,
+.section-information .information-container dl dd{
+    font-size: 1.2em;
+    font-weight: 300;
+} /*I tried adding the DL to the other section information, but it just wouldn't pair */
+
+.section-information .information-container dl dt{
+    font-weight: bold;
+}
+
 .section-information .information-container dl dd
 .section-information .information-container ol li {
     margin-top: 10px;

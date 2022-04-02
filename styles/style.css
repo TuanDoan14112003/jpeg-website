@@ -9,7 +9,6 @@
 html,
 body {
     height: 100%;
-
 }
 
 /* Common css */
@@ -17,13 +16,11 @@ body {
 .title-background {
     width: 100%;
     height: 350px;
-
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, .2); /* add a layer of transparency */
-
     position: relative;
 }
 
@@ -31,7 +28,9 @@ body {
     font:bold 2em Rubik, sans-serif;
     color: #fff;
     position: absolute;
-    left: 50%;
+
+    /* center the title */
+    left: 50%;         
     top: 50%;
     transform: translate(-50%, -50%);
 }
@@ -40,17 +39,15 @@ body {
 
 
 
-/* Menu css */
+/* Navigation css */
 
+/* The navigation link hover animation was inspired by this video https://www.youtube.com/watch?v=aswRKAjjWuE */
 nav {
     float: right;
-    margin-right: 30px;
-    padding-top: 20px;
+    margin: 20px 30px 0 0;
 }
 
 nav ul {
-    /* margin: 0;
-    padding: 0; */
     list-style: none;
 }
 
@@ -68,7 +65,7 @@ nav a {
     letter-spacing: 0.5px;
 }
 
-nav a:after {
+nav a::after {
     content: "";
     position: absolute;
     background-color: #ff3c78;
@@ -79,14 +76,14 @@ nav a:after {
     transition: 0.3s;
 }
 
-nav a:hover:after {
+nav a:hover::after {
     width: 100%;
 }
 
-/* End Menu css */
+/* End Navigation css */
 
 /* Footer css */
-
+/* The picture animation was inspired by this video: https://www.youtube.com/watch?v=nM-30MdKNc4 */
 footer {
     background-color: #060E33;
     width: 100%;
@@ -96,7 +93,7 @@ footer {
 
 }
 
-footer>p {
+footer > p {
     padding-top: 30px;
     margin-top: 0;
 }
@@ -117,8 +114,6 @@ footer>p {
     overflow: hidden;
     transition: 0.5s;
     margin: 30px 10px 30px 10px;
-
-
     /* margin-left: 60px; */
 }
 
@@ -137,7 +132,7 @@ footer>p {
 }
 
 
-.images-container .box .imagebox:before {
+.images-container .box .imagebox::before {
     content: '';
     position: absolute;
     top: 0;
@@ -151,7 +146,7 @@ footer>p {
     transition: 0.5s;
 }
 
-.images-container .box:hover .imagebox:before {
+.images-container .box:hover .imagebox::before {
     opacity: 1;
 }
 
@@ -544,7 +539,7 @@ aside > p {
 }
 
 #other-tech-table thead tr {
-    background: linear-gradient(to right, #5fcc89, #24b95e);
+    background-color: #24b95e;
     color: #fff;
     text-align: left;
     font-weight: bold;
@@ -603,7 +598,6 @@ Last modified date: 30/3/2022
     font-weight: 600;
     font-size: 1.2em;
 }
-
 
 
 .questions {
@@ -697,7 +691,7 @@ https://www.youtube.com/watch?v=MLfAW55_4cY
     color: #fff;
 }
 
-.btn:before{
+.btn::before{
     content: "";
     position: absolute;
     left: 0;
@@ -714,10 +708,7 @@ https://www.youtube.com/watch?v=MLfAW55_4cY
 }
 
 
-
-
-
-.btn1:hover:before{
+.btn1:hover::before{
     height: 180%
 }
 

@@ -31,26 +31,11 @@
 					<li class="def-title"><a href="#functions"> Functions of JPEG Images</a></li>
 					<li class="def-title"><a href="#png">PNG</a></li>
 					<li class="def-title"><a href="#tiff">TIFF</a></li>
-					<li class="def-title"><a href="#heif">HEIF</a></li>
+					<li class="def-title"><a href="#heif">HEIF</a></li> 
 					<li class="def-title"><a href="#gif">GIF</a></li>
 					<li class="def-title"><a href="#bmp">BMP</a></li>
 				</ol>
 				<br />
-				<h2 class="def-header">Acronyms:</h2>
-				<dl>
-					<dt class="def-title">JPEG</dt>
-					<dd>Joint Photographic Experts Group</dd>
-					<dt class="def-title">PNG</dt>
-					<dd>Printable Networks Group</dd>
-					<dt class="def-title">TIFF</dt>
-					<dd>Tag Image File Format</dd>
-					<dt class="def-title">HEIF</dt>
-					<dd>High Efficiency Image Format</dd>
-					<dt class="def-title">GIF</dt>
-					<dd>Graphics Interchange Format</dd>
-					<dt class="def-title">BMP</dt>
-					<dd>Microsoft Windows Bitmap</dd>
-				</dl>
 			</aside>
 			<section id="jpeg-timeline-section" class="topic-section">
 				<div class="section-information">
@@ -95,13 +80,17 @@
 			<div class="section-information">
 				<article class="information-container">
 					<h2 id="steps">JPEG Compression Steps</h2>
-					<ol>
-						<li> <strong>Conversion:</strong> Converts the base RGB colour image into a luminance and
+					<dl>
+						<dt><strong>1. Conversion:</strong></dt>
+						<dd>
+						    Converts the base RGB colour image into a luminance and
 							chrominance images to
 							determine
 							brightness and colour levels, respectively.
-						</li>
-						<li> <strong>Spatial Subsampling:</strong> When the image is in its simple form of luminance and
+						</dd>
+						<dt><strong>2. Spatial Subsampling:</strong></dt>
+						<dd>
+						    When the image is in its simple form of luminance and
 							chrominance,
 							it’s YCC form,
 							the
@@ -113,8 +102,9 @@
 							The subsampling process allows for the chrominance images to be halved without major loss of
 							image
 							resolution, unless viewed at high magnification.
-						</li>
-						<li> <strong>Transformation:</strong> The transformation step takes the information from the
+						</dd>
+						<dt><strong>3. Transformation:</strong></dt>
+						<dd>The transformation step takes the information from the
 							spatial subsampling
 							stage and
 							accounts for small sections of the image where there is little contrast.
@@ -122,8 +112,9 @@
 							to reduce
 							digital
 							information over the low contrast areas.
-						</li>
-						<li><strong>Quantization:</strong> Quantization is the step in which the compression of the
+						</dd>
+						<dt><strong>4. Quantization:</strong></dt>
+						<dd>Quantization is the step in which the compression of the
 							image becomes
 							irreversible in
 							terms
@@ -132,16 +123,17 @@
 							DCT
 							coefficients
 							by a factor dictated by the user.
-						</li>
-						<li><strong>Coding:</strong> Once the image has been transformed and put through the
+						</dd>
+						<dt><strong>5. Coding:</strong></dt> 
+						<dd>Once the image has been transformed and put through the
 							quantization process, it is
 							ready to be
 							transcribed into code to be transmitted digitally.
 							To ensure that the level of coding for the image to be as small as possible, Huffman coding
 							is used to
 							represent the DCT coefficients.
-						</li>
-					</ol>
+						</dd>
+					</dl>
 					<a target="_blank"
 						href="https://www.imaging.org/site/IST/Resources/Imaging_Tutorials/What_s_Inside_a_JPEG_File/IST/Resources/Tutorials/Inside_JPEG.aspx?hkey=f9946f90-9f14-452d-897c-ac1612116e2d">
 						Source</a>
@@ -478,8 +470,7 @@
 		<p> Unknown 2022, Sustanability of Digital Formats: Planning for Library of Congress Collections, Library of
 			Congress, viewed 17 March 2022 <br>&#60;<a
 				href="https://www.loc.gov/preservation/digital/formats/index.html">https://www.loc.gov/preservation/digital/formats/index.html</a>&#62;
-		</p><br>
-
+		</p><br />
 	</section>
     <footer>
         <!-- <h1>.JPEG</h1> -->

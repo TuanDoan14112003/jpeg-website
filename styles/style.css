@@ -12,6 +12,9 @@ body {
 }
 
 /* Common css */
+.main-content {
+    margin: 0 5%;
+}
 
 .title-background {
     width: 100%;
@@ -352,9 +355,7 @@ footer > p {
     background-image: url("images/topicimage.jpg");
 }
 
-.main-content {
-    margin: 0 91px;
-}
+
 
 
 aside {
@@ -562,14 +563,13 @@ aside > p {
 /* 
 Quiz.css 
 Author: Gabriel 
-Last modified date: 30/3/2022
-
-
+Last modified date: 02/04/2022
 */
 
 
 #quizjpeg {
     background-image: url("images/quizzesbackground.png");
+    
 }
 
 .quiz-content > h2{
@@ -584,6 +584,7 @@ Last modified date: 30/3/2022
 
 #question-form {
     margin-top:20px;
+   
 }
 
 .quiz-content fieldset {
@@ -609,23 +610,23 @@ Last modified date: 30/3/2022
     font-weight: 400;
 }
 
-input[type=text] {
+input[type=text],
+input[type=number],
+.selection {
     width: 100%;
-    max-width: 500px;
+    max-width: 280px;
 
     font-size: 1em;
     font-weight: 300;
 
-    padding: 10px;
+    padding: 10px 10px 10px 20px;
     margin: 10px 20px;
-    padding-left:20px;
 
     outline: none;
     border: 1px solid rgb(255, 255, 255);
     border-radius: 4px; 
     background: #f9f9f9;  
-    /* transition: background 0.25s, border-color 0.25s, color 0.25s  */
-    /* box-shadow:0 0 15px 4px rgba(0,0,0,0.06);    */
+
 }
 
 .radio input[type=radio],
@@ -638,34 +639,22 @@ input[type=text] {
 }
 
 .selection {
-    color:#707070;
-    font-weight: 300;
-    width: 100%;
-    max-width: 500px;
-    margin-top: 10px;
-    margin-left:20px;
-    padding:10px;
-    border-radius: 5px;
+    color: #9b9999
 }
 
 .radio label,
 .checkbox label {
-    
     font-weight: 300;
     color: #707070;
 
 }
 
-/*
-The following code before for the submit and reset button has been inspired by the following video:
-https://www.youtube.com/watch?v=MLfAW55_4cY
+/* The following code before for the submit and reset button has been inspired by the following video:
+https://www.youtube.com/watch?v=MLfAW55_4cY */
 
-
-
-*/
 .container1{
-    float:right;
-    width: 60%;
+    margin-left:90px ;
+    float: left;
 }
 
 .btn{

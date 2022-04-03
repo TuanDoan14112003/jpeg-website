@@ -22,54 +22,35 @@
 		<h1 class="page-title">JPEG HISTORY</h1>
 	</header>
 	<section class="main-content">
-		<section class="contents-list">
-			<aside id="def-body">
-				<h2 id="def-header">Contents:</h2>
-				<ol>
-					<li class="def-title"><a href="#timeline"> Timeline of the JPEG Image</a></li>
-					<li class="def-title"><a href="#steps"> JPEG Compression Steps</a></li>
-					<li class="def-title"><a href="#functions"> Functions of JPEG Images</a></li>
-					<li class="def-title"><a href="#png">PNG</a></li>
-					<li class="def-title"><a href="#tiff">TIFF</a></li>
-					<li class="def-title"><a href="#heif">HEIF</a></li> 
-					<li class="def-title"><a href="#gif">GIF</a></li>
-					<li class="def-title"><a href="#bmp">BMP</a></li>
-				</ol>
-				<br />
-			</aside>
-			<section id="jpeg-timeline-section" class="topic-section">
-				<div class="section-information">
-					<article class="information-container">
-						<h2 id="timeline">Timeline of the JPEG Image</h2>
-						<p>
-							There is a small amount of contention as to the exact year that the International Standard
-							for
-							Organisation
-							(ISO)
-							set about creating a standard for digital images. Adobe (2022) claim that they started in
-							1986,
-							whereas the
-							Encyclopedia Britannica (2022)
-							claim they started in 1983. However, regardless of when they began trying to standardise
-							digital
-							photos, it
-							is documented that JPEG,
-							an acronym for Joint Photographic Experts Group, was created in 1986 (Adobe, 2022;
-							Encyclopedia
-							Britannica,
-							2022).
-						</p>
-					</article>
-				</div>
-				<figure id="jpeg-timeline-figure">
-					<img class="section-image" id="jpeg-timeline-image" src="images/jpeg-timeline3-image.png"
-						alt="a digital art">
-					<figcaption>Image caption</figcaption>
-				</figure>
-			</section>
-		</section>
-		<section class="definition-list">
-
+		<section id="jpeg-timeline-section" class="topic-section">
+			<div class="section-information">
+				<article class="information-container">
+					<h2 id="timeline">Timeline of the JPEG Image</h2>
+					<p>
+						There is a small amount of contention as to the exact year that the International Standard
+						for
+						Organisation
+						(ISO)
+						set about creating a standard for digital images. Adobe (2022) claim that they started in
+						1986,
+						whereas the
+						Encyclopedia Britannica (2022)
+						claim they started in 1983. However, regardless of when they began trying to standardise
+						digital
+						photos, it
+						is documented that JPEG,
+						an acronym for Joint Photographic Experts Group, was created in 1986 (Adobe, 2022;
+						Encyclopedia
+						Britannica,
+						2022).
+					</p>
+				</article>
+			</div>
+			<figure id="jpeg-timeline-figure">
+				<img class="section-image" id="jpeg-timeline-image" src="images/jpeg-timeline3-image.png"
+					alt="a digital art">
+				<figcaption>Image caption</figcaption>
+			</figure>
 		</section>
 		<section class="topic-section">
 			<figure id="jpeg-compression-figure">
@@ -80,60 +61,35 @@
 			<div class="section-information">
 				<article class="information-container">
 					<h2 id="steps">JPEG Compression Steps</h2>
-					<dl>
-						<dt>1. Conversion:</dt>
-						<dd>
-						    Converts the base RGB colour image into a luminance and
+					<ol>
+						<li> <strong>Conversion:</strong> Converts the base RGB colour image into a luminance and
 							chrominance images to
 							determine
 							brightness and colour levels, respectively.
-						</dd>
-						<dt>2. Spatial Subsampling:</dt>
-						<dd>
-						    When the image is in its simple form of luminance and
+						</li>
+						<li> <strong>Spatial Subsampling:</strong> When the image is in its simple form of luminance and
 							chrominance,
-							it’s YCC form,
-							the
-							spatial information of the image is separated as most of that information comes from the
-							luminance
-							levels.
-							Having the low spatial information of the chrominance images are vital for the compression
-							process.
-							The subsampling process allows for the chrominance images to be halved without major loss of
-							image
+							it’s YCC form, the
+							spatial information of the image is separated as most of that information comes from the luminance levels.
+							Having the low spatial information of the chrominance images are vital for the compression process.
+							The subsampling process allows for the chrominance images to be halved without major loss of image
 							resolution, unless viewed at high magnification.
-						</dd>
-						<dt>3. Transformation:</dt>
-						<dd>The transformation step takes the information from the
-							spatial subsampling
-							stage and
-							accounts for small sections of the image where there is little contrast.
-							The JPEG members created a mathematical formula called the discrete cosine transform (DCT)
-							to reduce
-							digital
+						</li>
+						<li> <strong>Transformation:</strong> The transformation step takes the information from the
+							spatial subsampling stage and accounts for small sections of the image where there is little contrast.
+							The JPEG members created a mathematical formula called the discrete cosine transform (DCT) to reduce digital
 							information over the low contrast areas.
-						</dd>
-						<dt>4. Quantization:</dt>
-						<dd>Quantization is the step in which the compression of the
-							image becomes
-							irreversible in
-							terms
-							of loss in detail.
-							While the DCT follows a mathematical formula to compress the image, quantization scales the
-							DCT
-							coefficients
-							by a factor dictated by the user.
-						</dd>
-						<dt>5. Coding:</dt> 
-						<dd>Once the image has been transformed and put through the
-							quantization process, it is
-							ready to be
-							transcribed into code to be transmitted digitally.
-							To ensure that the level of coding for the image to be as small as possible, Huffman coding
-							is used to
+						</li>
+						<li><strong>Quantization:</strong> Quantization is the step in which the compression of the
+							image becomes irreversible in terms of loss in detail. While the DCT follows a mathematical formula to compress
+							 the image, quantization scales the DCT coefficients by a factor dictated by the user.
+						</li>
+						<li><strong>Coding:</strong> Once the image has been transformed and put through the
+							quantization process, it is ready to be transcribed into code to be transmitted digitally.
+							To ensure that the level of coding for the image to be as small as possible, Huffman coding is used to
 							represent the DCT coefficients.
-						</dd>
-					</dl>
+						</li>
+					</ol>
 					<a target="_blank"
 						href="https://www.imaging.org/site/IST/Resources/Imaging_Tutorials/What_s_Inside_a_JPEG_File/IST/Resources/Tutorials/Inside_JPEG.aspx?hkey=f9946f90-9f14-452d-897c-ac1612116e2d">
 						Source</a>
@@ -359,183 +315,219 @@
 					</article>
 				</div>
 			</section>
+			<section class="comparison-section">
+				<h3> Table for Comparison </h3>
+				<table id="other-tech-table">
+					<thead>
+						<tr>
+							<th></th>
+							<th>Browser Support</th>
+							<th>Image Quality</th>
+							<th>File Size</th>
+							<th>Compression Type</th>
+							<th>Colour Support (bits)</th>
+							<th>Colour Support (RGB,CMYK)</th>
+							<th>Animated Picture Support</th>
+							<th>Gamma Support</th>
+							<th>Opacity Support</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>PNG - .png </td>
+							<td>Some</td>
+							<td>High</td>
+							<td>Medium</td>
+							<td>Lossless</td>
+							<td>24 bit</td>
+							<td>RGB</td>
+							<td>No</td>
+							<td>Yes</td>
+							<td>Yes</td>
+						</tr>
+						<tr>
+							<td>TIFF - .tif/.tiff </td>
+							<td>No</td>
+							<td>High</td>
+							<td>Large</td>
+							<td>Lossless</td>
+							<td>32 bit</td>
+							<td>RGB, CMYK</td>
+							<td>No</td>
+							<td>Yes</td>
+							<td>Yes</td>
+						</tr>
+						<tr>
+							<td>HEIF - .heic </td>
+							<td>No</td>
+							<td>High</td>
+							<td>Low</td>
+							<td>Lossless &#38; Lossy</td>
+							<td>16 bit</td>
+							<td>RGB</td>
+							<td>Yes</td>
+							<td>No</td>
+							<td>Yes</td>
+						</tr>
+						<tr>
+							<td>PNG - .png </td>
+							<td>Some</td>
+							<td>High</td>
+							<td>Medium</td>
+							<td>Lossless</td>
+							<td>24 bit</td>
+							<td>RGB</td>
+							<td>No</td>
+							<td>Yes</td>
+							<td>Yes</td>
+						</tr>
+						<tr>
+							<td>GIF - .gif </td>
+							<td>Some</td>
+							<td>High</td>
+							<td>Medium</td>
+							<td>Lossless</td>
+							<td>24 bit</td>
+							<td>RGB</td>
+							<td>No</td>
+							<td>Yes</td>
+							<td>Yes</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
 		</section>
-		<br />
-		<br />
-		<h3> Table for Comparison </h3>
-		<table id="other-tech-table">
-			<thead>
-				<tr>
-					<th></th>
-					<th>Browser Support</th>
-					<th>Image Quality</th>
-					<th>File Size</th>
-					<th>Compression Type</th>
-					<th>Colour Support (bits)</th>
-					<th>Colour Support (RGB,CMYK)</th>
-					<th>Animated Picture Support</th>
-					<th>Gamma Support</th>
-					<th>Opacity Support</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>PNG - .png </td>
-					<td>Some</td>
-					<td>High</td>
-					<td>Medium</td>
-					<td>Lossless</td>
-					<td>24 bit</td>
-					<td>RGB</td>
-					<td>No</td>
-					<td>Yes</td>
-					<td>Yes</td>
-				</tr>
-				<tr>
-					<td>TIFF - .tif/.tiff </td>
-					<td>No</td>
-					<td>High</td>
-					<td>Large</td>
-					<td>Lossless</td>
-					<td>32 bit</td>
-					<td>RGB, CMYK</td>
-					<td>No</td>
-					<td>Yes</td>
-					<td>Yes</td>
-				</tr>
-				<tr>
-					<td>HEIF - .heic </td>
-					<td>No</td>
-					<td>High</td>
-					<td>Low</td>
-					<td>Lossless &#38; Lossy</td>
-					<td>16 bit</td>
-					<td>RGB</td>
-					<td>Yes</td>
-					<td>No</td>
-					<td>Yes</td>
-				</tr>
-				<tr>
-					<td>PNG - .png </td>
-					<td>Some</td>
-					<td>High</td>
-					<td>Medium</td>
-					<td>Lossless</td>
-					<td>24 bit</td>
-					<td>RGB</td>
-					<td>No</td>
-					<td>Yes</td>
-					<td>Yes</td>
-				</tr>
-				<tr>
-					<td>GIF - .gif </td>
-					<td>Some</td>
-					<td>High</td>
-					<td>Medium</td>
-					<td>Lossless</td>
-					<td>24 bit</td>
-					<td>RGB</td>
-					<td>No</td>
-					<td>Yes</td>
-					<td>Yes</td>
-				</tr>
-			</tbody>
-		</table>
-	</section>
-	<section class="reference">
-		<h2>Topic References</h2><br><br>
 
-		<p> Gregerson, E 2022, JPEG, Encyclopaedia Britannica, viewed 17 March 2022 <br>&#60;<a
-				href="https://www.britannica.com/technology/JPEG">https://www.britannica.com/technology/JPEG</a>&#62;
-		</p><br>
-		<p> No Surname, L 2022, HEIF/HEIC file format, Capture One, viewed 17 March 2022 <br>&#60;<a
-				href="https://support.captureone.com/hc/en-us/articles/360016552258-HEIF-HEIC-file-format">https://support.captureone.com/hc/en-us/articles/360016552258-HEIF-HEIC-file-format</a>&#62;
-		</p><br>
-		<p> Robinson, J 2022, HEIF – What you need to know, Photo Review, viewed 17 March 2022 <br>&#60;<a
-				href="https://www.photoreview.com.au/tips/shooting/heif-what-you-need-to-know/">https://www.photoreview.com.au/tips/shooting/heif-what-you-need-to-know/</a>&#62;
-		</p><br>
-		<p> Salvaggio, C 2020, What is Inside a JPEG File, viewed 17 March 2022 <br>&#60;<a
-				href="https://www.imaging.org/site/IST/Resources/Imaging_Tutorials/What_s_Inside_a_JPEG_File/IST/Resources/Tutorials/Inside_JPEG.aspx?hkey=f9946f90-9f14-452d-897c-ac1612116e2d">https://www.imaging.org/site/IST/Resources/Imaging_Tutorials/What_s_Inside_a_JPEG_File/IST/Resources/Tutorials/Inside_JPEG.aspx?hkey=f9946f90-9f14-452d-897c-ac1612116e2d</a>&#62;
-		</p><br>
-		<p> Unknown 2022, Characteristics of HEIF format, Sony, viewed 17 March 2022 <br>&#60;<a
-				href="https://support.d-imaging.sony.co.jp/support/ilc/heif/01/en/index.html">https://support.d-imaging.sony.co.jp/support/ilc/heif/01/en/index.html</a>&#62;
-		</p><br>
-		<p> Unknown 2022, JPEG files, Adobe, viewed 17 March 2022 <br>&#60;<a
-				href="https://www.adobe.com/au/creativecloud/file-types/image/raster/jpeg-file.html">https://www.adobe.com/au/creativecloud/file-types/image/raster/jpeg-file.html</a>&#62;
-		</p><br>
-		<p> Unknown 2022, Tags for TIFF, DNG, and Related Specifications, Library of Congress, viewed 17 March 2022
-			<br>&#60;<a
-				href="https://www.loc.gov/preservation/digital/formats/content/tiff_tags.shtml">https://www.loc.gov/preservation/digital/formats/content/tiff_tags.shtml</a>&#62;
-		</p><br>
-		<p> Unknown 2022, Sustanability of Digital Formats: Planning for Library of Congress Collections, Library of
-			Congress, viewed 17 March 2022 <br>&#60;<a
-				href="https://www.loc.gov/preservation/digital/formats/index.html">https://www.loc.gov/preservation/digital/formats/index.html</a>&#62;
-		</p><br />
+
 	</section>
-    <footer>
-        <!-- <h1>.JPEG</h1> -->
-        <p>This is a website made by .JPEG team. Our members include: </p>
-        <div class="images-container">
-            <div class="box">
-                <figure class="imagebox">
-                    <img src="images/photo-1500648767791-00dcc994a43e.jpeg" alt="author's picture">
-                </figure>
-                <div class="content">
-                    <h1>Doan Anh Tuan</h1>
-                    <p>
-                        Student id: 103526745
-                        
-                    </p>
-                </div>
-            </div>
-            <div class="box">
-                <figure class="imagebox">
-                    <img src="images/photo-1500648767791-00dcc994a43e.jpeg" alt="author's picture">
-                </figure>
-                <div class="content">
-                    <h1>Doan Anh Tuan</h1>
-                    <p>
-                        Student id: 103526745
-                        
-                    </p>
-                </div>
-            </div>
-            <div class="box">
-                <figure class="imagebox">
-                    <img src="images/photo-1500648767791-00dcc994a43e.jpeg" alt="author's picture">
-                </figure>
-                <div class="content">
-                    <h1>Doan Anh Tuan</h1>
-                    <p>
-                        Student id: 103526745      
-                    </p>
-                </div>
-            </div>
-            <div class="box">
-                <figure class="imagebox">
-                    <img src="images/photo-1500648767791-00dcc994a43e.jpeg" alt="author's picture">
-                </figure>
-                <div class="content">
-                    <h1>Doan Anh Tuan</h1>
-                    <p>
-                        Student id: 103526745   
-                    </p>
-                </div>
-            </div>
-            <div class="box">
-                <figure class="imagebox">
-                    <img src="images/photo-1500648767791-00dcc994a43e.jpeg" alt="author's picture">
-                </figure>
-                <div class="content">
-                    <h1>Doan Anh Tuan</h1>
-                    <p>
-                        Student id: 103526745
-                        
-                    </p>
-                </div>
-            </div>
-        </div>
-    </footer>
+	<section class="additional-content">
+		<section class="reference">
+			<h2>Topic References</h2>
+
+			<p> Gregerson, E 2022, JPEG, Encyclopaedia Britannica, viewed 17 March 2022 </p>
+			<p>&#60;<a
+					href="https://www.britannica.com/technology/JPEG">https://www.britannica.com/technology/JPEG</a>&#62;
+			</p>
+
+			<p> No Surname, L 2022, HEIF/HEIC file format, Capture One, viewed 17 March 2022</p>
+			<p>&#60;<a
+					href="https://support.captureone.com/hc/en-us/articles/360016552258-HEIF-HEIC-file-format">https://support.captureone.com/hc/en-us/articles/360016552258-HEIF-HEIC-file-format</a>&#62;
+			</p>
+			
+			<p> Robinson, J 2022, HEIF – What you need to know, Photo Review, viewed 17 March 2022</p>
+			<p>&#60;<a
+					href="https://www.photoreview.com.au/tips/shooting/heif-what-you-need-to-know/">https://www.photoreview.com.au/tips/shooting/heif-what-you-need-to-know/</a>&#62;
+			</p>
+			
+			<p> Salvaggio, C 2020, What is Inside a JPEG File, viewed 17 March 2022</p>
+			<p> &#60;<a
+					href="https://www.imaging.org/site/IST/Resources/Imaging_Tutorials/What_s_Inside_a_JPEG_File/IST/Resources/Tutorials/Inside_JPEG.aspx?hkey=f9946f90-9f14-452d-897c-ac1612116e2d">https://www.imaging.org/site/IST/Resources/Imaging_Tutorials/What_s_Inside_a_JPEG_File/IST/Resources/Tutorials/Inside_JPEG.aspx?hkey=f9946f90-9f14-452d-897c-ac1612116e2d</a>&#62;
+			</p>
+			
+			<p> Unknown 2022, Characteristics of HEIF format, Sony, viewed 17 March 2022 </p>
+			<p>&#60;<a
+					href="https://support.d-imaging.sony.co.jp/support/ilc/heif/01/en/index.html">https://support.d-imaging.sony.co.jp/support/ilc/heif/01/en/index.html</a>&#62;
+			</p>
+			
+			<p> Unknown 2022, JPEG files, Adobe, viewed 17 March 2022 </p>
+			<p>&#60;<a
+					href="https://www.adobe.com/au/creativecloud/file-types/image/raster/jpeg-file.html">https://www.adobe.com/au/creativecloud/file-types/image/raster/jpeg-file.html</a>&#62;
+			</p>
+			
+			<p> Unknown 2022, Tags for TIFF, DNG, and Related Specifications, Library of Congress, viewed 17 March 2022
+			</p>
+			<p>&#60;<a
+					href="https://www.loc.gov/preservation/digital/formats/content/tiff_tags.shtml">https://www.loc.gov/preservation/digital/formats/content/tiff_tags.shtml</a>&#62;
+			</p>
+			
+			<p> Unknown 2022, Sustanability of Digital Formats: Planning for Library of Congress Collections, Library of
+				Congress, viewed 17 March 2022 </p>
+			<p>&#60;<a
+					href="https://www.loc.gov/preservation/digital/formats/index.html">https://www.loc.gov/preservation/digital/formats/index.html</a>&#62;
+			</p>
+		</section>
+		<aside>
+			<h2>Acronyms</h2>
+			<dl>
+				<dt>JPEG</dt>
+				<dd>Joint Photographic Experts Group</dd>
+				<dt>PNG</dt>
+				<dd>Portable Networks Group</dd>
+				<dt>TIFF</dt>
+				<dd>Tag Image File Format</dd>
+				<dt>HEIF</dt>
+				<dd>High Efficiency Image Format</dd>
+				<dt>GIF</dt>
+				<dd>Graphics Interchange Format</dd>
+				<dt>BMP</dt>
+				<dd>Microsoft Windows Bitmap</dd>
+			</dl>
+		</aside>
+	</section>
+	<footer>
+		<!-- <h1>.JPEG</h1> -->
+		<p>This is a website made by .JPEG team. Our members include: </p>
+		<div class="images-container">
+			<div class="box">
+				<figure class="imagebox">
+					<img src="images/photo-1500648767791-00dcc994a43e.jpeg" alt="author's picture">
+				</figure>
+				<div class="content">
+					<h1>Doan Anh Tuan</h1>
+					<p>
+						Student id: 103526745
+
+					</p>
+				</div>
+			</div>
+			<div class="box">
+				<figure class="imagebox">
+					<img src="images/photo-1500648767791-00dcc994a43e.jpeg" alt="author's picture">
+				</figure>
+				<div class="content">
+					<h1>Doan Anh Tuan</h1>
+					<p>
+						Student id: 103526745
+
+					</p>
+				</div>
+			</div>
+			<div class="box">
+				<figure class="imagebox">
+					<img src="images/photo-1500648767791-00dcc994a43e.jpeg" alt="author's picture">
+				</figure>
+				<div class="content">
+					<h1>Doan Anh Tuan</h1>
+					<p>
+						Student id: 103526745
+					</p>
+				</div>
+			</div>
+			<div class="box">
+				<figure class="imagebox">
+					<img src="images/photo-1500648767791-00dcc994a43e.jpeg" alt="author's picture">
+				</figure>
+				<div class="content">
+					<h1>Doan Anh Tuan</h1>
+					<p>
+						Student id: 103526745
+					</p>
+				</div>
+			</div>
+			<div class="box">
+				<figure class="imagebox">
+					<img src="images/photo-1500648767791-00dcc994a43e.jpeg" alt="author's picture">
+				</figure>
+				<div class="content">
+					<h1>Doan Anh Tuan</h1>
+					<p>
+						Student id: 103526745
+
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
 </body>
 
 </html>

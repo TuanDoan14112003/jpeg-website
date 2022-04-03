@@ -12,6 +12,11 @@ body {
 }
 
 /* Common css */
+
+a {
+    word-break: break-all;
+}
+
 .main-content {
     margin: 0 5%;
 }
@@ -351,28 +356,10 @@ footer > p {
 
 
 /* Topic css */
+
+
 #topicimage {
     background-image: url("images/topicimage.jpg");
-}
-
-
-
-
-aside {
-    width: 30%;
-    margin-left: 2.0rem;
-    float: right;
-	color: black;
-    border: 3px solid #5fcc89;
-    border-left-width: 1.4em;
-}
-
-aside > p {
-    margin: .5rem;
-}
-
-ol{
-    color: white;    
 }
 
 #def-header {
@@ -474,17 +461,8 @@ ol{
     font-weight: 300;
 }
 
-.section-information .information-container dl dt,
-.section-information .information-container dl dd{
-    font-size: 1.2em;
-    font-weight: 300;
-} /*I tried adding the DL to the other section information, but it just wouldn't pair */
 
-.section-information .information-container dl dt{
-    font-weight: bold;
-}
 
-.section-information .information-container dl dd
 .section-information .information-container ol li {
     margin-top: 10px;
 }
@@ -542,6 +520,10 @@ ol{
     background: #de6c64;
 }
 
+.comparison-section h3 {
+    margin-top:40px;
+}
+
 #other-tech-table {
     border-collapse: collapse;
     margin: 25px 0;
@@ -570,9 +552,42 @@ ol{
 #other-tech-table tbody tr:nth-of-type(even) {
     background-color: #f3f3f3;
 }
-.reference {
-    margin: 90px;
+
+
+.additional-content {
+    display: flex;
+    margin: 20px 5%;
+    justify-content: space-between;
 }
+
+.reference {
+    width: 60%;
+}
+
+.additional-content aside {
+    float: right;
+}
+.additional-content aside dl {
+    margin-left:10px;
+}
+.additional-content aside dl dd {
+    padding-left:20px;
+}
+.additional-content aside dl dt {
+    margin-top:5px;
+    font-weight: 600;   
+}
+
+.additional-content h2 {
+    margin-bottom:20px;
+}
+
+.reference p:nth-of-type(even){
+    margin-bottom:25px;
+}
+
+
+
 /* End Topic css */
 
 

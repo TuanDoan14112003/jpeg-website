@@ -198,6 +198,14 @@ footer>p {
     transition-delay: 0.2s;
 }
 
+@media only screen and (max-width: 600px){
+    .images-container .box{
+        width: 70px;
+        height: 70px;
+        margin-top: 30px 5px 30px 5px;
+    }
+}
+
 /* End footer css */
 
 /* Index css */
@@ -678,11 +686,11 @@ input[type=reset] {
 
 }
 
-<<<<<<< HEAD
 #quizbackground {
     background: #FE3267;
 }
 /* End Quiz.css */
+
 
 /* Start Enhancements */
 #enhancementsjpg{
@@ -690,37 +698,50 @@ input[type=reset] {
 }
 
 #EnhancementsArticle{
-    background-color: #8332A6;
+    background-color: white;
+    margin-left: 10px;
 }
 
 #EnhancementsHeader{
     font-size: 32px;
     font-weight: bold;
-    color: #BF84D9;
-    padding-left: 10px;
+    color: black;
+    padding-bottom: 40px;
+    padding-top: 10px;
 }
 
 .SubHeading{
     font-size: 24px;
     font-weight: bold;
-    color: #BF84D9;   
+    color: black;   
     padding-bottom: 5px;
 }
 
 .EnhancementsSection{
     font-size: 18px;
-    color: #BF84D9;
-    padding-left: 10px;
+    color: black;
+    display: flow-root;
+    padding-bottom: 20px;
 }
 
 .Link{
     font-size: 20px;
-    color: #010326;
+    color: purple;
+}
+
+#HoverEffect{
+    float: right;
+    padding-right: 100px;
+    padding-left: 50px;
+}    
+
+#TextTrailEffect{
+    float: right;
+    padding-right: 100px;
+    padding-left: 50px;
+    
 }
 
 
-
 /* End Enhancements */
-=======
-/* End Quiz.css */
->>>>>>> 9803f9749ec095a3211b97019ad0afe54c1598f8
+

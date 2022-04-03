@@ -3,14 +3,15 @@
 
 <head>
 	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Homepage of the JPEG website">
+    <meta name="keywords" content="JPEG">
+    <meta name="author" content="Gabriel Chee">
+    <title>JPEG Quizzes</title>
 	<link rel="stylesheet" href="styles/style.css">
-	<title>Document</title>
 </head>
 
 <body>
-
 	<header class="title-background" id="quizjpeg">
 		<nav id="navigation">
 			<ul class="nav_links">
@@ -21,9 +22,7 @@
 		</nav>
 		<h1 class="page-title">JPEG Quizzes</h1>
 	</header>
-	<div class="quiz-content main-content">
-
-
+	<section class="quiz-content main-content">
 		<h2>JPEG Quiz</h2>
 		<p>Here is a quiz to test your knowledge of the information that you have seen on this website about JPEGS:
 		</p>
@@ -49,7 +48,7 @@
 				<p class="questions">
 					<label for="student_id">Enter your student number (EG: 103994165): </label>
 					<input placeholder="Your student number" type="text" id="student_id" name="student_id"
-						required="required" minlength="7" maxlength="10"><br>
+						required="required" pattern="^(\d{7}|\d{10})$">
 				</p>
 			</fieldset>
 
@@ -81,13 +80,11 @@
 						<input type="radio" id="question_2_option_3" name="question_2" value="3" />
 						<label for="question_2_option_3">3</label>
 
-						<input type="radio" id="question_2_option_4" name="question_2" value="5"> <label
-							for="question_2_option_4">5</label>
+						<input type="radio" id="question_2_option_4" name="question_2" value="5"> 
+						<label for="question_2_option_4">5</label>
 					</div>
 				</div>
 			</fieldset>
-
-
 
 			<fieldset>
 				<legend>
@@ -96,28 +93,27 @@
 				<div class="questions">
 					<p>Q3) Select the compression types other than JPEG:</p>
 					<div class="checkbox choices">
-						<input id="question_3_option1" type="checkbox" name="question_3_option1" value="TIFF" />
+						<input id="question_3_option1" type="checkbox" name="other_tech[]" value="TIFF" />
 						<label for="question_3_option1">TIFF</label>
 
-						<input id="question_3_option2" type="checkbox" name="question_3_option2" value="GIF" />
+						<input id="question_3_option2" type="checkbox" name="other_tech[]" value="GIF" />
 						<label for="question_3_option2">GIF</label>
 
-						<input id="question_3_option3" type="checkbox" name="question_3_option3" value="BMP" />
+						<input id="question_3_option3" type="checkbox" name="other_tech[]" value="BMP" />
 						<label for="question_3_option3">BMP</label>
 
-						<input id="question_3_option4" type="checkbox" name="question_3_option4" value="HEIF" />
+						<input id="question_3_option4" type="checkbox" name="other_tech[]" value="HEIF" />
 						<label for="question_3_option4">HEIF</label>
 
-						<input id="question_3_option5" type="checkbox" name="question_3_option5" value="PNG" />
+						<input id="question_3_option5" type="checkbox" name="other_tech[]" value="PNG" />
 						<label for="question_3_option5">PNG</label>
 
-						<input id="question_3_option6" type="checkbox" name="question_3_option6" value="MP4" />
+						<input id="question_3_option6" type="checkbox" name="other_tech[]" value="MP4" />
 						<label for="question_3_option6">MP4</label>
 					</div>
 				</div>
 
 			</fieldset>
-
 
 			<fieldset>
 				<legend>
@@ -135,28 +131,84 @@
 
 			</fieldset>
 
-
-
-
 			<fieldset>
 				<legend>
 					JPEG History
 				</legend>
 				<div class="questions">
-				<label for="question_5">Q5)When were JPEG's founded?</label>
-				<input type="number" id="question_5" name="question_5" step=331>
+					<label for="question_5">Q5) When were JPEG's founded?</label>
+					<input type="number" id="question_5" name="question_5" min="1000" max="9999">
 				</div>
 
 			</fieldset>
 
-			
-			
-				<input class="submit submit1" type="submit" value="Submit quiz"/>
-			
+			<div class="container1">
+				<button class="btn btn1" type="submit">Submit quiz</button>
+				<button class="btn btn1" type="reset">Reset quiz</button>
+			</div>
 
-			
-			<input type="reset" value="Reset" />
-			
 		</form>
-	</div>
+	</section>
+	<footer>
+		<!-- <h1>.JPEG</h1> -->
+		<p>This is a website made by .JPEG team. Our members include: </p>
+		<div class="images-container">
+			<div class="box">
+				<figure class="imagebox">
+					<img src="images/photo-1500648767791-00dcc994a43e.jpeg" alt="author's picture">
+				</figure>
+				<div class="content">
+					<h1>Doan Anh Tuan</h1>
+					<p>
+						Student id: 103526745
+					</p>
+				</div>
+			</div>
+			<div class="box">
+				<figure class="imagebox">
+					<img src="images/photo-1500648767791-00dcc994a43e.jpeg" alt="author's picture">
+				</figure>
+				<div class="content">
+					<h1>Doan Anh Tuan</h1>
+					<p>
+						Student id: 103526745
+					</p>
+				</div>
+			</div>
+			<div class="box">
+				<figure class="imagebox">
+					<img src="images/photo-1500648767791-00dcc994a43e.jpeg" alt="author's picture">
+				</figure>
+				<div class="content">
+					<h1>Doan Anh Tuan</h1>
+					<p>
+						Student id: 103526745
+					</p>
+				</div>
+			</div>
+			<div class="box">
+				<figure class="imagebox">
+					<img src="images/photo-1500648767791-00dcc994a43e.jpeg" alt="author's picture">
+				</figure>
+				<div class="content">
+					<h1>Doan Anh Tuan</h1>
+					<p>
+						Student id: 103526745
+					</p>
+				</div>
+			</div>
+			<div class="box">
+				<figure class="imagebox">
+					<img src="images/photo-1500648767791-00dcc994a43e.jpeg" alt="author's picture">
+				</figure>
+				<div class="content">
+					<h1>Doan Anh Tuan</h1>
+					<p>
+						Student id: 103526745
+
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
 </body>

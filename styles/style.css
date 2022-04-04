@@ -15,6 +15,7 @@ body {
 
 a {
     word-break: break-all;
+    text-decoration: none;
 }
 
 .main-content {
@@ -104,6 +105,10 @@ footer {
 footer > p {
     padding-top: 30px;
     margin-top: 0;
+}
+footer a {
+    color: #fff;
+    font-size: 0.85em;
 }
 
 
@@ -371,7 +376,7 @@ footer > p {
 }
 
 
-.topic-section {
+.topic-section, .enhancement-section {
     margin-top: 40px;
     /* width: 100%; */
 
@@ -715,23 +720,27 @@ https://www.youtube.com/watch?v=MLfAW55_4cY */
 
 
 
-<<<<<<< HEAD
-   
-
-
-}
-
-#quizbackground {
-    background: #FE3267;
-}
 /* End Quiz.css */
 
 
 /* Start Enhancements */
 #enhancementsjpg{
-    background-image: url("images/enhancementsbackground.jpg");
+    background-image: url("images/enhancement.jpg");
 }
 
+#hover-effect-section #hover-effect-figure  {
+    max-width: 70%;
+    margin-left: 70px;
+}
+#text-trail-effect-section #text-trail-effect-figure {
+    max-width: 70%;
+    margin-right: 70px;
+}
+.enhancement-section .section-information .information-container p {
+    margin-bottom:10px;
+}
+
+/* 
 #EnhancementsArticle{
     background-color: white;
     margin-left: 10px;
@@ -775,11 +784,8 @@ https://www.youtube.com/watch?v=MLfAW55_4cY */
     padding-right: 100px;
     padding-left: 50px;
     
-}
+} */
 
 
 /* End Enhancements */
 
-=======
-/* End Quiz.css */
->>>>>>> a140329d64b08b057bb7ea463c08ffc6fe84f963

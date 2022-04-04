@@ -24,7 +24,7 @@ a {
 
 .title-background {
     width: 100%;
-    height: 350px;
+    height: 35%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -240,7 +240,6 @@ footer a {
     width: 100%;
     background-image: url("images/background3.webp");
 
-    /* display: flex; */
     align-items: center;
     justify-content: center;
 
@@ -740,52 +739,9 @@ https://www.youtube.com/watch?v=MLfAW55_4cY */
     margin-bottom:10px;
 }
 
-/* 
-#EnhancementsArticle{
-    background-color: white;
-    margin-left: 10px;
+#enhancement-footer-section {
+    margin-top: 50px;
 }
-
-#EnhancementsHeader{
-    font-size: 32px;
-    font-weight: bold;
-    color: black;
-    padding-bottom: 40px;
-    padding-top: 10px;
-}
-
-.SubHeading{
-    font-size: 24px;
-    font-weight: bold;
-    color: black;   
-    padding-bottom: 5px;
-}
-
-.EnhancementsSection{
-    font-size: 18px;
-    color: black;
-    display: flow-root;
-    padding-bottom: 20px;
-}
-
-.Link{
-    font-size: 20px;
-    color: purple;
-}
-
-#HoverEffect{
-    float: right;
-    padding-right: 100px;
-    padding-left: 50px;
-}    
-
-#TextTrailEffect{
-    float: right;
-    padding-right: 100px;
-    padding-left: 50px;
-    
-} */
-
 
 /* End Enhancements */
 

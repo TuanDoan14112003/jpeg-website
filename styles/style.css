@@ -727,14 +727,16 @@ https://www.youtube.com/watch?v=MLfAW55_4cY */
     background-image: url("images/enhancement.jpg");
 }
 
-#hover-effect-section #hover-effect-figure  {
-    max-width: 70%;
+#hover-effect-image  {
+    max-width: 50%;
     margin-left: 70px;
 }
-#text-trail-effect-section #text-trail-effect-figure {
-    max-width: 70%;
+
+#text-trail-effect-image {
+    max-width: 50%;
     margin-right: 70px;
 }
+
 .enhancement-section .section-information .information-container p {
     margin-bottom:10px;
 }

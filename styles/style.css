@@ -1,7 +1,15 @@
+/* 
+filename: style.css
+author: Anh Tuan Doan, Anthony Krueger, Mitch Anderson, Gabriel Chee, and Andrew Grivas
+created: 16/3/2022
+last modified date: 9/4/2022
+description: the CSS style for index, topic, quiz, and enhancements webpages
+*/
+
+/* Common css */
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600;700&display=swap'); /* import font for the page */
 
 * {
-    /* Change the font and remove margin, padding for every element */
     font-family: Rubik, sans-serif;
     margin: 0;
     padding: 0;
@@ -9,18 +17,16 @@
 
 html,
 body {
-    height: 100%; /* Make the body element cover the whole screen */
+    height: 100%; 
 }
-
-/* Common css */
 
 a {
     word-break: break-all; /* allows link elements to break between lines */
-    text-decoration: none; /* remove the under line of the link elements */
+    text-decoration: none; /* removes the underline of the link elements */
 }
 
 .main-content {
-    margin: 0 5%;
+    margin: 0 3vw;
 }
 
 .title-background {
@@ -35,8 +41,8 @@ a {
     position: relative;
 }
 
-.page-title {
-    font:bold 2em Rubik, sans-serif;
+header h1 {
+    font: normal bold 2em Rubik, sans-serif;
     color: #fff;
     position: absolute;
 
@@ -46,16 +52,16 @@ a {
     transform: translate(-50%, -50%);
 }
 
-/* End common css */
+/* End Common css */
 
 
 
-/* Navigation css */
+/* Navigation bar css */
 
-/* The navigation link hover animation was inspired by this video https://www.youtube.com/watch?v=aswRKAjjWuE */
+/* The navigation links hover animation was inspired by this video https://www.youtube.com/watch?v=aswRKAjjWuE */
 nav {
     float: right;
-    margin: 20px 30px 0 0;
+    margin: 1.5em 1.2em 0 0;
 }
 
 nav ul {
@@ -64,14 +70,14 @@ nav ul {
 
 nav li {
     display: inline-block;
-    margin-left: 50px;
+    margin-left: 2vw;
     position: relative;
 }
 
 nav a {
     color: rgb(240, 230, 230);
     text-decoration: none;
-    font-size: 17px;
+    font-size: 1.1em;
     font-weight: 300;
     letter-spacing: 0.5px;
 }
@@ -86,15 +92,14 @@ nav a::after {
     bottom: -10px;
     transition: 0.3s;
 }
-
+/* When the the user hover the mouse to a link, the width of a:hover::after line will be increased to 100% */
 nav a:hover::after {
     width: 100%;
 }
-
-/* End Navigation css */
+/* End Navigation bar css */
 
 /* Footer css */
-/* The picture animation was inspired by this video: https://www.youtube.com/watch?v=nM-30MdKNc4 */
+/* The image hover animation was inspired by this video: https://www.youtube.com/watch?v=nM-30MdKNc4 */
 footer {
     background-color: #060E33;
     width: 100%;
@@ -105,8 +110,7 @@ footer {
 }
 
 footer > p {
-    padding-top: 30px;
-    margin-top: 0;
+    padding-top: 2em;
 }
 footer a {
     color: #fff;
@@ -124,17 +128,16 @@ footer a {
 
 .images-container .box {
     position: relative;
-    width: 200px;
-    height: 200px;
+    width: 14vw;
+    height: 14vw;
     overflow: hidden;
     transition: 0.5s;
-    margin: 30px 10px 30px 10px;
-    /* margin-left: 60px; */
+    margin: 1.9em 0.7em;
 }
 
 .images-container .box:hover {
     z-index: 1;
-    transform: scale(1.25);
+    transform: scale(1.25); /* Makes the image bigger when hovered */
     box-shadow: 0 25px 40px rgba(0, 0, 0, 0.5);
 }
 
@@ -184,12 +187,12 @@ footer a {
 }
 
 .images-container .box .content h1 {
-    font-size: 18px;
+    font-size: 1.1em;
     color: #fff;
     transition: 0.5s;
     text-transform: uppercase;
-    margin-bottom: 5px;
-    transform: translateY(500px);
+    margin-bottom: 0.2em;
+    transform: translateY(500px); /* The element will float up by 500px */
 }
 
 .images-container .box:hover .content h1 {
@@ -198,7 +201,7 @@ footer a {
 
 .images-container .box .content p {
     color: #fff;
-    font-size: 14px;
+    font-size: 0.9em;
     transition: 0.5s;
     transform: translateY(500px);
 }
@@ -208,24 +211,14 @@ footer a {
     transition-delay: 0.2s;
 }
 
-@media only screen and (max-width: 600px){
-    .images-container .box{
-        width: 70px;
-        height: 70px;
-        margin: 30px 5px 30px 5px;
-    }
-}
 
-/* End footer css */
+
+/* End Footer css */
+
+/* Index css */
 
 /* 
-Index css
-Author : Anh Tuan Doan 
-Last modified date: 6/4/2022
-*/
-
-/* 
-The enhancement below is inspired by this video: https://www.youtube.com/watch?v=ZQUKEkCuws8&t=9s
+The enhancement below was inspired by the "Rainbow effect" from this video: https://www.youtube.com/watch?v=ZQUKEkCuws8&t=9s
 */
 :root {
     --color-background: #31037d;
@@ -245,7 +238,7 @@ The enhancement below is inspired by this video: https://www.youtube.com/watch?v
 }
 
 .bg {
-    /* height: 100%; */
+
     width: 100%;
     background-image: url("images/background.webp"); /* Image found on https://www.reddit.com/r/wallpaper/comments/lvaqga/1920x1080_minimalist_wallpaper_collection/ */
 
@@ -262,15 +255,12 @@ The enhancement below is inspired by this video: https://www.youtube.com/watch?v
 }
 
 .c-rainbow {
-
     counter-reset: rainbow;
-    /* position: relative; */
-    /* display: block; */
     position: absolute;
     list-style: none;
-    /* padding: 0;
-    margin: 0; */
     text-align: center;
+
+    /* The following 3 properties center the element */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -286,7 +276,7 @@ The enhancement below is inspired by this video: https://www.youtube.com/watch?v
 }
 
 .c-rainbow__layer:nth-child(1) {
-    animation-delay: calc(1 / var(--delay) * 1s);
+    animation-delay: calc(1 / var(--delay) * 1s); /* Create delays for the layers so that it creates a trail effect */
     left: calc(var(--axis-x) * 1);
     z-index: -10;
 }
@@ -364,23 +354,19 @@ The enhancement below is inspired by this video: https://www.youtube.com/watch?v
 
     0%,
     100% {
-        transform: translatey(var(--axis-y));
+        transform: translatey(var(--axis-y)); 
     }
 
     50% {
-        transform: translatey(calc(var(--axis-y) * -1));
+        transform: translatey(calc(var(--axis-y) * -1)); /* Makes the texts bounce up and down */
     }
 }
 
-/* End index css */
+/* End Index css */
 
 
 
-/* 
-Topic css
-Author: Anthony Krueger and Mitch Anderson
-Last modified date: 6/4/2022
- */
+/* Topic css */
 
 #topicimage {
     background-image: url("images/topicimage.webp"); /* Art made by WhimsicalFishy: https://www.deviantart.com/whimsicalfishy/art/Flying-whales-907207022 */
@@ -388,7 +374,7 @@ Last modified date: 6/4/2022
 
 
 .topic-section, .enhancement-section {
-    margin-top: 40px;
+    margin-top: 3em;
     display: flex;
     justify-content: space-between;
 }
@@ -398,7 +384,7 @@ Last modified date: 6/4/2022
 }
 
 #jpeg-timeline-figure {
-    margin-left: 60px;
+    margin-left: 1.8vw;
     width: 200%;
 }
 
@@ -409,7 +395,7 @@ Last modified date: 6/4/2022
 
 
 #jpeg-compression-figure {
-    margin-right: 60px;
+    margin-right: 3vw;
 }
 
 #jpeg-compression-image {
@@ -419,7 +405,7 @@ Last modified date: 6/4/2022
 }
 
 #jpeg-function-figure {
-    margin-left: 60px;
+    margin-left: 1.8vw;
     width: 200%;
 
 }
@@ -429,20 +415,21 @@ Last modified date: 6/4/2022
     height: 100%;
 }
 .other-tech-figure {
-    margin-right: 60px;
+    margin-right: 1.8vw;
 
 }
 .other-tech-image {
-    width: 25vw;
+    width: 20vw;
     height: 100%;
 }
 
 .information-container {
+    /* The following 3 properties centre the element vertically */
     position: relative;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-50%); 
 
-    text-align: justify;
+    text-align: justify;    /* Make each line of the paragraph have equal width */
     text-justify: inter-word;
 }
 
@@ -519,12 +506,16 @@ Last modified date: 6/4/2022
 
 
 .comparison-section h3 {
-    margin-top:40px;
+    margin-top:3em;
 }
 
-/* The design for the table below is inspired by this article:
-https://dev.to/dcodeyt/creating-beautiful-html-tables-with-css-428l
-*/
+@media only screen and (max-width: 600px)  {
+    .main-content figure {
+        display: none;
+    }
+}
+
+/* The design for the table below is inspired by this article: https://dev.to/dcodeyt/creating-beautiful-html-tables-with-css-428l */
 #other-tech-table {
     margin-top: 20px;
     margin-bottom: 50px;
@@ -546,23 +537,30 @@ https://dev.to/dcodeyt/creating-beautiful-html-tables-with-css-428l
     text-align: center;
     padding: 15px;
 }
-
+/* This selects every other row and makes the background color darker */
 #other-tech-table tbody tr:nth-of-type(even) {
     background-color: rgb(245, 245, 245);
 }
 
 
 .additional-content {
-    display: flex;
     margin: 20px 5%;
 }
 
 
 .additional-content aside {
+    margin-left:20px;
+    padding: 20px;
+    border: 1px dashed #27A858;
     float: right;
     width: 30vw;
-    margin-left:10%;
 }
+
+.reference {
+    width: 50vw;
+}
+
+
 .additional-content aside dl {
     margin-left:10px;
 }
@@ -578,6 +576,7 @@ https://dev.to/dcodeyt/creating-beautiful-html-tables-with-css-428l
     margin-bottom:20px;
 }
 
+/* This selects every other paragraph */
 .reference p:nth-of-type(even){
     margin-bottom:25px;
 }
@@ -587,11 +586,7 @@ https://dev.to/dcodeyt/creating-beautiful-html-tables-with-css-428l
 /* End Topic css */
 
 
-/* 
-Quiz css 
-Author: Gabriel 
-Last modified date: 02/04/2022
-*/
+/* Quiz css */
 
 
 #quizjpeg {
@@ -641,7 +636,8 @@ input[type=text],
 input[type=number],
 .selection {
     width: 100%;
-    max-width: 280px;
+    max-width: 25vw;
+    min-width: 200px;
 
     font-size: 1em;
     font-weight: 300;
@@ -649,7 +645,7 @@ input[type=number],
     padding: 10px 10px 10px 20px;
     margin: 10px 20px;
 
-    outline: none;
+    outline: none; /* Removes the outline when the element is selected */
     border: 1px solid rgb(255, 255, 255);
     border-radius: 4px; 
     background: #f9f9f9;  
@@ -687,7 +683,8 @@ https://www.youtube.com/watch?v=MLfAW55_4cY */
     border: 1px solid #C05252;
     background: none;
     padding: 5px 10px;
-    font-size: 17px;
+    font-size: 1em;
+    font-weight: 300;
     cursor: pointer;
     margin: 10px;
     transition: 0.8s;
@@ -700,9 +697,8 @@ https://www.youtube.com/watch?v=MLfAW55_4cY */
 }
 
 
-
-.btn1:hover{ /* 
-This activates when the user hovers their mouse to the button  */
+/* This activates when the user hovers their mouse to the button  */
+.btn1:hover{ 
     color: #fff;
 }
 
@@ -729,26 +725,24 @@ This activates when the user hovers their mouse to the button  */
 
 
 
-/* End Quiz.css */
+/* End Quiz css */
 
 
-/* 
-Start Enhancements
-Author: Andrew Grivas
-Last modified date: 6/4/2022 
-*/
+/* Enhancements css */
 
 #enhancementsjpg{
     background-image: url("images/enhancement.webp"); /* Artwork made by Nele-Diel: https://www.deviantart.com/nele-diel/art/Endless-Sky-910764575 */
 }
 
 #hover-effect-image  {
-    max-width: 50%;
+    width: 150%;
+    max-width: 40%;
     margin-left: 70px;
 }
 
 #text-trail-effect-image {
-    max-width: 50%;
+    width: 150%;
+    max-width: 40%;
     margin-right: 70px;
 }
 
@@ -760,5 +754,5 @@ Last modified date: 6/4/2022
     margin-top: 50px;
 }
 
-/* End Enhancements */
+/* End Enhancements css*/
 

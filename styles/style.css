@@ -241,11 +241,6 @@ The enhancement below was inspired by the "Rainbow effect" from this video: http
 
     width: 100%;
     background-image: url("images/background.webp"); /* Image found on https://www.reddit.com/r/wallpaper/comments/lvaqga/1920x1080_minimalist_wallpaper_collection/ */
-
-    align-items: center;
-    justify-content: center;
-
-    font-family: var(--font-name);
     height: 100%;
 
     background-position: center;
@@ -258,7 +253,6 @@ The enhancement below was inspired by the "Rainbow effect" from this video: http
     counter-reset: rainbow;
     position: absolute;
     list-style: none;
-    text-align: center;
 
     /* The following 3 properties center the element */
     top: 50%;

@@ -2,12 +2,12 @@
 filename: style.css
 author: Anh Tuan Doan, Anthony Krueger, Mitch Anderson, Gabriel Chee, and Andrew Grivas
 created: 16/3/2022
-last modified date: 9/4/2022
-description: the CSS style for index, topic, quiz, and enhancements webpages
+last modified: 10/4/2022
+description: the CSS style for index, topic, quiz, and enhancements web pages
 */
 
 /* Common css */
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600;700&display=swap'); /* import font for the page */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600;700&display=swap');
 
 * {
     font-family: Rubik, sans-serif;
@@ -60,12 +60,15 @@ header h1 {
 
 /* The navigation links hover animation was inspired by this video https://www.youtube.com/watch?v=aswRKAjjWuE */
 nav {
-    float: right;
-    margin: 1.5em 1.2em 0 0;
+    text-align: right;
+    padding: 1.3em 0 1.3em 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.032);
 }
 
 nav ul {
     list-style: none;
+    margin-right: 1.2em;
 }
 
 nav li {
@@ -92,7 +95,7 @@ nav a::after {
     bottom: -10px;
     transition: 0.3s;
 }
-/* When the the user hover the mouse to a link, the width of a:hover::after line will be increased to 100% */
+/* When the the user hovers the mouse over a link, the width of a:hover::after will be increased to 100% */
 nav a:hover::after {
     width: 100%;
 }
@@ -595,7 +598,7 @@ The enhancement below was inspired by the "Rainbow effect" from this video: http
     font-weight: 200;
 }
 .quiz-content {
-    margin-bottom: 70px;
+    margin-bottom: 100px;
 }
 
 #question-form {

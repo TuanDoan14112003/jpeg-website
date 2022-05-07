@@ -14,6 +14,15 @@ else if ($page == 'enhancements')
             <li><a href="quiz.php">Quizzes</a></li>
             <li><a href="enhancements.php">Enhancements</a></li>
             <li><a target="_blank" href="https://www.youtube.com/watch?v=TmwScvE_rLE">Demonstration Video</a></li>
+            <li><a>Welcome, <?php 
+            session_start();
+            if (isset($_SESSION['name'])) {
+                echo $_SESSION['name'];
+            }
+            
+             ?>!
+             </a></li>
+            
         </ul>
     </nav>
     <!-- The title of the page: -->

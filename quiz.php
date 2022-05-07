@@ -33,7 +33,7 @@
 		<p>Here is a quiz to test your knowledge of the information that you have seen on this website about JPEGS:
 		</p>
 
-		<form id="question-form" method="post" action="https://mercury.swin.edu.au/it000000/formtest.php">
+		<form id="question-form" method="post" action="markquiz.php">
 
 			<fieldset>
 				<legend>Your information</legend>
@@ -58,7 +58,7 @@
 				</p>
 			</fieldset>
 
-			<fieldset>
+			<!-- <fieldset>
 				<legend>
 					JPEG
 				</legend>
@@ -146,8 +146,61 @@
 					<input type="number" id="question_5" name="question_5" min="1800" max="9999">	
 				</p>
 
-			</fieldset>
-
+			</fieldset> -->
+			<?php 
+			require_once "database_credentials.php";
+			
+			$connection = mysqli_connect($host,$user,$pwd,$sql_db);
+			if ($connection) {
+				// echo "Successfully";
+			
+				$select_random_questions_query = "SELECT * FROM questions ORDER BY RAND() LIMIT 2;";
+				$query_result = mysqli_query($connection,$select_random_questions_query);
+				if ($query_result) {
+					$question_count = 0;
+					$question_list = "";
+					while ($row = mysqli_fetch_assoc($query_result)) {
+						$question_count += 1;
+						echo "<fieldset>";
+						echo "<section class='questions'>";
+						if ($question_count != 1) $question_list .= ",";
+						$question_list .= "question_{$row['question_id']}";
+						
+						if ($row['question_type'] == 'multi-choices') {
+							echo "<p>Q{$question_count}) {$row['question']} </p>";
+							echo "<p class='radio choices'>";
+							$choices = json_decode($row['question_choices']);
+							shuffle($choices);
+							$choice_count = 0;
+							foreach ($choices as $choice) {
+								$choice_count += 1;
+								echo "<input id=\"question_{$row['question_id']}_option_{$choice_count}\" type='radio' name='question_{$row['question_id']}' value='{$choice}' required='required'> ";
+								echo "<label for=\"question_{$row['question_id']}_option_{$choice_count}\">{$choice}</label>";
+							}
+							echo "</p>";
+							
+						} elseif ($row['question_type'] == 'text') {
+							echo "<label for='question_{$row['question_id']}'>";
+							echo "Q{$question_count}) {$row['question']}";
+							echo "</label>";
+							echo "<input placeholder='Type your answer here...' id='question_{$row['question_id']}' type='text' name='question_{$row['question_id']}' required>";
+						}
+						echo "</section>";
+						echo "</fieldset>";
+						
+					}
+					echo "<input type='hidden' name='question_list' value='{$question_list}'>";
+					
+				} else {
+					echo ("<p> Can't query </p>");
+				}
+				
+				
+				mysqli_close($connection);
+			} else {
+				echo "no";
+			}
+			?>
 			<p class="container1">
 				<button class="btn btn1" type="submit">Submit quiz</button>
 				<button class="btn btn1" type="reset">Reset quiz</button>

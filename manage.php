@@ -1,5 +1,5 @@
 <?php
-require_once "database_credentials.inc";
+require_once "database_credentials.php";
 function display_query($result) {
     echo "<table border='1'>";
     echo "<tr><th>Attempt_id</th><th>student_id</th><th>first_name</th>
@@ -52,19 +52,19 @@ if ($connection) {
     //     echo "can't query";
     // }
     
-    $student_id = '100';
-    $query5 = "DELETE FROM attempts WHERE student_id=$student_id";
-    $result5 = mysqli_query($connection, $query5);
-    echo "<h1>hi</h1>";
+    // $student_id = '100';
+    // $query5 = "DELETE FROM attempts WHERE student_id=$student_id";
+    // $result5 = mysqli_query($connection, $query5);
+    // echo "<h1>hi</h1>";
 
 
 
-    if($result5) {
-        // display_query($result5);
-        echo gettype($result5);
-    } else {
-        echo "can't query";
-    }
+    // if($result5) {
+    //     // display_query($result5);
+    //     echo gettype($result5);
+    // } else {
+    //     echo "can't query";
+    // }
 
     // $student_id = '';
     // $new_score = 95;

@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="JPEG login">
+    <meta name="keywords" content="JPEG">
+    <meta name="author" content="Anh Tuan Doan">
+    <title>Login</title>
+	<link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
     <?php
-        session_start();
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        include_once("sanitise_input.php");
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             require_once "database_credentials.php";
             $connection = mysqli_connect($host,$user,$pwd,$sql_db);
             if ($connection) {
                 echo "<p>Successfully</p>";
                 $errorMSG = '';
                 if (isset($_POST['student_id']) and isset($_POST['password'])) {
-                    $student_id = $_POST['student_id'];
-                    $password = $_POST['password'];
+                    $student_id = sanitise_input($_POST['student_id']);
+                    $password = sanitise_input($_POST['password']);
 
                     $validate_account_query = "select * from users where student_id = '$student_id' and password = '$password'";  
                     $validate_account_query_result = mysqli_query($connection, $validate_account_query);  
@@ -30,7 +33,7 @@
                             echo "<h1>Login successful</h1>";  
                                         
                             // Store data in session variables
-                            $_SESSION["loggedin"] = true;
+                            $_SESSION["logged_in"] = true;
                             $_SESSION["student_id"] = $row['student_id'];
                             $_SESSION["name"] = $row['first_name'];
 
@@ -53,14 +56,48 @@
             }
             mysqli_close($connection);
         }
-        
+        include_once("nav.inc");
     ?>
-    <form method="post" action="login.php">
-        <input type="text" name="student_id">
-        <input type="text" name="password">
-        <?php  if(!empty($_SESSION['errMsg'])) { echo $_SESSION['errMsg']; } ?>
-        <button type="submit">GO</button>
-    </form>
+
+    <section class="authentication-background">
+        <section class="authentication-title">
+            <h2 >Welcome to</h2>
+            <h1>JPEG WEB</h1>
+        </section>
+        <section class = "authentication-form">
+            <div class="authentication-form-box">
+                <h2 class = "authentication-form-title">Login</h2>
+                <form method="post" action="login.php">
+                    <div class = "authentication-form-row">
+                        <div class="authentication-form-item">
+                            <div class="authentication-form-input">
+                                <!-- <label for="email">Email</label> -->
+                                <input type="text" id="email" name="email" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "authentication-form-row">
+                        <div class="authentication-form-item">
+                            <div class="authentication-form-input">
+                                <!-- <label for="password">Password</label> -->
+                                <input type="password" id="password" name="password" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "authentication-form-row">
+                        <div class="authentication-form-item">
+                            <button class="authentication-form-submit-button" type="submit">Create account</button>
+                        </div>
+                    </div>
+
+                    
+                    
+                    <?php  if(!empty($_SESSION['errMsg'])) { echo $_SESSION['errMsg']; } ?>
+                    
+                </form>
+            </div>
+        </section>
+    </section>
     <?php unset($_SESSION['errMsg']); ?>
 </body>
 </html>

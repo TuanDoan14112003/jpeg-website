@@ -24,7 +24,7 @@
 		<h1 class="page-title">JPEG Quizzes</h1>
 	</header> -->
 	<?php
-	$page_title = '<h1 class="page-title">JPEG Quizzes</h1>';
+	
 	$page = 'quiz';
 	include_once("header.inc")
 	?>
@@ -33,7 +33,7 @@
 		<p>Here is a quiz to test your knowledge of the information that you have seen on this website about JPEGS:
 		</p>
 
-		<form id="question-form" method="post" action="markquiz.php">
+		<form id="question-form" method="post" action="markquiz.php" novalidate>
 
 			<fieldset>
 				<legend>Your information</legend>

@@ -14,16 +14,6 @@
 <body>
 
     <?php
-    $page_title = '
-    <ul class="c-rainbow">
-    <li class="c-rainbow__layer c-rainbow__layer--white">.JPEG</li>
-    <li class="c-rainbow__layer c-rainbow__layer--orange">.JPEG</li>
-    <li class="c-rainbow__layer c-rainbow__layer--red">.JPEG</li>
-    <li class="c-rainbow__layer c-rainbow__layer--violet">.JPEG</li>
-    <li class="c-rainbow__layer c-rainbow__layer--blue">.JPEG</li>
-    <li class="c-rainbow__layer c-rainbow__layer--green">.JPEG</li>
-    <li class="c-rainbow__layer c-rainbow__layer--yellow">.JPEG</li>
-</ul>';
     $page = "index";
     include_once("header.inc");
     include_once("footer.inc");

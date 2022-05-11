@@ -24,7 +24,7 @@
 		<h1 class="page-title">Enhancements</h1>
 	</header> -->
     <?php
-        $page_title = '<h1 class="page-title">Enhancements</h1>';
+        
         $page = 'enhancements';
         include_once('header.inc');
     ?>

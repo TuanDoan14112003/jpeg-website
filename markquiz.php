@@ -1,3 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="JPEG quizzes">
+    <meta name="keywords" content="JPEG">
+    <meta name="author" content="Gabriel Chee">
+    <title>JPEG Quizzes result</title>
+	<link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+<?php
+	
+	$page = 'mark-quiz';
+	include_once("header.inc")
+?>
+    <section class="quiz-content main-content">
+            <h2>JPEG Quiz Result</h2>
+            <p>Here is your quiz result (you can redo the quiz if this is your first attempt):
+            </p>
+    </section>
+</body>
+</html>
 <?php
 include_once("sanitise_input.php");
 date_default_timezone_set('Australia/Melbourne');
@@ -43,21 +67,49 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['student_id'])) {
                     $question_list = explode(",",$_POST['question_list']);
                     $question_count = 0;
                     $total_correct_answer = 0;
-                    foreach ($question_list as $question) {
+                    echo $_POST['question_list'];
+                    foreach ($question_list as $question_id) {
                         $question_count += 1;
-                        $question_id = substr($question,-1);
-                        $get_answer_query = "SELECT correct_answer FROM questions WHERE question_id={$question_id}";
+
+                        $get_answer_query = "SELECT * FROM questions WHERE question_id={$question_id}";
+                       
                         $query_result = mysqli_query($connection,$get_answer_query);
                         if ($query_result) {
                             $row = mysqli_fetch_assoc($query_result);
-                            if (isset($_POST[$question])) {
-                                echo "<p>For question {$question_count}, your answer is $_POST[$question] while the correct answer is {$row['correct_answer']}</p>";
-                                if (strtolower($row['correct_answer']) == strtolower($_POST[$question])) {
-                                    $total_correct_answer += 1;
-                                    echo "<p>You were right!</p>";
+                            
+            
+                            if (isset($_POST["question_{$question_id}"])) {
+                                
+                                if ($row['question_type'] == 'check-boxes') {
+                                    $correct_answers = json_decode($row['correct_answer']);
+                                    $user_answers = $_POST["question_{$question_id}"];
+                                    echo "<p>Your answers are:</p>";
+                                    print_r($user_answers);
+                                    echo "<p> The correct answers are </p>";
+                                    print_r($correct_answers);
+                                    sort($correct_answers);
+                                    sort($user_answers);
+                                    if ($correct_answers === $user_answers) {
+                                        $total_correct_answer += 1;
+                                        echo "<p>You were right!</p>";
+                                    } else {
+                                        echo '<p>You were wrong!</p>';
+                                    }
+                                    
                                 } else {
-                                    echo '<p>You were wrong!</p>';
+                                    $correct_answer =$row['correct_answer'];
+                                    $user_answer = $_POST["question_{$question_id}"];
+                                    echo "<p>{$row['question']}</p>";
+                                    echo "<p>For question {$question_count}, your answer is $user_answer while the correct answer is {$correct_answer}</p>";
+
+                                    if (strtolower($correct_answer) == strtolower($user_answer)) {
+                                        $total_correct_answer += 1;
+                                        echo "<p>You were right!</p>";
+                                    } else {
+                                        echo '<p>You were wrong!</p>';
+                                    }
                                 }
+                                echo '--------';
                             }
                         } else {
                             echo "can't query";

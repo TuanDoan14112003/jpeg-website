@@ -12,17 +12,7 @@
 </head>
 
 <body>
-	<!-- <header class="title-background" id="quizjpeg">
-		<nav id="navigation">
-			<ul class="nav_links">
-				<li><a href="index.html">Home</a></li>
-				<li><a href="topic.html">Information</a></li>
-				<li><a href="enhancements.html">Enhancements</a></li>
-				<li><a target="_blank" href="https://www.youtube.com/watch?v=TmwScvE_rLE">Desmonstration Video</a></li>
-			</ul>
-		</nav>
-		<h1 class="page-title">JPEG Quizzes</h1>
-	</header> -->
+
 	<?php
 	
 	$page = 'quiz';
@@ -153,7 +143,7 @@
 			if ($connection) {
 				echo "Successfully";
 			
-				$select_random_questions_query = "SELECT * FROM questions ORDER BY RAND() LIMIT 2;";
+				$select_random_questions_query = "SELECT * FROM questions ORDER BY RAND() LIMIT 5;";
 				$query_result = mysqli_query($connection,$select_random_questions_query);
 				if ($query_result) {
 					$question_count = 0;
@@ -163,7 +153,7 @@
 						echo "<fieldset>";
 						echo "<section class='questions'>";
 						if ($question_count != 1) $question_list .= ",";
-						$question_list .= "question_{$row['question_id']}";
+						$question_list .= "{$row['question_id']}";
 						
 						if ($row['question_type'] == 'multi-choices') {
 							echo "<p>Q{$question_count}) {$row['question']} </p>";
@@ -183,6 +173,18 @@
 							echo "Q{$question_count}) {$row['question']}";
 							echo "</label>";
 							echo "<input placeholder='Type your answer here...' id='question_{$row['question_id']}' type='text' name='question_{$row['question_id']}' required>";
+						} elseif ($row['question_type'] == 'check-boxes') {
+							echo "<p>Q{$question_count}) {$row['question']}</p>";
+							echo "<p class='checkbox choices'>";
+							$choices = json_decode($row['question_choices']);
+							shuffle($choices);
+							$choice_count = 0;
+							foreach ($choices as $choice) {
+								$choice_count += 1;
+								echo "<input id=\"question_{$row['question_id']}_option_{$choice_count}\" type='checkbox' name='question_{$row['question_id']}[]' value='{$choice}' required='required'> ";
+								echo "<label for=\"question_{$row['question_id']}_option_{$choice_count}\">{$choice}</label>";
+							}
+							echo "</p>";
 						}
 						echo "</section>";
 						echo "</fieldset>";

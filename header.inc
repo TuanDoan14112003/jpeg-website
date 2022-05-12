@@ -21,6 +21,10 @@
         $page_title = '<h1 class="page-title">JPEG Quizzes</h1>';
     } else if ($page == 'enhancements') {
         $page_title = '<h1 class="page-title">Enhancements</h1>';
+    } else if ($page == 'mark-quiz') {
+        $page_title = '<h1 class="page-title">Quiz Result</h1>';
+    } else {
+        $page_title = '';
     }
     if ($page=='topic')
         $header_id = 'topicimage';

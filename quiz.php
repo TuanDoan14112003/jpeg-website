@@ -141,7 +141,6 @@
 			require_once "database_credentials.php";
 			$connection = mysqli_connect($host,$user,$pwd,$sql_db);
 			if ($connection) {
-				echo "Successfully";
 			
 				$select_random_questions_query = "SELECT * FROM questions ORDER BY RAND() LIMIT 5;";
 				$query_result = mysqli_query($connection,$select_random_questions_query);

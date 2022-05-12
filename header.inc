@@ -32,6 +32,8 @@
         $header_id = 'quizjpeg';
     else if ($page == 'enhancements')
         $header_id = 'enhancementsjpg';
+    else if ($page == 'mark-quiz')
+        $header_id = 'markquizimage';
     else
         $header_id = "header-element";
 

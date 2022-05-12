@@ -7,7 +7,7 @@ description: the CSS style for index, topic, quiz, and enhancements web pages
 */
 
 /* Common css */
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
 
 * {
     font-family: Rubik, sans-serif;
@@ -872,4 +872,50 @@ https://www.youtube.com/watch?v=MLfAW55_4cY */
     background-color: #9668ff;
 }
 /* End login css */
+
+/* Mark quiz css */
+#markquizimage{
+    background-image: url("images/markquiz.webp"); /* Artwork made by Nele-Diel: https://www.deviantart.com/nele-diel/art/Endless-Sky-910764575 */
+    background-position: center;
+}
+.mark-quiz-content > h2 {
+    margin-top: 40px;
+}
+
+.mark-quiz-content .student-info {
+    margin-top:20px;
+    font-size: 18px;
+
+}
+
+
+.mark-quiz-content .question {
+    align-self: flex-start;
+    margin-top: 20px;
+    
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+.answer-icons {
+    width: 20px;
+    margin-left: 10px;
+    color: green;
+    position: absolute;
+}
+
+.answers {
+    margin-left:10px;
+    margin-top:3px;
+    
+}
+.final-score {
+    margin-top:20px;
+    font-size: 1.3em;
+    font-weight: 400;
+}
+.mark-quiz-content {
+    margin-bottom: 18rem;
+}
+/* End Mark quiz css */
 

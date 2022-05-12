@@ -15,14 +15,37 @@
 	$page = 'mark-quiz';
 	include_once("header.inc")
 ?>
-    <section class="quiz-content main-content">
+    <section class="mark-quiz-content main-content">
             <h2>JPEG Quiz Result</h2>
-            <p>Here is your quiz result (you can redo the quiz if this is your first attempt):
-            </p>
-    </section>
-</body>
-</html>
 <?php
+function display_table($result) {
+    echo "<table id='other-tech-table'>
+            <thead>
+                <tr>
+                    <th>Attempt id</th>
+                    <th>Time</th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Student id</th>
+                    <th>Number of attempts</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>";
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo "<tr>
+            <td>{$row['attempt_id']}</td>
+            <td>{$row['time']}</td>
+            <td>{$row['first_name']}</td>
+            <td>{$row['last_name']}</td>
+            <td>{$row['student_id']}</td>
+            <td>{$row['number_of_attempts']}</td>
+            <td>{$row['score']}</td>
+        </tr>";
+    }
+    echo "  </tbody>
+        </table>";
+}
 include_once("sanitise_input.php");
 date_default_timezone_set('Australia/Melbourne');
 if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['student_id'])) {
@@ -67,7 +90,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['student_id'])) {
                     $question_list = explode(",",$_POST['question_list']);
                     $question_count = 0;
                     $total_correct_answer = 0;
-                    echo $_POST['question_list'];
+                    echo "<section class='student-info'>";
+                    echo "<p>Student name: <em><strong>{$first_name}</strong></em></p>";
+                    echo "<p> Student id: <em><strong>{$student_id}</strong></em></p>";
+                    echo "</section>";
                     foreach ($question_list as $question_id) {
                         $question_count += 1;
 
@@ -83,42 +109,70 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['student_id'])) {
                                 if ($row['question_type'] == 'check-boxes') {
                                     $correct_answers = json_decode($row['correct_answer']);
                                     $user_answers = $_POST["question_{$question_id}"];
-                                    echo "<p>Your answers are:</p>";
-                                    print_r($user_answers);
-                                    echo "<p> The correct answers are </p>";
-                                    print_r($correct_answers);
+
+                                    // echo "<p> The correct answers are </p>";
+                                    // print_r($correct_answers);
                                     sort($correct_answers);
                                     sort($user_answers);
+                                    echo "<p class='question'>Q) {$row['question']}</p>";
                                     if ($correct_answers === $user_answers) {
                                         $total_correct_answer += 1;
-                                        echo "<p>You were right!</p>";
+                                        echo "<p class='answers'>Your answers are: ";
+                                        for($index = 0; $index < count($user_answers);$index++) {
+                                            if ($index != 0) echo ", ";
+                                            echo "<em><strong>{$user_answers[$index]}</strong></em>";
+                                        }
+                                        echo "<img class='answer-icons' src='images/check.png' alt='green tick'/>";
+                                        echo "</p>";
                                     } else {
-                                        echo '<p>You were wrong!</p>';
+                                        echo "<p class='answers'>Your answers are: ";
+                                        for($index = 0; $index < count($user_answers);$index++) {
+                                            if ($index != 0) echo ", ";
+                                            echo "<em><strong>{$user_answers[$index]}</strong></em>";
+                                        }
+                                        echo "<img class='answer-icons' src='images/cross.png' alt='red cross'/>";
+                                        echo "</p>";
+                                        echo "<p class='answers'>The correct answers are: ";
+                                        for($index = 0; $index < count($correct_answers);$index++) {
+                                            if ($index != 0) echo ", ";
+                                            echo "<em><strong>{$correct_answers[$index]}</strong></em>";
+                                        }
+                                        
+                                        echo "</p>";
                                     }
                                     
                                 } else {
                                     $correct_answer =$row['correct_answer'];
-                                    $user_answer = $_POST["question_{$question_id}"];
-                                    echo "<p>{$row['question']}</p>";
-                                    echo "<p>For question {$question_count}, your answer is $user_answer while the correct answer is {$correct_answer}</p>";
+                                    $user_answer = sanitise_input($_POST["question_{$question_id}"]);
+                                    echo "<p class='question'>Q) {$row['question']}</p>";
+                                 
+                                    // echo "<p >For question {$question_count}, your answer is $user_answer while the correct answer is {$correct_answer}</p>";
 
-                                    if (strtolower($correct_answer) == strtolower($user_answer)) {
+                                    if (trim(strtolower($correct_answer)) == strtolower($user_answer)) {
+                                     
                                         $total_correct_answer += 1;
-                                        echo "<p>You were right!</p>";
+                                        echo "<p class='answers'>Your answer: <em><strong>{$user_answer}</strong></em>";
+                                        echo "<img class='answer-icons' src='images/check.png' alt='green tick'/>";
+                                        echo "</p>";
                                     } else {
-                                        echo '<p>You were wrong!</p>';
+                                     
+                                        echo "<p class='answers'>Your answer: <em><strong>{$user_answer}</strong></em>";
+                                        echo "<img class='answer-icons' src='images/cross.png' alt='red cross'/>";
+                                        
+                                        echo "</p>";
+                                        echo "<p class='answers'>The correct answer is: <em><strong>{$correct_answer}</strong></em></p>";
+                                        
                                     }
                                 }
-                                echo '--------';
+                            
                             }
                         } else {
                             echo "can't query";
                         }
                     }
                     $final_score = number_format($total_correct_answer / $question_count * 100);
-                    echo "<p>Hi $first_name</p>";
-                    echo "<p> Student id: {$student_id} </p>";
-                    echo "<p>Your score is: {$final_score} </p>";
+
+                    echo "<p class='final-score'>Your final score is: <em><strong>{$final_score}%</strong></em></p>";
                     if ($attempt == 1) {
                         echo "<p> This is your first attempt, you can try again to do the <a href='quiz.php'>quiz</a> again</p>";
                     } else if ($attempt == 2) {
@@ -126,14 +180,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['student_id'])) {
                     }
                     $create_new_attempt_query = "INSERT INTO attempts (attempt_id,time,first_name,last_name,student_id,number_of_attempts,score) VALUES (NULL,'$current_date','$first_name','$last_name','$student_id',$attempt,$final_score)";
                     $create_new_attempt_query_result = mysqli_query($connection,$create_new_attempt_query);
+                    $created_attempt_id = mysqli_insert_id($connection);
                     if ($create_new_attempt_query_result) {
-                        echo "created new attempt";
+                        echo "<p>Here is your attempt:</p>";
+                        $get_created_attempt = "SELECT * FROM attempts WHERE attempt_id={$created_attempt_id}";
+                        $get_created_attempt_result = mysqli_query($connection,$get_created_attempt);
+                        if ($get_created_attempt_result) {
+                            display_table($get_created_attempt_result);
+                        } else {
+                            echo "<p>Can't query the created attempts</p>";
+                        }
+                        
                     } else {
                         echo "Can't create new attempt for some reason";
                     }
                 }
             } else {
-                echo "<p>Can't do the quiz anymore because you have already had 2 attempts</p>";
+                echo "<p>You cannot do the quiz anymore because you have already had 2 attempts</p>";
             }
         } else {
             echo $errMsg;
@@ -144,3 +207,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['student_id'])) {
     echo "You must do the quiz first";
 }
 ?>
+    </section>
+	<?php
+	include_once("footer.inc")
+	?>
+</body>
+</html>

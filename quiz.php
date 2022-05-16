@@ -14,7 +14,7 @@
 <body>
 
 	<?php
-	
+	if(!isset($_SESSION)) session_start(); 
 	$page = 'quiz';
 	include_once("header.inc")
 	?>
@@ -22,7 +22,7 @@
 		<h2>JPEG Quiz</h2>
 		<p>Here is a quiz to test your knowledge of the information that you have seen on this website about JPEGS:
 		</p>
-
+		<?php if (isset($_SESSION['logged_in']) and $_SESSION['logged_in'] == true) : ?>
 		<form id="question-form" method="post" action="markquiz.php" novalidate>
 
 			<fieldset>
@@ -42,101 +42,11 @@
 				</p>
 
 				<p class="questions">
-					<label for="student_id">Enter your student number (EG: 103994165): </label>
+					<label for="student_id">Enter your student number (EG: 1039941): </label>
 					<input placeholder="Your student number" type="text" id="student_id" name="student_id"
 						required="required" pattern="^(\d{7}|\d{10})$">
 				</p>
 			</fieldset>
-
-			<!-- <fieldset>
-				<legend>
-					JPEG
-				</legend>
-				<p class="questions">
-					<label for="question_1">
-						Q1) What does the acronym JPEG stand for?
-					</label>
-					<input placeholder="What does JPEG mean ?" id="question_1" type="text" name="question_1" required>
-				</p>
-			</fieldset>
-
-			<fieldset>
-				<legend>
-					JPEG Compression
-				</legend>
-				<section class="questions">
-					<p>Q2) How many steps are there in the compression process?</p>
-					<p class="radio choices">
-						<input type="radio" id="question_2_option_1" name="question_2" value="100" required="required">
-						<label for="question_2_option_1">100</label>
-
-						<input type="radio" id="question_2_option_2" name="question_2" value="1" />
-						<label for="question_2_option_2">1</label>
-
-						<input type="radio" id="question_2_option_3" name="question_2" value="3" />
-						<label for="question_2_option_3">3</label>
-
-						<input type="radio" id="question_2_option_4" name="question_2" value="5"> 
-						<label for="question_2_option_4">5</label>
-					</p>
-				</section>
-			</fieldset>
-
-			<fieldset>
-				<legend>
-					Other compression type
-				</legend>
-				<section class="questions">
-					<p>Q3) Select the compression types other than JPEG:</p>
-					<p class="checkbox choices">
-						<input id="question_3_option1" type="checkbox" name="other_tech[]" value="TIFF" />
-						<label for="question_3_option1">TIFF</label>
-
-						<input id="question_3_option2" type="checkbox" name="other_tech[]" value="GIF" />
-						<label for="question_3_option2">GIF</label>
-
-						<input id="question_3_option3" type="checkbox" name="other_tech[]" value="BMP" />
-						<label for="question_3_option3">BMP</label>
-
-						<input id="question_3_option4" type="checkbox" name="other_tech[]" value="HEIF" />
-						<label for="question_3_option4">HEIF</label>
-
-						<input id="question_3_option5" type="checkbox" name="other_tech[]" value="PNG" />
-						<label for="question_3_option5">PNG</label>
-
-						<input id="question_3_option6" type="checkbox" name="other_tech[]" value="MP4" />
-						<label for="question_3_option6">MP4</label>
-					</p>
-				</section>
-
-			</fieldset>
-
-			<fieldset>
-				<legend>
-					Compression Type
-				</legend>
-				<p class="questions">
-					<label for="question_4">Q4) What type of compression does JPEG use?</label>
-					<select class="selection" name="question_4" id="question_4">
-						<option value=''>Please select an option</option>
-						<option value="Lossless">Lossless</option>
-						<option value="Exporting">Exporting</option>
-						<option value="Lossy">Lossy</option>
-					</select>
-				</p>
-
-			</fieldset>
-
-			<fieldset>
-				<legend>
-					JPEG History
-				</legend>
-				<p class="questions">
-					<label for="question_5">Q5) When were JPEG's founded?</label>
-					<input type="number" id="question_5" name="question_5" min="1800" max="9999">	
-				</p>
-
-			</fieldset> -->
 			<?php 
 			require_once "database_credentials.php";
 			$connection = mysqli_connect($host,$user,$pwd,$sql_db);
@@ -190,7 +100,7 @@
 						
 					}
 					echo "<input type='hidden' name='question_list' value='{$question_list}'>";
-					
+					mysqli_free_result($query_result);
 				} else {
 					echo ("<p> Can't query </p>");
 				}
@@ -207,9 +117,13 @@
 			</p>
 
 		</form>
+		<?php else : ?>
+			<p class='error'>You must <a href='login.php'>login</a> to do the quiz!</p>
+		<?php endif; ?>
+
 	</section>
 	<?php
-	include_once("footer.inc")
+	include_once("footer.inc");
 	?>
 </body>
 </html>

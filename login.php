@@ -12,66 +12,94 @@
 <body>
     <?php
         include_once("sanitise_input.php");
+        if(!isset($_SESSION)) session_start(); 
+        if (isset($_SESSION['logged_in']) and $_SESSION['logged_in'] == true) {
+            header("Location: index.php");
+        }
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             require_once "database_credentials.php";
             $connection = mysqli_connect($host,$user,$pwd,$sql_db);
             if ($connection) {
-                echo "<p>Successfully</p>";
-                $errorMSG = '';
-                if (isset($_POST['student_id']) and isset($_POST['password'])) {
-                    $student_id = sanitise_input($_POST['student_id']);
-                    $password = sanitise_input($_POST['password']);
+                $create_table_if_not_exists_query = "CREATE TABLE if not exists users( user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+                                                                         email VARCHAR(100) NOT NULL, 
+                                                                         username VARCHAR(50) NOT NULL, 
+                                                                         password CHAR(60) NOT NULL, 
+                                                                         admin BOOLEAN NOT NULL );";
+                $create_table_if_not_exists_query_result = mysqli_query($connection,$create_table_if_not_exists_query);
+                if ($create_table_if_not_exists_query_result) {
+                    $errorMSG = '';
+                    if (isset($_POST['email']) and isset($_POST['password'])) {
+                        $error_message = "";
+                        if (isset($_POST['email'])) {
+                            $email = $_POST['email'];
+                            $email = sanitise_input($email);
+                            if ($email == "") {
+                                $error_message .= "<p class='error'>You must enter your email</p>";
+                            }
+                        }
+                        if (isset($_POST['password'])) {
+                            $password = $_POST['password'];
+                            $password = sanitise_input($password);
+                            if ($password == "") {
+                                $error_message .= "<p class='error'>You must enter your password</p>";
+                            }
+                        }
+                        if ($error_message == "") {
+                            $validate_account_query = "select * from users where email = '$email'";  
+                            $validate_account_query_result = mysqli_query($connection, $validate_account_query);  
+                            if ($validate_account_query_result) {
+                                $row = mysqli_fetch_array($validate_account_query_result, MYSQLI_ASSOC);  
+                                $count = mysqli_num_rows($validate_account_query_result);  
+                                
+                                if($count == 1){  
+        
+                                    // Redirect user to welcome page
+                                    if (password_verify($password,$row['password'])) {
+                                        $_SESSION["logged_in"] = true;
+                                        $_SESSION["username"] = $row['username'];
+                                        $_SESSION["is_an_admin"] = $row['admin'];
+                                        $_SESSION["user_id"] = $row['user_id'];
+                                        header("Location: index.php");
+                                    } else {
+                                        $_SESSION['error_message'] = "<p class='error'>Invalid username or password</p>";
+                                    }
+                                }  
+                                else{  
+                                    $_SESSION['error_message'] = "<p class='error'>Invalid username or password</p>";
+                                }     
+                                
+                            } else {
+                                $_SESSION['error_message'] =  "<p class='error'>Can't query</p>";
+                            }
+                        } else {
+                            $_SESSION['error_message'] = $error_message;
+                        }
 
-                    $validate_account_query = "select * from users where student_id = '$student_id' and password = '$password'";  
-                    $validate_account_query_result = mysqli_query($connection, $validate_account_query);  
-                    if ($validate_account_query_result) {
-                        echo "<p>query success</p>";
-                        $row = mysqli_fetch_array($validate_account_query_result, MYSQLI_ASSOC);  
-                        $count = mysqli_num_rows($validate_account_query_result);  
-                        
-                        if($count == 1){  
-                            echo "<h1>Login successful</h1>";  
-                                        
-                            // Store data in session variables
-                            $_SESSION["logged_in"] = true;
-                            $_SESSION["student_id"] = $row['student_id'];
-                            $_SESSION["name"] = $row['first_name'];
-
-                            // Redirect user to welcome page
-                
-                        }  
-                        else{  
-                            $_SESSION['errMsg'] = 'Invalid username/password';
-                        }     
                     } else {
-                        echo "<p>Can't query</p>";
+                        $_SESSION['error_message'] = "<p class='error'>You have not entered the email and password</p>";
                     }
+                    
                 } else {
-                    $_SESSION['errMsg'] = "<p>You have not entered the student id and password</p>";
-                }
-
-                
+                    echo "<p class='error'>Cannot create database</p>";
+                }    
             } else {
                 echo "Can't connect to database";
             }
             mysqli_close($connection);
         }
-        include_once("nav.inc");
+        
     ?>
-
+    <?php include_once("nav.inc"); ?>
     <section class="authentication-background">
-        <section class="authentication-title">
-            <h2 >Welcome to</h2>
-            <h1>JPEG WEB</h1>
-        </section>
         <section class = "authentication-form">
             <div class="authentication-form-box">
                 <h2 class = "authentication-form-title">Login</h2>
+                <?php if (isset($_SESSION['created_new_account_message'])) echo $_SESSION['created_new_account_message']; ?>
                 <form method="post" action="login.php">
                     <div class = "authentication-form-row">
                         <div class="authentication-form-item">
                             <div class="authentication-form-input">
-                                <!-- <label for="email">Email</label> -->
+                                <label for="email">Email:</label>
                                 <input type="text" id="email" name="email" required>
                             </div>
                         </div>
@@ -79,25 +107,30 @@
                     <div class = "authentication-form-row">
                         <div class="authentication-form-item">
                             <div class="authentication-form-input">
-                                <!-- <label for="password">Password</label> -->
+                                <label for="password">Password:</label>
                                 <input type="password" id="password" name="password" required>
                             </div>
                         </div>
                     </div>
                     <div class = "authentication-form-row">
                         <div class="authentication-form-item">
-                            <button class="authentication-form-submit-button" type="submit">Create account</button>
+                           <p class='no-account-message'>You don't have an account? <a href="register.php">Register</a></p>
+                        </div>
+                    </div>
+                    <div class = "authentication-form-row">
+                        <div class="authentication-form-item">
+                            <button class="authentication-form-submit-button" type="submit">Sign in</button>
                         </div>
                     </div>
 
                     
                     
-                    <?php  if(!empty($_SESSION['errMsg'])) { echo $_SESSION['errMsg']; } ?>
+                    <?php  if(isset($_SESSION['error_message'])) { echo $_SESSION['error_message']; } ?>
                     
                 </form>
             </div>
         </section>
     </section>
-    <?php unset($_SESSION['errMsg']); ?>
+    <?php unset($_SESSION['error_message']); unset($_SESSION['created_new_account_message']); ?>
 </body>
 </html>

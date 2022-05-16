@@ -60,6 +60,8 @@ header h1 {
 
 /* The navigation links hover animation was inspired by this video https://www.youtube.com/watch?v=aswRKAjjWuE */
 nav {
+    position: relative;
+    z-index: 99;
     text-align: right;
     padding: 1.3em 0 1.3em 0;
     width: 100%;
@@ -109,6 +111,9 @@ footer {
     text-align: center;
     font-style: italic;
     color: #fff;
+    
+
+    
 
 }
 
@@ -513,7 +518,7 @@ The enhancement below was inspired by the "Rainbow effect" from this video: http
 }
 
 /* The design for the table below is inspired by this article: https://dev.to/dcodeyt/creating-beautiful-html-tables-with-css-428l */
-#other-tech-table {
+.information-table {
     margin-top: 20px;
     margin-bottom: 50px;
     border-collapse: collapse;
@@ -522,20 +527,20 @@ The enhancement below was inspired by the "Rainbow effect" from this video: http
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.514);
 }
 
-#other-tech-table thead tr {
+.information-table thead tr {
     background-color: #27A858;
     color: #fff;
     text-align: center;
     font-weight: bold;
 }
 
-#other-tech-table th,
-#other-tech-table td {
+.information-table th,
+.information-table td {
     text-align: center;
     padding: 15px;
 }
 /* This selects every other row and makes the background color darker */
-#other-tech-table tbody tr:nth-of-type(even) {
+.information-table tbody tr:nth-of-type(even) {
     background-color: rgb(245, 245, 245);
 }
 
@@ -597,8 +602,8 @@ The enhancement below was inspired by the "Rainbow effect" from this video: http
 .quiz-content > p {
     font-weight: 200;
 }
-.quiz-content {
-    margin-bottom: 100px;
+.quiz-content, .manage-content {
+    margin-bottom: 15%;
 }
 
 #question-form {
@@ -630,6 +635,7 @@ The enhancement below was inspired by the "Rainbow effect" from this video: http
 }
 
 .quiz-content input[type=text],
+.manage-content input[type=text],
 .quiz-content input[type=number],
 .selection {
     width: 100%;
@@ -756,11 +762,18 @@ https://www.youtube.com/watch?v=MLfAW55_4cY */
 
 /* Login css */
 .authentication-background {
+
+
     width: 100%;
+    background: url('images/login4.jpeg'); /* Art made by u/Nibroo: https://www.reddit.com/r/wallpaper/comments/hea55o/s_p_a_c_e_5120x2880/ */
     height: 100%;
-    background: url('images/quizzesbackground.webp') no-repeat 0;
+
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
-    position: fixed;
+    background-attachment: fixed;
+
+    position: absolute;
     top: 0;
     left: 0;
 }
@@ -808,7 +821,6 @@ https://www.youtube.com/watch?v=MLfAW55_4cY */
     top: 50%;
     left: 0;
     width: 484px;
-    height: 50%;
     padding: 64px;
     border-radius: 12px;
     background-color: #1d2333;
@@ -816,7 +828,7 @@ https://www.youtube.com/watch?v=MLfAW55_4cY */
 }
 
 .authentication-form-box form {
-    margin-top: 76px;
+    margin-top: 24px;
     width: 100%;
 }
 
@@ -827,7 +839,7 @@ https://www.youtube.com/watch?v=MLfAW55_4cY */
 }
 
 .authentication-form-row {
-    margin-top: 28px;
+    margin-top: 15px;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -836,12 +848,20 @@ https://www.youtube.com/watch?v=MLfAW55_4cY */
 .authentication-form-item {
     width: 100%;
     border: none;
+    color: #fff;
 }
 
 .authentication-form-input {
+    
     position: relative;
+    
+}
+.authentication-form-input label {
+    display: block;
+    margin-bottom:10px;
 }
 .authentication-form-input input[type=password], 
+.authentication-form-input input[type=email], 
 .authentication-form-input input[type=text] {
     
     height: 54px;
@@ -871,11 +891,23 @@ https://www.youtube.com/watch?v=MLfAW55_4cY */
 .authentication-form-submit-button:hover {
     background-color: #9668ff;
 }
+
+.created_new_account_message {
+    color: #27A858;
+    text-align: center;
+}
+
+.no-account-message {
+    font-size: 15px;
+}
+.no-account-message a {
+    color: #27A858;
+}
 /* End login css */
 
 /* Mark quiz css */
 #markquizimage{
-    background-image: url("images/markquiz.webp"); /* Artwork made by Nele-Diel: https://www.deviantart.com/nele-diel/art/Endless-Sky-910764575 */
+    background-image: url("images/markquiz.webp"); /* Artwork made by Mr-Singh-Art: https://www.deviantart.com/mr-singh-art/art/SafeHeaven-913468593 */
     background-position: center;
 }
 .mark-quiz-content > h2 {
@@ -918,4 +950,33 @@ https://www.youtube.com/watch?v=MLfAW55_4cY */
     margin-bottom: 18rem;
 }
 /* End Mark quiz css */
+
+/* Manage page css */
+#manageimage, #change-score-image, #delete-attempts-image, #student-attempts-image {
+    background: url("images/manageimage.webp");  /* Art made by by Lichachan: https://www.deviantart.com/lichachan/art/Mushrooms-Environment-912108282 */
+    background-repeat: no-repeat;
+    background-size:cover;   
+}
+
+.manage-content > h2 {
+    margin-top: 40px;
+}
+.manage-content h3 {
+    margin-top: 20px;
+}
+.manage-content table {
+    margin-left:40px;
+}
+.error {
+    color:red;
+    margin-top:5px;
+}
+.error a{
+    color:red;
+    text-decoration: underline;
+}
+.successful-message {
+    color:#27A858;
+}
+/* end Manage page css */
 

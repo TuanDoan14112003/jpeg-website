@@ -310,7 +310,7 @@
 			</section>
 			<section class="comparison-section">
 				<h3> Table for Comparison </h3>
-				<table id="other-tech-table">
+				<table class="information-table">
 					<thead>
 						<tr>
 							<th></th>

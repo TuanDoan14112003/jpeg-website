@@ -16,14 +16,23 @@
             <li class="c-rainbow__layer c-rainbow__layer--yellow">.JPEG</li>
         </ul>';
     } else if ($page == 'topic') {
-        $page_title = '<h1 class="page-title">JPEG HISTORY</h1>';
+        $page_title = 'JPEG HISTORY';
     } else if ($page == 'quiz') {
-        $page_title = '<h1 class="page-title">JPEG Quizzes</h1>';
+        $page_title = 'JPEG Quizzes';
     } else if ($page == 'enhancements') {
-        $page_title = '<h1 class="page-title">Enhancements</h1>';
+        $page_title = 'Enhancements';
     } else if ($page == 'mark-quiz') {
-        $page_title = '<h1 class="page-title">Quiz Result</h1>';
-    } else {
+        $page_title = 'Quiz Result';
+    } else if ($page == 'manage') {
+        $page_title = 'Manage Database';
+    } else if ($page == 'change-score') {
+        $page_title = 'Change score';
+    } else if ($page == 'delete-attempts') {
+        $page_title = 'Delete attempts';
+    } else if ($page == 'student-attempts') {
+        $page_title = 'Attempts';
+    }
+    else {
         $page_title = '';
     }
     if ($page=='topic')
@@ -34,12 +43,19 @@
         $header_id = 'enhancementsjpg';
     else if ($page == 'mark-quiz')
         $header_id = 'markquizimage';
+    else if ($page == 'manage')
+        $header_id = 'manageimage';
+    else if ($page == 'change-score')
+        $header_id = 'change-score-image';
+    else if ($page == 'delete-attempts')
+        $header_id = 'delete-attempts-image';
+    else if ($page == 'student-attempts')
+        $header_id = 'student-attempts-image';
     else
         $header_id = "header-element";
-
-    echo "<header class='{$header_class}' id='{$header_id}'>";
-    include_once("nav.inc");
-    echo $page_title; 
-    echo "</header>";
-
 ?>
+    <header class='<?php echo $header_class; ?>' id='<?php echo $header_id; ?>'>
+        <?php include_once("nav.inc"); ?>
+        <h1 class='page-title'><?php echo $page_title; ?></h1>
+    </header>
+

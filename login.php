@@ -54,7 +54,7 @@
                                 if($count == 1){  
         
                                     // Redirect user to welcome page
-                                    if (password_verify($password,$row['password'])) {
+                                    if ($password == $row['password']) {
                                         $_SESSION["logged_in"] = true;
                                         $_SESSION["username"] = $row['username'];
                                         $_SESSION["is_an_admin"] = $row['admin'];

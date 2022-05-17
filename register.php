@@ -66,8 +66,8 @@
                                 $count = mysqli_num_rows($check_if_account_exists_result);  
                                 
                                 if($count == 0){  
-                                    $hashed_password = password_hash($password,PASSWORD_DEFAULT);
-                                    $create_new_account_query = "INSERT INTO users (user_id,email,username,password,admin) VALUES (NULL,'$email','$username','$hashed_password','false')";
+                                    // $hashed_password = password_hash($password,PASSWORD_DEFAULT);
+                                    $create_new_account_query = "INSERT INTO users (user_id,email,username,password,admin) VALUES (NULL,'$email','$username','$password','false')";
                                     $create_new_account_query_result = mysqli_query($connection,$create_new_account_query);
                                     if ($create_new_account_query_result) {
                                         $_SESSION['created_new_account_message'] = "<p class='created_new_account_message'>Your account has been created, now you can login</p>";

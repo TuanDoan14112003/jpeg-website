@@ -75,6 +75,7 @@ if (isset($_SESSION['logged_in']) and $_SESSION['logged_in'] == true) {
                     
                         if ($attempt < 3) {
                             if (isset($_POST['question_list'])) {
+                                echo $_POST['question_list'];
                                 $question_list = explode(",",$_POST['question_list']);
                                 $question_count = 0;
                                 $total_correct_answer = 0;
@@ -84,11 +85,12 @@ if (isset($_SESSION['logged_in']) and $_SESSION['logged_in'] == true) {
                                 echo "</section>";
                                 foreach ($question_list as $question_id) {
                                     $question_count += 1;
-    
+                                    
                                     $get_answer_query = "SELECT * FROM questions WHERE question_id={$question_id}";
                                 
                                     $query_result = mysqli_query($connection,$get_answer_query);
                                     if ($query_result) {
+                                
                                         $row = mysqli_fetch_assoc($query_result);
                                         if (isset($_POST["question_{$question_id}"])) {
                                             
@@ -124,7 +126,9 @@ if (isset($_SESSION['logged_in']) and $_SESSION['logged_in'] == true) {
                                                     echo "</p>";
                                                 }
                                                 
-                                            } else {
+                                            }
+                                            else {
+                                                echo $user_answer;
                                                 $correct_answer =$row['correct_answer'];
                                                 $user_answer = sanitise_input($_POST["question_{$question_id}"]);
                                                 echo "<p class='question'>Q) {$row['question']}</p>";

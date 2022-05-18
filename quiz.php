@@ -23,7 +23,7 @@
 		<p>Here is a quiz to test your knowledge of the information that you have seen on this website about JPEGS:
 		</p>
 		<?php if (isset($_SESSION['logged_in']) and $_SESSION['logged_in'] == true) : ?>
-		<form id="question-form" method="post" action="markquiz.php" novalidate>
+		<form id="question-form" method="post" action="https://mercury.swin.edu.au/it000000/formtest.php" novalidate>
 
 			<fieldset>
 				<legend>Your information</legend>
@@ -70,9 +70,13 @@
 							$choices = json_decode($row['question_choices']);
 							shuffle($choices);
 							$choice_count = 0;
+							$default_selected = false;
 							foreach ($choices as $choice) {
 								$choice_count += 1;
-								echo "<input id=\"question_{$row['question_id']}_option_{$choice_count}\" type='radio' name='question_{$row['question_id']}' value='{$choice}' required='required'> ";
+								if (!$default_selected) {
+									$default_selected = true;
+									echo "<input id=\"question_{$row['question_id']}_option_{$choice_count}\" type='radio' name='question_{$row['question_id']}' value='{$choice}' required='required' checked> ";
+								} else echo "<input id=\"question_{$row['question_id']}_option_{$choice_count}\" type='radio' name='question_{$row['question_id']}' value='{$choice}' required='required'> ";
 								echo "<label for=\"question_{$row['question_id']}_option_{$choice_count}\">{$choice}</label>";
 							}
 							echo "</p>";
@@ -82,15 +86,42 @@
 							echo "Q{$question_count}) {$row['question']}";
 							echo "</label>";
 							echo "<input placeholder='Type your answer here...' id='question_{$row['question_id']}' type='text' name='question_{$row['question_id']}' required>";
-						} elseif ($row['question_type'] == 'check-boxes') {
+						} elseif ($row['question_type'] == 'dropdown') {
+							echo "<p class='questions'>";
+							echo "<label for='question_{$row['question_id']}'>";
+							echo "Q{$question_count}) {$row['question']}";
+							echo "</label>";
+							// <label for="question_4">Q4) What type of compression does JPEG use?</label>
+							echo "<select class='selection' name='question_{$row['question_id']}' id='question_{$row['question_id']}'>";
+							$choices = json_decode($row['question_choices']);
+							shuffle($choices);
+							$choice_count = 0;
+							echo "<option value=''>Please select an option</option>";
+							foreach ($choices as $choice) {
+								echo "<option value='{$choice}'>{$choice}</option>";
+							}
+							echo "</select>";
+							echo "</p>";
+						} elseif ($row['question_type'] == 'number') {
+							echo "<label for='question_{$row['question_id']}'>";
+							echo "Q{$question_count}) {$row['question']}";
+							echo "</label>";
+							echo "<input placeholder='Type your answer here...' id='question_{$row['question_id']}' type='number' name='question_{$row['question_id']}' required>";
+						}
+						elseif ($row['question_type'] == 'check-boxes') {
 							echo "<p>Q{$question_count}) {$row['question']}</p>";
 							echo "<p class='checkbox choices'>";
 							$choices = json_decode($row['question_choices']);
 							shuffle($choices);
 							$choice_count = 0;
+							$default_selected = false;
 							foreach ($choices as $choice) {
 								$choice_count += 1;
-								echo "<input id=\"question_{$row['question_id']}_option_{$choice_count}\" type='checkbox' name='question_{$row['question_id']}[]' value='{$choice}' required='required'> ";
+								if (!$default_selected) {
+									echo "<input id=\"question_{$row['question_id']}_option_{$choice_count}\" type='checkbox' name='question_{$row['question_id']}[]' value='{$choice}' checked> ";
+									$default_selected = true;
+								}
+								else echo "<input id=\"question_{$row['question_id']}_option_{$choice_count}\" type='checkbox' name='question_{$row['question_id']}[]' value='{$choice}' required='required'> ";
 								echo "<label for=\"question_{$row['question_id']}_option_{$choice_count}\">{$choice}</label>";
 							}
 							echo "</p>";

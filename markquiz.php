@@ -61,9 +61,25 @@ if (isset($_SESSION['logged_in']) and $_SESSION['logged_in'] == true) {
                     $student_id = $_POST['student_id'];
                     $student_id = sanitise_input($student_id);
                     if ($student_id == "") {
-                        $errMsg .= "<p>You must enter your student id</p>";
+                        $errMsg .= "<p class='error'>You must enter your student id</p>";
                     } else if (!preg_match('/^(\d{7}|\d{10})$/',$student_id)) {
-                        $errMsg .= "<p>The student ID must be either 7 or 10 digits numbers</p>";
+                        $errMsg .= "<p class='error'>The student ID must be either 7 or 10 digits numbers</p>";
+                    }
+                }
+                if (isset($_POST['question_list'])) {
+                    $question_list = explode(",",$_POST['question_list']);
+                    foreach ($question_list as $question_id) {
+                        
+                        if (isset($_POST["question_{$question_id}"])) {
+                            $answer = $_POST["question_{$question_id}"];
+                            if ($answer == "") {
+                                $errMsg .= "<p class='error'>You have to answer all questions   </p>";
+                                break;
+                            }
+                        } else {
+                            $errMsg .= "<p class='error'>You have to answer all questions</p>";
+                            break;
+                        }
                     }
                 }
                 if ($errMsg == "") {
@@ -75,13 +91,14 @@ if (isset($_SESSION['logged_in']) and $_SESSION['logged_in'] == true) {
                     
                         if ($attempt < 3) {
                             if (isset($_POST['question_list'])) {
-                                echo $_POST['question_list'];
                                 $question_list = explode(",",$_POST['question_list']);
                                 $question_count = 0;
                                 $total_correct_answer = 0;
                                 echo "<section class='student-info'>";
-                                echo "<p>Student name: <em><strong>{$first_name}</strong></em></p>";
+                                echo "<p>Student first name: <em><strong>{$first_name}</strong></em></p>";
+                                echo "<p>Student last name: <em><strong>{$last_name}</strong></em></p>";
                                 echo "<p> Student id: <em><strong>{$student_id}</strong></em></p>";
+                                echo "<p> Attempt: <em><strong>{$attempt}</strong></em></p>";
                                 echo "</section>";
                                 foreach ($question_list as $question_id) {
                                     $question_count += 1;
@@ -128,7 +145,6 @@ if (isset($_SESSION['logged_in']) and $_SESSION['logged_in'] == true) {
                                                 
                                             }
                                             else {
-                                                echo $user_answer;
                                                 $correct_answer =$row['correct_answer'];
                                                 $user_answer = sanitise_input($_POST["question_{$question_id}"]);
                                                 echo "<p class='question'>Q) {$row['question']}</p>";
@@ -158,11 +174,10 @@ if (isset($_SESSION['logged_in']) and $_SESSION['logged_in'] == true) {
     
                                 echo "<p class='final-score'>Your final score is: <em><strong>{$final_score}%</strong></em></p>";
                                 if ($attempt == 1) {
-                                    echo "<p> This is your first attempt, you can try again to do the <a href='quiz.php'>quiz</a> again</p>";
+                                    echo "<p> This is your first attempt, you can try to do the <a class='try-again-link' href='quiz.php'>quiz</a> again</p>";
                                 } else if ($attempt == 2) {
-                                    echo "<p> This is your second attempt, and you can't do the quiz again</p>";
+                                    echo "<p> This is your second attempt, you can't do the quiz again</p>";
                                 }
-                                
                                 $user_id = $_SESSION['user_id'];
                                 $create_new_attempt_query = "INSERT INTO attempts (attempt_id,time,first_name,last_name,student_id,number_of_attempts,score,user_id) VALUES (NULL,'$current_date','$first_name','$last_name','$student_id',$attempt,$final_score,$user_id)";
                                 $create_new_attempt_query_result = mysqli_query($connection,$create_new_attempt_query);

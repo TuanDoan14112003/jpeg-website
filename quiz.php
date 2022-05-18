@@ -23,7 +23,7 @@
 		<p>Here is a quiz to test your knowledge of the information that you have seen on this website about JPEGS:
 		</p>
 		<?php if (isset($_SESSION['logged_in']) and $_SESSION['logged_in'] == true) : ?>
-		<form id="question-form" method="post" action="https://mercury.swin.edu.au/it000000/formtest.php" novalidate>
+		<form id="question-form" method="post" action="markquiz.php" novalidate>
 
 			<fieldset>
 				<legend>Your information</legend>
@@ -70,13 +70,10 @@
 							$choices = json_decode($row['question_choices']);
 							shuffle($choices);
 							$choice_count = 0;
-							$default_selected = false;
+						
 							foreach ($choices as $choice) {
 								$choice_count += 1;
-								if (!$default_selected) {
-									$default_selected = true;
-									echo "<input id=\"question_{$row['question_id']}_option_{$choice_count}\" type='radio' name='question_{$row['question_id']}' value='{$choice}' required='required' checked> ";
-								} else echo "<input id=\"question_{$row['question_id']}_option_{$choice_count}\" type='radio' name='question_{$row['question_id']}' value='{$choice}' required='required'> ";
+								echo "<input id=\"question_{$row['question_id']}_option_{$choice_count}\" type='radio' name='question_{$row['question_id']}' value='{$choice}' required='required'> ";
 								echo "<label for=\"question_{$row['question_id']}_option_{$choice_count}\">{$choice}</label>";
 							}
 							echo "</p>";
@@ -106,7 +103,7 @@
 							echo "<label for='question_{$row['question_id']}'>";
 							echo "Q{$question_count}) {$row['question']}";
 							echo "</label>";
-							echo "<input placeholder='Type your answer here...' id='question_{$row['question_id']}' type='number' name='question_{$row['question_id']}' required>";
+							echo "<input value='0000' id='question_{$row['question_id']}' type='number' name='question_{$row['question_id']}' required>";
 						}
 						elseif ($row['question_type'] == 'check-boxes') {
 							echo "<p>Q{$question_count}) {$row['question']}</p>";
@@ -114,14 +111,9 @@
 							$choices = json_decode($row['question_choices']);
 							shuffle($choices);
 							$choice_count = 0;
-							$default_selected = false;
 							foreach ($choices as $choice) {
 								$choice_count += 1;
-								if (!$default_selected) {
-									echo "<input id=\"question_{$row['question_id']}_option_{$choice_count}\" type='checkbox' name='question_{$row['question_id']}[]' value='{$choice}' checked> ";
-									$default_selected = true;
-								}
-								else echo "<input id=\"question_{$row['question_id']}_option_{$choice_count}\" type='checkbox' name='question_{$row['question_id']}[]' value='{$choice}' required='required'> ";
+								echo "<input id=\"question_{$row['question_id']}_option_{$choice_count}\" type='checkbox' name='question_{$row['question_id']}[]' value='{$choice}' required='required'> ";
 								echo "<label for=\"question_{$row['question_id']}_option_{$choice_count}\">{$choice}</label>";
 							}
 							echo "</p>";

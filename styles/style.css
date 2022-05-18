@@ -623,7 +623,6 @@ The enhancement below was inspired by the "Rainbow effect" from this video: http
 
 
 .questions {
-    margin-left:20px;
     display: flex;
     flex-direction: column;
 }
@@ -726,7 +725,9 @@ https://www.youtube.com/watch?v=MLfAW55_4cY */
     height: 180%
 }
 
-
+.try-again-link {
+    text-decoration: underline;
+}
 
 /* End Quiz css */
 

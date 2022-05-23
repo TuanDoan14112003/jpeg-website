@@ -43,18 +43,18 @@ if (isset($_SESSION['logged_in']) and $_SESSION['logged_in'] == true) {
                     $first_name = $_POST['first_name'];
                     $first_name = sanitise_input($first_name);
                     if ($first_name == "") {
-                        $errMsg .= "<p>You must enter your first name</p>";
+                        $errMsg .= "<p class='error'>You must enter your first name.</p>";
                     } else if (!preg_match('/^[a-zA-Z- ]{1,30}$/',$first_name)) {
-                        $errMsg .= "<p>First name must be max 30 alpha|space|hyphen characters</p>";
+                        $errMsg .= "<p class='error'>First name must have less than 30 characters and only contain letters, spaces, or hyphens.</p>";
                     }
                 }
                 if (isset($_POST['last_name'])) {
                     $last_name = $_POST['last_name'];
                     $last_name = sanitise_input($last_name);
                     if ($last_name == "") {
-                        $errMsg .= "<p>You must enter your last name</p>";
+                        $errMsg .= "<p class='error'>You must enter your last name.</p>";
                     } else if (!preg_match('/^[a-zA-Z- ]{1,30}$/',$last_name)) {
-                        $errMsg .= "<p>Last name must be max 30 alpha|space|hyphen characters</p>";
+                        $errMsg .= "<p class='error'>Last name must have less than 30 characters and only contain letters, spaces, or hyphens.</p>";
                     }
                 }
                 if (isset($_POST['student_id'])) {
@@ -173,28 +173,32 @@ if (isset($_SESSION['logged_in']) and $_SESSION['logged_in'] == true) {
                                 $final_score = number_format($total_correct_answer / $question_count * 100);
     
                                 echo "<p class='final-score'>Your final score is: <em><strong>{$final_score}%</strong></em></p>";
-                                if ($attempt == 1) {
-                                    echo "<p> This is your first attempt, you can try to do the <a class='try-again-link' href='quiz.php'>quiz</a> again</p>";
-                                } else if ($attempt == 2) {
-                                    echo "<p> This is your second attempt, you can't do the quiz again</p>";
-                                }
-                                $user_id = $_SESSION['user_id'];
-                                $create_new_attempt_query = "INSERT INTO attempts (attempt_id,time,first_name,last_name,student_id,number_of_attempts,score,user_id) VALUES (NULL,'$current_date','$first_name','$last_name','$student_id',$attempt,$final_score,$user_id)";
-                                $create_new_attempt_query_result = mysqli_query($connection,$create_new_attempt_query);
-                                $created_attempt_id = mysqli_insert_id($connection);
-                                if ($create_new_attempt_query_result) {
-                                    echo "<p>Here is your attempt:</p>";
-                                    $get_created_attempt = "SELECT * FROM attempts WHERE attempt_id={$created_attempt_id}";
-                                    $get_created_attempt_result = mysqli_query($connection,$get_created_attempt);
-                                    if ($get_created_attempt_result) {
-                                        display_table($get_created_attempt_result);
-                                        mysqli_free_result($get_created_attempt_result);
-                                    } else {
-                                        echo "<p>Can't query the created attempts</p>";
-                                    }
-                                    
+                                if ($final_score == 0 ) {
+                                    echo "<p>Because your score is 0%, this attempt will not be saved, you must do the <a href='quiz.php'>quiz</a> again</p>";
                                 } else {
-                                    echo "Can't create new attempt for some reason";
+                                    if ($attempt == 1) {
+                                        echo "<p> This is your first attempt, you can try to do the <a class='try-again-link' href='quiz.php'>quiz</a> again</p>";
+                                    } else if ($attempt == 2) {
+                                        echo "<p> This is your second attempt, you can't do the quiz again</p>";
+                                    }
+                                    $user_id = $_SESSION['user_id'];
+                                    $create_new_attempt_query = "INSERT INTO attempts (attempt_id,time,first_name,last_name,student_id,number_of_attempts,score,user_id) VALUES (NULL,'$current_date','$first_name','$last_name','$student_id',$attempt,$final_score,$user_id)";
+                                    $create_new_attempt_query_result = mysqli_query($connection,$create_new_attempt_query);
+                                    $created_attempt_id = mysqli_insert_id($connection);
+                                    if ($create_new_attempt_query_result) {
+                                        echo "<p>Here is your attempt:</p>";
+                                        $get_created_attempt = "SELECT * FROM attempts WHERE attempt_id={$created_attempt_id}";
+                                        $get_created_attempt_result = mysqli_query($connection,$get_created_attempt);
+                                        if ($get_created_attempt_result) {
+                                            display_table($get_created_attempt_result);
+                                            mysqli_free_result($get_created_attempt_result);
+                                        } else {
+                                            echo "<p class='error'>Can't query the created attempts</p>";
+                                        }
+                                        
+                                    } else {
+                                        echo "Can't create new attempt for some reason";
+                                    }
                                 }
                             }
                         } else {

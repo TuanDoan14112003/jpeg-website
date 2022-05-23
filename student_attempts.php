@@ -16,7 +16,7 @@
     include_once("header.inc")
 ?>
 <section class='main-content manage-content'>
-    <h2>All the attempts for a student</h2>
+    <h2>List all attempts of a student</h2>
 <?php
 
     include_once("display_table.php");
@@ -39,7 +39,7 @@
             } elseif (isset($query_method) and $query_method == 'student_id' and !preg_match('/^(\d{7}|\d{10})$/',$query_value)) {
                 $errMsg .= "<p class='error'>The student id must be either 7 or 10 digits number</p>";
             } elseif (isset($query_method) and $query_method == 'first_name' and !preg_match('/^[a-zA-Z- ]{1,30}$/',$query_value)) {
-                $errMsg .= "<p class='error'>Name must be max 30 alpha|space|hyphen characters</p>";
+                $errMsg .= "<p class='error'>Student name must have less than 30 characters and only contain letters, spaces, or hyphens.</p>";
             }
         }
         if ($errMsg == '') {

@@ -16,7 +16,7 @@
 	<?php
 	if(!isset($_SESSION)) session_start(); 
 	$page = 'quiz';
-	include_once("header.inc")
+	include_once("header.inc"); // include the header element.
 	?>
 	<section class="quiz-content main-content">
 		<h2>JPEG Quiz</h2>
@@ -24,7 +24,6 @@
 		</p>
 		<?php if (isset($_SESSION['logged_in']) and $_SESSION['logged_in'] == true) : ?>
 		<form id="question-form" method="post" action="markquiz.php" novalidate>
-
 			<fieldset>
 				<legend>Your information</legend>
 				<p class="questions">
@@ -49,15 +48,16 @@
 			</fieldset>
 			<?php 
 			require_once "database_credentials.php";
-			$connection = mysqli_connect($host,$user,$pwd,$sql_db);
+			$connection = mysqli_connect($host,$user,$pwd,$sql_db); // connect to the database
 			if ($connection) {
 			
-				$select_random_questions_query = "SELECT * FROM questions ORDER BY RAND() LIMIT 5;";
-				$query_result = mysqli_query($connection,$select_random_questions_query);
+				$select_random_questions_query = "SELECT * FROM questions ORDER BY RAND() LIMIT 5;"; // select 5 random question from the database
+				$query_result = mysqli_query($connection, $select_random_questions_query);
 				if ($query_result) {
 					$question_count = 0;
 					$question_list = "";
 					while ($row = mysqli_fetch_assoc($query_result)) {
+						// display the questions with valid HTML
 						$question_count += 1;
 						echo "<fieldset>";
 						echo "<section class='questions'>";
@@ -88,10 +88,9 @@
 							echo "<label for='question_{$row['question_id']}'>";
 							echo "Q{$question_count}) {$row['question']}";
 							echo "</label>";
-							// <label for="question_4">Q4) What type of compression does JPEG use?</label>
 							echo "<select class='selection' name='question_{$row['question_id']}' id='question_{$row['question_id']}'>";
 							$choices = json_decode($row['question_choices']);
-							shuffle($choices);
+							shuffle($choices); // shuffle the options
 							$choice_count = 0;
 							echo "<option value=''>Please select an option</option>";
 							foreach ($choices as $choice) {
@@ -109,7 +108,7 @@
 							echo "<p>Q{$question_count}) {$row['question']}</p>";
 							echo "<p class='checkbox choices'>";
 							$choices = json_decode($row['question_choices']);
-							shuffle($choices);
+							shuffle($choices); // shuffle the options
 							$choice_count = 0;
 							foreach ($choices as $choice) {
 								$choice_count += 1;
@@ -122,16 +121,16 @@
 						echo "</fieldset>";
 						
 					}
-					echo "<input type='hidden' name='question_list' value='{$question_list}'>";
-					mysqli_free_result($query_result);
+					echo "<input type='hidden' name='question_list' value='{$question_list}'>"; // the hidden input that include the questions' ids
+					mysqli_free_result($query_result); // free the result
 				} else {
-					echo ("<p> Can't query </p>");
+					echo ("<p class='error'> Can't query </p>");
 				}
 				
 				
 				mysqli_close($connection);
 			} else {
-				echo "no";
+				echo "<p class='error'>Cannot connect to the database</p>";
 			}
 			?>
 			<p class="container1">

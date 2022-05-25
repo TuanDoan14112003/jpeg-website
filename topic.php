@@ -12,17 +12,6 @@
 </head>
 
 <body>
-	<!-- <header class="title-background" id="topicimage">
-		<nav id="navigation">
-			<ul class="nav_links">
-				<li><a href="index.html">Home</a></li>
-				<li><a href="quiz.html">Quizzes</a></li>
-				<li><a href="enhancements.html">Enhancements</a></li>
-				<li><a target="_blank" href="https://www.youtube.com/watch?v=TmwScvE_rLE">Desmonstration Video</a></li>
-			</ul>
-		</nav>
-		<h1 class="page-title">JPEG HISTORY</h1>
-	</header> -->
 	<?php
 	
 	$page = 'topic';

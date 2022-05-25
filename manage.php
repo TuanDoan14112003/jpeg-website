@@ -13,7 +13,7 @@
     
 <?php
     $page = 'manage';
-    include_once("header.inc")
+    include_once("header.inc") // include the header element
 ?>
 <section class='main-content manage-content'>
     <h2>Quiz supervisor</h2>
@@ -32,6 +32,7 @@ if (isset($_SESSION['logged_in']) and $_SESSION['logged_in'] == true){
     if (isset($_SESSION['is_an_admin']) and $_SESSION['is_an_admin'] == 1) {
         $connection = mysqli_connect($host,$user,$pwd,$sql_db);
         if ($connection) {
+            // create 'attempts' table if it does not already exists
             $create_table_if_not_exists_query = "CREATE TABLE if not exists attempts ( attempt_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY , 
                                                                                        time DATETIME NOT NULL , 
                                                                                        first_name VARCHAR(30) NOT NULL , 
@@ -43,17 +44,18 @@ if (isset($_SESSION['logged_in']) and $_SESSION['logged_in'] == true){
                                                                                        FOREIGN KEY (user_id) REFERENCES users(user_id));";
             $create_table_if_not_exists_query_result = mysqli_query($connection,$create_table_if_not_exists_query);
             if ($create_table_if_not_exists_query_result) {
-                $query1 = "SELECT * FROM attempts";
+                // List all the attempts
+                $query1 = "SELECT * FROM attempts"; // get every attempts
                 $result1 = mysqli_query ($connection, $query1);
                 if($result1) {
                     echo "<h3>All attempts:</h3>";
                     display_table($result1);
-                    mysqli_free_result($result1);
+                    mysqli_free_result($result1); // free the result.
                 } else {
-                    echo "can't query";
+                    echo "<p class='error'>can't query</p>";
                 }
 
-
+                // Find attempts of a student
                 echo "<h3>List all attempts for a student</h3>";
                 echo "<form method='GET' action='student_attempts.php'>";
                 echo "<p class='questions'>
@@ -69,7 +71,7 @@ if (isset($_SESSION['logged_in']) and $_SESSION['logged_in'] == true){
                 echo "<button class='btn btn1' type='submit'>List the attempts</button>";
                 echo "</form>";
 
-
+                // List students who got 100% on their first attempt. 
                 $query3 = "SELECT student_id,first_name,last_name FROM attempts WHERE number_of_attempts=1 AND score=100";
                 $result3 = mysqli_query ($connection, $query3);
                 if($result3) {
@@ -80,6 +82,7 @@ if (isset($_SESSION['logged_in']) and $_SESSION['logged_in'] == true){
                     echo "can't query";
                 }
 
+                // List students who got less than 50% on their second attempt.
                 $query4 = "SELECT student_id,first_name,last_name FROM attempts WHERE number_of_attempts=2 AND score<50";
                 $result4 = mysqli_query ($connection, $query4);
                 if($result4) {
@@ -90,7 +93,7 @@ if (isset($_SESSION['logged_in']) and $_SESSION['logged_in'] == true){
                     echo "can't query";
                 }
             
-
+                // Delete all attempts for a student
                 echo "<h3>Delete all attempts for a student</h3>";
                 echo "<form method='POST' action='delete_attempts.php'>";
                 echo "<label for='delete_attempts_student_id'>Student id:</label>";
@@ -98,6 +101,7 @@ if (isset($_SESSION['logged_in']) and $_SESSION['logged_in'] == true){
                 echo "<button class='btn btn1' type='submit'>Delete the attempts</button>";
                 echo "</form>";
 
+                // Change an attempt's score.
                 echo "<h3>Change the score for an attempt</h3>";
                 echo "<form method='POST' action='change_score.php'>";
                 echo "<label for='change_score_student_id'>Student id:</label>";
@@ -126,7 +130,7 @@ if (isset($_SESSION['logged_in']) and $_SESSION['logged_in'] == true){
 ?>
 </section>
 <?php
-include_once("footer.inc");
+include_once("footer.inc"); // include the footer element
 unset($_SESSION['successful_message']);
 ?>
 </body>

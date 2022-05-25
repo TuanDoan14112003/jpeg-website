@@ -1,9 +1,12 @@
 <?php
+    // Author: Anh Tuan Doan
+    // Description: The footer element for all pages
     if ($page == 'index' or $page == 'login' or $page == 'register') {
         $header_class = "bg";
     } else {
         $header_class = "title-background";
     }
+    // Make a different title for different pages
     if ($page == 'index') {
         $page_title = '
         <ul class="c-rainbow">
@@ -35,6 +38,7 @@
     else {
         $page_title = '';
     }
+    // Add a different id to different pages
     if ($page=='topic')
         $header_id = 'topicimage';
     else if($page == 'quiz')
@@ -55,7 +59,7 @@
         $header_id = "header-element";
 ?>
     <header class='<?php echo $header_class; ?>' id='<?php echo $header_id; ?>'>
-        <?php include_once("nav.inc"); ?>
+        <?php include_once("nav.inc"); // include the nav element ?>
         <h1 class='page-title'><?php echo $page_title; ?></h1>
     </header>
 

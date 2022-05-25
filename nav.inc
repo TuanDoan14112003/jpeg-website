@@ -1,10 +1,12 @@
 
 <?php
+    // Author: Anh Tuan Doan
+    // Description: The <nav> element
     if(!isset($_SESSION)) session_start(); 
-    if (isset($_SESSION['username'])) {
+    if (isset($_SESSION['username'])) { // display a welcome message if the user is logged in
         $welcome_message = "<li><a>Welcome, {$_SESSION['username']}</a></li>";
     } else $welcome_message = "";
-    if (isset($_SESSION['logged_in']) and $_SESSION['logged_in'] == true) {
+    if (isset($_SESSION['logged_in']) and $_SESSION['logged_in'] == true) { // Display a login/logout link if the user is logged in
         $login_link = "";
         $logout_link = "<li><a href='logout.php'>Logout</a></li>";
     } else {

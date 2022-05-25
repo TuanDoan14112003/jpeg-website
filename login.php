@@ -20,6 +20,7 @@
             require_once "database_credentials.php";
             $connection = mysqli_connect($host,$user,$pwd,$sql_db);
             if ($connection) {
+                // Create 'users' table if it does not already exist
                 $create_table_if_not_exists_query = "CREATE TABLE if not exists users( user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
                                                                          email VARCHAR(100) NOT NULL, 
                                                                          username VARCHAR(50) NOT NULL, 
@@ -32,35 +33,34 @@
                         $error_message = "";
                         if (isset($_POST['email'])) {
                             $email = $_POST['email'];
-                            $email = sanitise_input($email);
+                            $email = sanitise_input($email); // sanitise the input to prevent SQL injection
                             if ($email == "") {
                                 $error_message .= "<p class='error'>You must enter your email</p>";
                             }
                         }
                         if (isset($_POST['password'])) {
                             $password = $_POST['password'];
-                            $password = sanitise_input($password);
+                            $password = sanitise_input($password); // sanitise the input to prevent SQL injection
                             if ($password == "") {
                                 $error_message .= "<p class='error'>You must enter your password</p>";
                             }
                         }
                         if ($error_message == "") {
-                            $validate_account_query = "select * from users where email = '$email'";  
+                            $validate_account_query = "select * from users where email = '$email'";  // get the account with the specified email
                             $validate_account_query_result = mysqli_query($connection, $validate_account_query);  
                             if ($validate_account_query_result) {
                                 $row = mysqli_fetch_array($validate_account_query_result, MYSQLI_ASSOC);  
-                                $count = mysqli_num_rows($validate_account_query_result);  
+                                $count = mysqli_num_rows($validate_account_query_result);   // get the number of rows from the result
                                 
                                 if($count == 1){  
-        
-                                    // Redirect user to welcome page
+                                    // Redirect user to the index page
                                     if ($password == $row['password']) {
-                                        $_SESSION["logged_in"] = true;
-                                        $_SESSION["username"] = $row['username'];
-                                        $_SESSION["is_an_admin"] = $row['admin'];
+                                        $_SESSION["logged_in"] = true; 
+                                        $_SESSION["username"] = $row['username']; // get the account's username
+                                        $_SESSION["is_an_admin"] = $row['admin']; // to check if the account is an admin account
                                         $_SESSION["user_id"] = $row['user_id'];
                                         header("Location: index.php");
-                                    } else {
+                                    } else { // If there isn't any account with the specified email, echo an error message
                                         $_SESSION['error_message'] = "<p class='error'>Invalid username or password</p>";
                                     }
                                 }  
@@ -78,23 +78,22 @@
                     } else {
                         $_SESSION['error_message'] = "<p class='error'>You have not entered the email and password</p>";
                     }
-                    
                 } else {
                     echo "<p class='error'>Cannot create database</p>";
                 }    
             } else {
-                echo "Can't connect to database";
+                echo "<p class='error'>Can't connect to database</p>";
             }
             mysqli_close($connection);
         }
         
     ?>
-    <?php include_once("nav.inc"); ?>
+    <?php include_once("nav.inc"); // include the nav element?> 
     <section class="authentication-background">
         <section class = "authentication-form">
             <div class="authentication-form-box">
                 <h2 class = "authentication-form-title">Login</h2>
-                <?php if (isset($_SESSION['created_new_account_message'])) echo $_SESSION['created_new_account_message']; ?>
+                <?php if (isset($_SESSION['created_new_account_message'])) echo $_SESSION['created_new_account_message']; // let the user know if they sucessfully created a new account ?>
                 <form method="post" action="login.php">
                     <div class = "authentication-form-row">
                         <div class="authentication-form-item">
@@ -125,7 +124,7 @@
 
                     
                     
-                    <?php  if(isset($_SESSION['error_message'])) { echo $_SESSION['error_message']; } ?>
+                    <?php  if(isset($_SESSION['error_message'])) { echo $_SESSION['error_message']; } // echo an error message if there is one ?>
                     
                 </form>
             </div>

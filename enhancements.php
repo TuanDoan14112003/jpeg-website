@@ -12,21 +12,10 @@
 
 <body>
 
-	<!-- <header class="title-background" id="enhancementsjpg">
-		<nav id="navigation">
-			<ul class="nav_links">
-				<li><a href="index.html">Home</a></li>
-                <li><a href="topic.html">Information</a></li>
-				<li><a href="quiz.html">Quizzes</a></li>
-                <li><a target="_blank" href="https://www.youtube.com/watch?v=TmwScvE_rLE">Desmonstration Video</a></li>
-			</ul>
-		</nav>
-		<h1 class="page-title">Enhancements</h1>
-	</header> -->
     <?php
         
         $page = 'enhancements';
-        include_once('header.inc');
+        include_once('header.inc'); // include the header element
     ?>
     <section class="main-content enhancement-content">
         <section id="hover-effect-section"  class="enhancement-section">
@@ -75,7 +64,7 @@
         </section>
     </section>
     <?php
-    include_once("footer.inc");
+    include_once("footer.inc"); // include the footer element
     ?>
 </body>
 </html>

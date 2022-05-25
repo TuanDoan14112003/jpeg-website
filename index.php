@@ -15,8 +15,8 @@
 
     <?php
     $page = "index";
-    include_once("header.inc");
-    include_once("footer.inc");
+    include_once("header.inc"); // include the header element
+    include_once("footer.inc"); // include the footer element
     ?>
 </body>
 

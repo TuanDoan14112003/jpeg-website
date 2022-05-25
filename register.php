@@ -17,6 +17,7 @@
             require_once "database_credentials.php";
             $connection = mysqli_connect($host,$user,$pwd,$sql_db);
             if ($connection) {
+                // Create the 'users' database if it doesn't already exists
                 $create_table_if_not_exists_query = "CREATE TABLE if not exists users( user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
                                                                          email VARCHAR(100) NOT NULL, 
                                                                          username VARCHAR(50) NOT NULL, 
@@ -60,29 +61,28 @@
                         }
                         
                         if ($error_message == "") {
-                            $check_if_account_exists = "select * from users where email = '$email'";  
+                            $check_if_account_exists = "select * from users where email = '$email'";  // find an account with the specified details
                             $check_if_account_exists_result = mysqli_query($connection, $check_if_account_exists);  
-                            if ($check_if_account_exists_result) {
+                            if ($check_if_account_exists_result) { // Make a new account if there aren't any account with that email in the database
                                 $count = mysqli_num_rows($check_if_account_exists_result);  
-                                
                                 if($count == 0){  
                                     
                                     $create_new_account_query = "INSERT INTO users (user_id,email,username,password,admin) VALUES (NULL,'$email','$username','$password','false')";
                                     $create_new_account_query_result = mysqli_query($connection,$create_new_account_query);
                                     if ($create_new_account_query_result) {
-                                        $_SESSION['created_new_account_message'] = "<p class='created_new_account_message'>Your account has been created, now you can login</p>";
+                                        $_SESSION['created_new_account_message'] = "<p class='created_new_account_message'>Your account has been created, now you can login</p>"; // Let the user know that they have successfully created a new account.
                                         
-                                        header("Location: login.php");
+                                        header("Location: login.php"); // return to the login page
                                     } else {
                                         $_SESSION['error_message'] = "<p class='error'>Can't create new account</p>";
                                     }
                                 }  
-                                else{  
+                                else{  // If there is already an account with that email, return an error message
                                     $_SESSION['error_message'] = "<p class='error'>An user with this email already exists</p>";
                                 }     
-                               mysqli_free_result($check_if_account_exists_result);
+                               mysqli_free_result($check_if_account_exists_result); // free the pointer
                             } else {
-                                $_SESSION['error_message'] = "<p>Can't check if account exists</p>";
+                                $_SESSION['error_message'] = "<p class='error'>Can't check if account exists</p>";
                             }
                         } else {
                             $_SESSION['error_message'] = $error_message;
@@ -97,7 +97,7 @@
                     echo "<p class='error'>Can not create database</p>";
                 } 
             } else {
-                echo "Can't connect to database";
+                echo "<p class='error'>Can't connect to database</p>";
             }
             mysqli_close($connection);
         }

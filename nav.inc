@@ -22,7 +22,7 @@
         <li><a href='topic.php'>Information</a></li>
         <li><a href='quiz.php'>Quizzes</a></li>
         <li><a href='manage.php'>Manage</a></li>
-        <li><a href='enhancements.php'>Enhancements</a></li>
+        <li><a href='phpenhancements.php'>PHP Enhancements</a></li>
         <li><a target='_blank' href='https://www.youtube.com/watch?v=TmwScvE_rLE'>Demonstration Video</a></li>
         <?php
         echo $welcome_message;

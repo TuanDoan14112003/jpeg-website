@@ -738,13 +738,13 @@ https://www.youtube.com/watch?v=MLfAW55_4cY */
     background-image: url("images/enhancement.webp"); /* Artwork made by Nele-Diel: https://www.deviantart.com/nele-diel/art/Endless-Sky-910764575 */
 }
 
-#hover-effect-image  {
+#hover-effect-image, #question-enhancement  {
     width: 150%;
     max-width: 40%;
     margin-left: 70px;
 }
 
-#text-trail-effect-image {
+#text-trail-effect-image, #authentication-enhancement {
     width: 150%;
     max-width: 40%;
     margin-right: 70px;

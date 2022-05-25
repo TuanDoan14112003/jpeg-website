@@ -51,7 +51,7 @@
 			$connection = mysqli_connect($host,$user,$pwd,$sql_db); // connect to the database
 			if ($connection) {
 			
-				$select_random_questions_query = "SELECT * FROM questions ORDER BY RAND() LIMIT 5;"; // select 5 random question from the database
+				$select_random_questions_query = "SELECT * FROM questions ORDER BY RAND() LIMIT 5;"; // select 5 random question from the database. Source: https://www.mysqltutorial.org/select-random-records-database-table.aspx
 				$query_result = mysqli_query($connection, $select_random_questions_query);
 				if ($query_result) {
 					$question_count = 0;

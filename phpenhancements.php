@@ -21,48 +21,47 @@
         <section id="hover-effect-section"  class="enhancement-section">
             <section class="section-information">
                 <article class="information-container">
-                    <!-- Andrew, change the content here: -->
-                    <h2>Php enhancement </h2> 
+     
+                    <h2>Dynamically generated questions</h2> 
                     
                     <p>
-                        On the home page when the user hovers their mouse over the group members' photos, it expands and changes the colour of the image. Furthermore, a paragraph containing the member's name and email will float up from the bottom. This goes beyond the basic requirements as it uses pseudo-class :hover, pseudo-element ::before, and transitions to create this effect. In addition, this animation also uses the property "transform: translateY()" to change the paragraph's y-coordinate and make it float up.
+                    For the quiz page, the questions are generated dynamically from an SQL table called “questions”. This enhancement is done by using a special query: ‘SELECT * FROM questions ORDER BY RAND() LIMIT 5;’ which selects 5 random questions from the table. Within the table, there are 5 different question types including text, number, drop-down, checkboxes and radio buttons. These types are taken into account to generate valid HTML for the questions.
                     </p>
                     <p>
-                        We implemented the hover effect on all of our pages, here is a link to our index.html page to display it:
+                        We implemented this enhancement in our quiz.php page, here is the link to the page:
                     
-                        <a href="index.html#footer-section">Index</a>.
-                        We used this video and code found online to help code the effect:
+                        <a href="quiz.php">Quiz</a>.
+                        We used this tutorial to help code the enhancement:
                     
-                        <a target="_blank" href="https://www.youtube.com/watch?v=nM-30MdKNc4">Hover Effect Video</a>
+                        <a target="_blank" href="https://www.mysqltutorial.org/select-random-records-database-table.aspx">MySQL Select Random Records</a>
                     </p>
                 </article>
             </section>
-            <!-- Andrew, change the image here -->
-            <img id="hover-effect-image" src="images/HoverEffect2.png" alt="Hover effect picture">
+ 
+            <img id="question-enhancement" src="images/enhancement1.png" alt="Quiz questions">
         
         </section>
 
         <section id="text-trail-effect-section" class="enhancement-section">
-            <!-- Andrew, change the image here -->
-            <img id="text-trail-effect-image" src="images/TextTrailEffect.png" alt="Text trail effect picture">
+
+            <img id="authentication-enhancement" src="images/loginpage.png" alt="Login page image">
         
             <section class="section-information">
                 <article class="information-container">
-                    <!-- Andrew, change the content here: -->
-                    <h2>Php enhancement</h2>
+
+                    <h2>Authentication system</h2>
                     <p>
-                        The text trail effect also called the 'rainbow effect' is a design animation where the text is made to look like it is bouncing up and down. Each layer animation is delayed so it creates the 'trail effect'. The animation was created by using the @keyframes rule and changing the y-coordinates of the layers. This goes beyond the basic requirements as the text needed animation delays and the use of @keyframes.                    </p>
+                    The second enhancement is the login page, as the user needs to log in to access the quiz and manage page. In order to register, the user must provide their email, username and password to make a new account. When the user tries to sign in with their email and password, the login page attempts to find a user with the specified email by using the code ‘SELECT * FROM users WHERE email = $email’. If the specified password matches the password in the user record, the page will create the session variable ‘SESSION[‘logged_in’]’ which is set to true to indicate that the user has logged in successfully. Moreover, if the user is an admin the session variable ‘SESSION[‘is_an_admin’]’ will also be set to true to allow access to the manage page where they can see and update the records.
+                    </p>
                 
                     <p>
-                        We implemented the text trail effect on the index.html page linked here:
+                        We implemented the enhancement in our login.php and register.php pages. Here are the links to the pages:
                     
-                        <a href="index.html">Index</a>.
-                
-                        We used this video and code found online to help code the effect:
+                        <a href="login.php">Login</a>,
+                        <a href="register.php">Register</a>.
+                        We used this tutorial to help code the enhancement:
                     
-                        <a target="_blank" href="https://www.youtube.com/watch?v=ZQUKEkCuws8&t=9s">Text Trail Effect Video,</a>
-                
-                        <a target="_blank" href="https://codepen.io/mtsgeneroso/pen/mdJRpxX">Text Trail Effect Code</a>
+                        <a target="_blank" href="https://codeshack.io/secure-login-system-php-mysql/">Secure Login System with PHP and MySQL</a>
                     </p>
                 </article>
             </section>

@@ -1,3 +1,10 @@
+<!-- 
+filename: topic.php
+author: Anthony Krueger, Mitch Anderson
+created: 9/5/2022
+last modified: 29/5/2022
+description: JPEG information
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +22,7 @@
 	<?php
 	
 	$page = 'topic';
-	include_once('header.inc')
+	include_once('header.inc');
 	?>
 	<section class="main-content">
 		<section id="jpeg-timeline-section" class="topic-section">

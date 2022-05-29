@@ -1,3 +1,10 @@
+<!-- 
+filename: quiz.php
+author: Anh Tuan Doan, Gabriel Chee
+created: 10/5/2022
+last modified: 29/5/2022
+description: JPEG quizzes
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="JPEG quizzes">
     <meta name="keywords" content="JPEG">
-    <meta name="author" content="Gabriel Chee">
+    <meta name="author" content="Anh Tuan Doan, Gabriel Chee">
     <title>JPEG Quizzes</title>
 	<link rel="stylesheet" href="styles/style.css">
 </head>

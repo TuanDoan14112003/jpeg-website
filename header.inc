@@ -1,6 +1,11 @@
 <?php
-    // Author: Anh Tuan Doan
-    // Description: The footer element for all pages
+    /*
+    filename: header.inc
+    author: Anh Tuan Doan
+    created: 10/5/2022  
+    last modified: 29/5/2022
+    description: header element for all pages
+    */
     if ($page == 'index' or $page == 'login' or $page == 'register') {
         $header_class = "bg";
     } else {
@@ -19,21 +24,21 @@
             <li class="c-rainbow__layer c-rainbow__layer--yellow">.JPEG</li>
         </ul>';
     } else if ($page == 'topic') {
-        $page_title = 'JPEG HISTORY';
+        $page_title = "<h1 class='page-title'>JPEG HISTORY</h1>";
     } else if ($page == 'quiz') {
-        $page_title = 'JPEG Quizzes';
+        $page_title = "<h1 class='page-title'>JPEG Quizzes</h1>";
     } else if ($page == 'enhancements') {
-        $page_title = 'Enhancements';
+        $page_title = "<h1 class='page-title'>Enhancements</h1>";
     } else if ($page == 'mark-quiz') {
-        $page_title = 'Quiz Result';
+        $page_title = "<h1 class='page-title'>Quiz Result</h1>";
     } else if ($page == 'manage') {
-        $page_title = 'Manage Database';
+        $page_title = "<h1 class='page-title'>Database Management</h1>";
     } else if ($page == 'change-score') {
-        $page_title = 'Change score';
+        $page_title = "<h1 class='page-title'>Change score</h1>";
     } else if ($page == 'delete-attempts') {
-        $page_title = 'Delete attempts';
+        $page_title = "<h1 class='page-title'>Delete attempts</h1>";
     } else if ($page == 'student-attempts') {
-        $page_title = 'Attempts';
+        $page_title = "<h1 class='page-title'>Attempts</h1>";
     }
     else {
         $page_title = '';
@@ -59,7 +64,7 @@
         $header_id = "header-element";
 ?>
     <header class='<?php echo $header_class; ?>' id='<?php echo $header_id; ?>'>
-        <?php include_once("nav.inc"); // include the nav element ?>
-        <h1 class='page-title'><?php echo $page_title; ?></h1>
+        <?php include_once("menu.inc"); // include the nav element ?>
+        <?php echo $page_title; ?>
     </header>
 

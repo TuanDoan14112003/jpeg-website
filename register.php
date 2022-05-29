@@ -1,9 +1,16 @@
+<!-- 
+filename: register.php
+author: Anh Tuan Doan
+created: 12/5/2022
+last modified: 29/5/2022
+description: register page
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="JPEG register">
+	<meta name="description" content="register page">
     <meta name="keywords" content="JPEG">
     <meta name="author" content="Anh Tuan Doan">
     <title>Register</title>
@@ -102,7 +109,7 @@
             mysqli_close($connection);
         }
 ?>
-    <?php include_once("nav.inc"); ?>
+    <?php include_once("menu.inc"); ?>
     <section class="authentication-background">
         <section class = "authentication-form">
             <div class="authentication-form-box">
@@ -144,14 +151,14 @@
                     <?php  if(isset($_SESSION['error_message'])) { echo $_SESSION['error_message']; } ?>
                     <div class = "authentication-form-row">
                         <div class="authentication-form-item">
+                           <p class='no-account-message'>Already have an account? <a href="login.php">Login</a></p>
+                        </div>
+                    </div>
+                    <div class = "authentication-form-row">
+                        <div class="authentication-form-item">
                             <button class="authentication-form-submit-button" type="submit">Create a new account</button>
                         </div>
                     </div>
-
-                    
-                    
-                    
-                    
                 </form>
             </div>
         </section>

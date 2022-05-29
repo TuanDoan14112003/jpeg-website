@@ -1,3 +1,10 @@
+<!-- 
+filename: index.php
+author: Anh Tuan Doan
+created: 10/5/2022
+last modified: 29/5/2022
+description: The homepage for the JPEG website
+-->
 <!DOCTYPE html>
 <html lang="en">
 

@@ -1,3 +1,10 @@
+<!-- 
+filename: delete_attempts.php
+author: Anh Tuan Doan
+created: 10/5/2022
+last modified: 29/5/2022
+description: delete all attempts of a student
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +35,7 @@
             if ($student_id == "") {
                 $errMsg .= "<p class='error'>You must enter the student id</p>";
             } else if (!preg_match('/^(\d{7}|\d{10})$/',$student_id)) { // check if the student id is either 7 or 10 digits numbers
-                $errMsg .= "<p class='error'>The student ID must be either 7 or 10 digits numbers</p>";
+                $errMsg .= "<p class='error'>The student ID must be either 7 or 10 digits number</p>";
             }
         }
 

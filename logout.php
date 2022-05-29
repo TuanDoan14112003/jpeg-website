@@ -1,6 +1,11 @@
 <?php
-// Author: Anh Tuan Doan
-// Description: Logout page
+/*
+filename: logout.php
+author: Anh Tuan Doan
+created: 10/5/2022  
+last modified: 29/5/2022
+description: logout page
+*/
 if(!isset($_SESSION)) session_start(); 
 if (isset($_SESSION['logged_in']) and $_SESSION['logged_in'] == true) {
     $_SESSION = array(); // empty the SESSION variables

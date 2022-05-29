@@ -1,3 +1,10 @@
+<!-- 
+filename: phpenhancements.php
+author: Andrew Grivas
+created: 27/5/2022
+last modified: 29/5/2022
+description: PHP enhancements
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,7 +51,7 @@
 
         <section id="text-trail-effect-section" class="enhancement-section">
 
-            <img id="authentication-enhancement" src="images/loginpage.png" alt="Login page image">
+            <img id="authentication-enhancement" src="images/loginpage.webp" alt="Login page image">
         
             <section class="section-information">
                 <article class="information-container">
@@ -56,8 +63,7 @@
                 
                     <p>
                         We implemented the enhancement in our login.php and register.php pages. Here are the links to the pages:
-                    
-                        <a href="login.php">Login</a>,
+                
                         <a href="register.php">Register</a>.
                         We used this tutorial to help code the enhancement:
                     

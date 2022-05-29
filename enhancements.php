@@ -1,3 +1,10 @@
+<!-- 
+filename: enhancements.php
+author: Andrew Grivas
+created: 10/5/2022
+last modified: 29/5/2022
+description: HTML and CSS enhancements
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>

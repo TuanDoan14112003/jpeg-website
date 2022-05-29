@@ -1,3 +1,10 @@
+<!-- 
+filename: login.php
+author: Anh Tuan Doan
+created: 10/5/2022
+last modified: 29/5/2022
+description: The login page
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -88,7 +95,7 @@
         }
         
     ?>
-    <?php include_once("nav.inc"); // include the nav element?> 
+    <?php include_once("menu.inc"); // include the nav element?> 
     <section class="authentication-background">
         <section class = "authentication-form">
             <div class="authentication-form-box">
@@ -130,6 +137,9 @@
             </div>
         </section>
     </section>
-    <?php unset($_SESSION['error_message']); unset($_SESSION['created_new_account_message']); ?>
+    <?php 
+        unset($_SESSION['error_message']); 
+        unset($_SESSION['created_new_account_message']); 
+    ?>
 </body>
 </html>

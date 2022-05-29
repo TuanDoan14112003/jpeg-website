@@ -1,3 +1,10 @@
+<!-- 
+filename: footer.inc
+author: Anh Tuan Doan
+created: 10/5/2022
+last modified: 29/5/2022
+description: footer element for all pages
+-->
 <footer id="footer-section">
     <p>This is a website made by .JPEG team. Our members include: </p>
     <div class="images-container">

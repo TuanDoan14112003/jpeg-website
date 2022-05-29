@@ -1,3 +1,10 @@
+<!-- 
+filename: manage.php
+author: Anh Tuan Doan
+created: 10/5/2022
+last modified: 29/5/2022
+description: Database Management page
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,10 +20,10 @@
     
 <?php
     $page = 'manage';
-    include_once("header.inc") // include the header element
+    include_once("header.inc"); // include the header element
 ?>
 <section class='main-content manage-content'>
-    <h2>Quiz supervisor</h2>
+    <h2>Database Management</h2>
     <?php
     if(!isset($_SESSION)) session_start(); 
 

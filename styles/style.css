@@ -778,33 +778,6 @@ https://www.youtube.com/watch?v=MLfAW55_4cY */
     top: 0;
     left: 0;
 }
-.authentication-title {
-
-    position: absolute;
-    top: 16%;
-    left: 25%;
-}
-
-.authentication-title h2 {
-    margin-top: 111px;
-    font-size: 1.5rem;
-
-    text-transform: uppercase;
-    color: #fff;
-    text-align: center;
-    line-height: 1em;
-}
-
-.authentication-title h1 {
-    font-family: Titillium Web, sans-serif;
-    font-size: 5rem;
-    font-weight: 900;
-    position: relative;
-    top: -10px;
-    text-transform: uppercase;
-    color: #fff;
-    text-align: center;
-}
 
 .authentication-form {
     width: 484px;
